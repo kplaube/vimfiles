@@ -1,0 +1,8 @@
+{
+  "plugins": {
+    "node": {},
+    "es_modules": {}
+  },
+  "libs": [],
+  "esversion": 6
+}
