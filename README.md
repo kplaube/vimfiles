@@ -7,8 +7,7 @@ functionalities, so I compiled most common and easy to use plugins. Enjoy :)
 Getting started
 ---------------
 
-Installing Vundle
-^^^^^^^^^^^^^^^^^
+### Installing Vundle
 
 With `Vundle <https://github.com/gmarik/vundle>`_ you can easily install
 add-ons to your VIM.
@@ -19,8 +18,7 @@ To install, clone (or download) the repository to your `$HOME/.vim/bundle` folde
 
 See more details in `Vundle repository <https://github.com/gmarik/vundle>`_.
 
-Installing .vimrc
-^^^^^^^^^^^^^^^^^
+### Installing .vimrc
 
 Simply copy the `.vimrc` file to your $HOME path. It already contains the
 setup of Vundle:
@@ -29,8 +27,7 @@ setup of Vundle:
     $ git clone https://github.com/kplaube/vimfiles vimfiles
     $ cp vimfiles/.vimrc $HOME/.vimrc
 
-Installing plugins
-^^^^^^^^^^^^^^^^^^
+### Installing plugins
 
 Open VIM and run `:BundleInstall`.
 
