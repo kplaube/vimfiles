@@ -20,12 +20,24 @@ See more details in [Vundle repository](https://github.com/gmarik/vundle).
 
 ### Installing .vimrc
 
-Simply copy the `.vimrc` file to your `$HOME` path. It already contains the
-setup of Vundle:
+It's possible to install vimfiles using `Makefile`. It'll copy the
+configuration file to `~/` and the scripts to `~/.vim/`:
+
+    $ cd /tmp/
+    $ git clone https://github.com/kplaube/vimfiles vimfiles
+    $ cd vimfiles
+    $ make install
+
+Or you can do this manually. Simply copy the `.vimrc` file to your `$HOME` path.
+It already contains the setup of Vundle:
 
     $ cd /tmp/
     $ git clone https://github.com/kplaube/vimfiles vimfiles
     $ cp vimfiles/.vimrc $HOME/.vimrc
+
+To keep your ctags updated, copy the `update_ctags` script to `~/.vim/`:
+
+    $ cp vimfiles/.vim/update_ctags $HOME/.vim/
 
 ### Installing plugins
 
