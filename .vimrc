@@ -2,7 +2,7 @@ set nocompatible                        " disable compatible mode
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#rc()                        " start vundle
 
 
 " Let Vundle manage!
@@ -20,42 +20,102 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdtree'
+Bundle 'mattn/zencoding-vim'
 " Syntax Highlight
 Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-markdown'
 Bundle 'skammer/vim-css-color'
-Bundle 'gilsondev/vim-railscasts-theme'
+Bundle 'vim-scripts/Railscasts-Theme-GUIand256color'
 
 
 " Color
-set background=dark
+if &term =~? 'mlterm\|xterm\|screen-256'
+    let &t_Co=256
+endif
 colorscheme railscasts
 
 
 " General settings
 filetype plugin indent on               " indent files, ftplugins
+syntax on
 
-set nobackup
-set nowritebackup
-set noswapfile
-set number
+set nobackup                            " no backups
+set nowritebackup                       " write the buffer to the original file
+set noswapfile                          " no swap files
+set number                              " show line numbers
 set modeline
 set modelines=5
 set laststatus=2
-set ruler                               " show line,col in status bar
+set ruler                               " show line, col in status bar
 set hidden                              " hide buffers with closed files
 set incsearch                           " use incremental search
 set autowrite                           " auto save file before some commands
 set showcmd                             " show command/mode in at bottom
 set showmatch                           " show match (), [] and {}
-set nohlsearch                          " no highlight search results
-set noignorecase                        " case sensitive search
+set hlsearch                            " highlight search results
+set ignorecase                          " case insensitive search
 set nojoinspaces                        " don't add space when joining line
-set nobackup                            " no backups
 set textwidth=0 nowrap                  " infinite lines with no wrap
-set completeopt=menu,preview            " configure drop-down menu when completing with ctrl-n
-set wildmode=list:longest               " bash like command line tab completion
-set wildignore=*.o,*.obj,*~,*.swp,*.pyc " ignore when tab completing:
 set writeany                            " Allow writing readonly files
+let mapleader=","
+
+
+" Plugins settings
+nmap <F2> :NERDTree<CR>
+nmap <F8> :TagbarToggle<CR>
+nmap <F6> :cl<CR>
+let g:ctrlp_working_path_mode = 0
+
+
+" Autocomplete settings
+set completeopt=menu,preview                    " configure drop-down menu when completing with ctrl-n
+set wildmode=list:longest                       " bash like command line tab completion
+set wildignore=*.o,*.obj,*~,*.swp,*.pyc         " ignore when tab completing:
+
+" colors and settings of autocompletition
+highlight Pmenu ctermbg=4 guibg=Black
+" highlight PmenuSel ctermbg=8 guibg=DarkBlue guifg=Red
+" highlight PmenuSbar ctermbg=7 guibg=DarkGray
+" highlight PmenuThumb guibg=Black
+" use global scope search
+let OmniCpp_GlobalScopeSearch = 1
+" 0 = namespaces disabled
+" 1 = search namespaces in the current buffer
+" 2 = search namespaces in the current buffer and in included files
+let OmniCpp_NamespaceSearch = 2
+" 0 = auto
+" 1 = always show all members
+let OmniCpp_DisplayMode = 1
+" 0 = don't show scope in abbreviation
+" 1 = show scope in abbreviation and remove the last column
+let OmniCpp_ShowScopeInAbbr = 0
+" This option allows to display the prototype of a function in the abbreviation part of the popup menu.
+" 0 = don't display prototype in abbreviation
+" 1 = display prototype in abbreviation
+let OmniCpp_ShowPrototypeInAbbr = 1
+" This option allows to show/hide the access information ('+', '#', '-') in the popup menu.
+" 0 = hide access
+" 1 = show access
+let OmniCpp_ShowAccess = 1
+" This option can be use if you don't want to parse using namespace declarations in included files and want to add 
+" namespaces that are always used in your project.
+let OmniCpp_DefaultNamespaces = ["std"]
+" Complete Behaviour
+let OmniCpp_MayCompleteDot = 0
+let OmniCpp_MayCompleteArrow = 0
+let OmniCpp_MayCompleteScope = 0
+" When 'completeopt' does not contain "longest", Vim automatically select the first entry of the popup menu. You can 
+" change this behaviour with the OmniCpp_SelectFirstItem option.
+let OmniCpp_SelectFirstItem = 0
+
+" use ctags for python expressions (useful for ctrlp)
+set tags+=$VIRTUAL_ENV/.vim/python.ctags
+set tags+=$VIRTUAL_ENV/.vim/project.ctags
+function! UpdateTags()
+    execute ":silent !~/.vim/update_ctags"
+    execute ":redraw!"
+endfunction
+nmap <F4> :call UpdateTags()<CR>
 
 
 " Tab/Indent config
@@ -66,11 +126,6 @@ set autoindent
 set smartindent
 set shiftwidth=4 tabstop=4 softtabstop=4
 set visualbell
-let mapleader=","
-
-
-" Doh... you know what this does... ;-)
-syntax on
 
 
 " Some useful abbreviations to common mistyped commands
@@ -84,14 +139,6 @@ au FileType c,cpp,java,javascript       let comment = '// '
 au FileType tex                         let comment = '% '
 au FileType vim                         let comment = '" '
 
-" Highlight trailing whitespaces
-highlight WhitespaceEOL ctermbg=red guibg=red
-au ColorScheme * highlight WhitespaceEOL ctermbg=red guibg=red
-match WhitespaceEOL /\s\+$/
-
-" ,a -> clean all trailing spaces
-noremap <silent> ,a :%s,\s\+$,,<CR>
-
 
 " Comment Blocks
 " ,c -> comment selected
@@ -100,24 +147,19 @@ noremap <silent> ,c :s,^,<C-R>=comment<CR>,<CR>:noh<CR>
 noremap <silent> ,u :s,^\V<C-R>=comment<CR>,,e<CR>:noh<CR>
 
 
-" Plugins settings
-nmap <F2> :NERDTree<CR>
-nmap <F8> :TagbarToggle<CR>
-nmap <F6> :cl<CR>
+" Highlight trailing whitespaces
+highlight WhitespaceEOL ctermbg=red guibg=red
+au ColorScheme * highlight WhitespaceEOL ctermbg=red guibg=red
+match WhitespaceEOL /\s\+$/
 
 
-" Language specifics
-let python_highlight_all = 1
-au FileType make   set noexpandtab
-au FileType python set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-au FileType python set omnifunc=pythoncomplete#Complete
-au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-au FileType html set omnifunc=htmlcomplete#CompleteTags
-au FileType css,scss set omnifunc=csscomplete#CompleteCSS
-au FileType xml set omnifunc=xmlcomplete#CompleteTags
-au FileType php set omnifunc=phpcomplete#CompletePHP
-au FileType c set omnifunc=ccomplete#Complete
-au FileType ruby,eruby set omnifunc=rubycomplete#Complete
+" Simple recursive grep
+command! -nargs=1 RecurGrep lvimgrep /<args>/gj ./**/*.* | lopen | set nowrap
+command! -nargs=1 RecurGrepFast silent exec 'lgrep! <q-args> ./**/*.*' | lopen
+nmap ,R :RecurGrep
+nmap ,r :RecurGrepFast
+nmap ,wR :RecurGrep <cword><CR>
+nmap ,wr :RecurGrepFast <cword><CR>
 
 
 " Terminal.app keyboard settings
@@ -131,6 +173,32 @@ map <Esc>[6~ <PageDown>
 imap <Esc>[6~ <PageDown>
 
 
+" Language settings
+
+au FileType make   set noexpandtab
+au FileType php set omnifunc=phpcomplete#CompletePHP
+au FileType c set omnifunc=ccomplete#Complete
+au FileType ruby,eruby set omnifunc=rubycomplete#Complete
+
+" Python
+let python_highlight_all = 1
+au FileType python set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+au FileType python set omnifunc=pythoncomplete#Complete
+
+" Javascript
+au FileType javascript setlocal shiftwidth=2 tabstop=2
+au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+
+" HTML & CSS
+au FileType html setlocal shiftwidth=2 tabstop=2
+au FileType htmldjango setlocal shiftwidth=4 tabstop=4
+au FileType html set omnifunc=htmlcomplete#CompleteTags
+au FileType xml setlocal shiftwidth=2 tabstop=2
+au FileType xml set omnifunc=xmlcomplete#CompleteTags
+au FileType css,scss setlocal shiftwidth=2 tabstop=2
+au FileType css,scss set omnifunc=csscomplete#CompleteCSS
+
+
 " Moving .swp files away
 set backupdir=~/.vim
 set directory=~/.vim
@@ -139,11 +207,7 @@ set directory=~/.vim
 " MacVim
 if has("gui_macvim")
     let macvim_hig_shift_movement = 1
-    set guioptions-=T
-    colorscheme railscasts
-    set bg=dark
-    "set guifont=Meslo\ LG\ S\ DZ:h18
-    set guifont=Consolas:h18
-    set guicursor=a:blinkoff0-blinkwait0
     set colorcolumn=80
+    set guioptions-=T
+    set guicursor=a:blinkoff0-blinkwait0
 endif
