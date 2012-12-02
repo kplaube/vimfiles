@@ -135,7 +135,7 @@ cab W w | cab Q q | cab Wq wq | cab wQ wq | cab WQ wq
 " Comment/Uncomment for different languages
 au FileType haskell,vhdl,ada            let comment = '-- '
 au FileType sh,make,python,ruby         let comment = '# '
-au FileType c,cpp,java,javascript       let comment = '// '
+au FileType c,cpp,java,javascript,scss  let comment = '// '
 au FileType tex                         let comment = '% '
 au FileType vim                         let comment = '" '
 
