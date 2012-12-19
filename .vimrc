@@ -9,23 +9,34 @@ call vundle#rc()                        " start vundle
 Bundle 'gmarik/vundle'
 
 " Bundles
+" Libraries
+Bundle 'vim-scripts/DfrankUtil'
 " Code quality checker
 Bundle 'nvie/vim-flake8'
 Bundle 'hallettj/jslint.vim'
 " Why use shell?
 Bundle 'tpope/vim-fugitive'
 Bundle 'jmcantrell/vim-virtualenv'
+" Organize project
 Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'majutsushi/tagbar'
+Bundle 'vim-scripts/vimprj'
 " Other utilities
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'majutsushi/tagbar'
-Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-surround'
 Bundle 'mattn/zencoding-vim'
 " Syntax Highlight
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
 Bundle 'skammer/vim-css-color'
 Bundle 'vim-scripts/Railscasts-Theme-GUIand256color'
+" Code complete
+Bundle 'mbbill/code_complete'
+Bundle 'teramako/jscomplete-vim'
+Bundle 'vim-scripts/indexer.tar.gz'
+Bundle 'vim-scripts/pythoncomplete'
+Bundle 'shawncplus/phpcomplete'
 
 
 " Color
@@ -62,6 +73,7 @@ let mapleader=","
 
 " Plugins settings
 nmap <F2> :NERDTree<CR>
+nmap <F3> :Project<CR>
 nmap <F8> :TagbarToggle<CR>
 nmap <F6> :cl<CR>
 let g:ctrlp_working_path_mode = 0
@@ -108,14 +120,10 @@ let OmniCpp_MayCompleteScope = 0
 " change this behaviour with the OmniCpp_SelectFirstItem option.
 let OmniCpp_SelectFirstItem = 0
 
-" use ctags for python expressions (useful for ctrlp)
-set tags+=$VIRTUAL_ENV/.vim/python.ctags
-set tags+=$VIRTUAL_ENV/.vim/project.ctags
-function! UpdateTags()
-    execute ":silent !~/.vim/update_ctags"
-    execute ":redraw!"
-endfunction
-nmap <F4> :call UpdateTags()<CR>
+
+" Go to definition config
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 
 " Tab/Indent config
@@ -174,9 +182,7 @@ imap <Esc>[6~ <PageDown>
 
 
 " Language settings
-
 au FileType make   set noexpandtab
-au FileType php set omnifunc=phpcomplete#CompletePHP
 au FileType c set omnifunc=ccomplete#Complete
 au FileType ruby,eruby set omnifunc=rubycomplete#Complete
 
@@ -184,6 +190,10 @@ au FileType ruby,eruby set omnifunc=rubycomplete#Complete
 let python_highlight_all = 1
 au FileType python set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 au FileType python set omnifunc=pythoncomplete#Complete
+
+" PHP
+au FileType php set noexpandtab shiftwidth=4 tabstop=4
+au FileType php set omnifunc=phpcomplete#CompletePHP
 
 " Javascript
 au FileType javascript setlocal shiftwidth=2 tabstop=2
