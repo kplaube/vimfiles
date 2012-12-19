@@ -83,6 +83,7 @@ let g:ctrlp_working_path_mode = 0
 set completeopt=menu,preview                    " configure drop-down menu when completing with ctrl-n
 set wildmode=list:longest                       " bash like command line tab completion
 set wildignore=*.o,*.obj,*~,*.swp,*.pyc         " ignore when tab completing:
+let g:indexer_disableCtagsWarning=1
 
 " colors and settings of autocompletition
 highlight Pmenu ctermbg=4 guibg=Black
