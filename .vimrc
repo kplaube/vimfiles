@@ -32,7 +32,7 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'skammer/vim-css-color'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
-Bundle 'jonathanfilip/vim-lucius'
+Bundle 'vim-scripts/Wombat'
 Bundle 'vim-scripts/xoria256.vim'
 " Code complete
 Bundle 'teramako/jscomplete-vim'
@@ -171,8 +171,9 @@ au FileType htmldjango setlocal ft=html
 au FileType html set omnifunc=htmlcomplete#CompleteTags
 au FileType xml setlocal shiftwidth=2 tabstop=2
 au FileType xml set omnifunc=xmlcomplete#CompleteTags
-au FileType css,scss setlocal shiftwidth=2 tabstop=2
-au FileType css,scss set omnifunc=csscomplete#CompleteCSS
+au FileType scss setlocal ft=css
+au FileType css setlocal shiftwidth=2 tabstop=2
+au FileType css set omnifunc=csscomplete#CompleteCSS
 
 
 " Moving .swp files away
@@ -182,9 +183,7 @@ set directory=~/.vim
 
 " MacVim
 if has("gui_macvim")
-    let g:lucius_style = 'dark'
-    colorscheme lucius
-
+    colorscheme wombat
     let macvim_hig_shift_movement = 1
     set colorcolumn=80
     set guioptions-=T
