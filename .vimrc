@@ -25,6 +25,8 @@ Bundle 'vim-scripts/vimprj'
 " Other utilities
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-surround'
+" Snippets
+Bundle 'msanders/snipmate.vim'
 Bundle 'mattn/zencoding-vim'
 " Syntax Highlight
 Bundle 'skammer/vim-css-color'
@@ -33,11 +35,9 @@ Bundle 'tpope/vim-markdown'
 Bundle 'jonathanfilip/vim-lucius'
 Bundle 'vim-scripts/xoria256.vim'
 " Code complete
-Bundle 'mbbill/code_complete'
 Bundle 'teramako/jscomplete-vim'
 Bundle 'vim-scripts/indexer.tar.gz'
 Bundle 'vim-scripts/pythoncomplete'
-"Bundle 'shawncplus/phpcomplete'
 
 
 " Font & Color
@@ -166,8 +166,8 @@ au FileType javascript setlocal shiftwidth=2 tabstop=2
 au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
 " HTML & CSS
-au FileType html setlocal shiftwidth=2 tabstop=2
-au FileType htmldjango setlocal shiftwidth=4 tabstop=4
+au FileType html setlocal shiftwidth=4 tabstop=4
+au FileType htmldjango setlocal ft=html
 au FileType html set omnifunc=htmlcomplete#CompleteTags
 au FileType xml setlocal shiftwidth=2 tabstop=2
 au FileType xml set omnifunc=xmlcomplete#CompleteTags
