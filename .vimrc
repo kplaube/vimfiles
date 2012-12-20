@@ -27,23 +27,23 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-surround'
 Bundle 'mattn/zencoding-vim'
 " Syntax Highlight
+Bundle 'skammer/vim-css-color'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
-Bundle 'skammer/vim-css-color'
-Bundle 'vim-scripts/Railscasts-Theme-GUIand256color'
+Bundle 'jonathanfilip/vim-lucius'
+Bundle 'vim-scripts/xoria256.vim'
 " Code complete
 Bundle 'mbbill/code_complete'
 Bundle 'teramako/jscomplete-vim'
 Bundle 'vim-scripts/indexer.tar.gz'
 Bundle 'vim-scripts/pythoncomplete'
-Bundle 'shawncplus/phpcomplete'
+"Bundle 'shawncplus/phpcomplete'
 
 
-" Color
-if &term =~? 'mlterm\|xterm\|screen-256'
-    let &t_Co=256
-endif
-colorscheme railscasts
+" Font & Color
+set t_Co=256
+set gfn=Monaco:h14
+colorscheme xoria256
 
 
 " General settings
@@ -84,42 +84,7 @@ set completeopt=menu,preview                    " configure drop-down menu when 
 set wildmode=list:longest                       " bash like command line tab completion
 set wildignore=*.o,*.obj,*~,*.swp,*.pyc         " ignore when tab completing:
 let g:indexer_disableCtagsWarning=1
-
-" colors and settings of autocompletition
-highlight Pmenu ctermbg=4 guibg=Black
-" highlight PmenuSel ctermbg=8 guibg=DarkBlue guifg=Red
-" highlight PmenuSbar ctermbg=7 guibg=DarkGray
-" highlight PmenuThumb guibg=Black
-" use global scope search
-let OmniCpp_GlobalScopeSearch = 1
-" 0 = namespaces disabled
-" 1 = search namespaces in the current buffer
-" 2 = search namespaces in the current buffer and in included files
-let OmniCpp_NamespaceSearch = 2
-" 0 = auto
-" 1 = always show all members
-let OmniCpp_DisplayMode = 1
-" 0 = don't show scope in abbreviation
-" 1 = show scope in abbreviation and remove the last column
-let OmniCpp_ShowScopeInAbbr = 0
-" This option allows to display the prototype of a function in the abbreviation part of the popup menu.
-" 0 = don't display prototype in abbreviation
-" 1 = display prototype in abbreviation
-let OmniCpp_ShowPrototypeInAbbr = 1
-" This option allows to show/hide the access information ('+', '#', '-') in the popup menu.
-" 0 = hide access
-" 1 = show access
-let OmniCpp_ShowAccess = 1
-" This option can be use if you don't want to parse using namespace declarations in included files and want to add 
-" namespaces that are always used in your project.
-let OmniCpp_DefaultNamespaces = ["std"]
-" Complete Behaviour
-let OmniCpp_MayCompleteDot = 0
-let OmniCpp_MayCompleteArrow = 0
-let OmniCpp_MayCompleteScope = 0
-" When 'completeopt' does not contain "longest", Vim automatically select the first entry of the popup menu. You can 
-" change this behaviour with the OmniCpp_SelectFirstItem option.
-let OmniCpp_SelectFirstItem = 0
+inoremap <C-space> <C-x><C-o>
 
 
 " Go to definition config
@@ -217,6 +182,9 @@ set directory=~/.vim
 
 " MacVim
 if has("gui_macvim")
+    let g:lucius_style = 'dark'
+    colorscheme lucius
+
     let macvim_hig_shift_movement = 1
     set colorcolumn=80
     set guioptions-=T
