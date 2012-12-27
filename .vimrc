@@ -12,8 +12,8 @@ Bundle 'gmarik/vundle'
 " Libraries
 Bundle 'vim-scripts/DfrankUtil'
 " Code quality checker
+Bundle 'scrooloose/syntastic'
 Bundle 'nvie/vim-flake8'
-Bundle 'hallettj/jslint.vim'
 " Why use shell?
 Bundle 'tpope/vim-fugitive'
 Bundle 'jmcantrell/vim-virtualenv'
@@ -76,6 +76,7 @@ nmap <F2> :NERDTree<CR>
 nmap <F3> :Project<CR>
 nmap <F8> :TagbarToggle<CR>
 nmap <F6> :cl<CR>
+let g:syntastic_check_on_open = 1
 let g:ctrlp_working_path_mode = 0
 
 
