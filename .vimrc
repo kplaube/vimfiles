@@ -42,7 +42,7 @@ Bundle 'vim-scripts/pythoncomplete'
 
 " Font & Color
 set t_Co=256
-set gfn=Monaco:h14
+set gfn=Monospace:h14
 colorscheme xoria256
 
 
@@ -182,11 +182,16 @@ set backupdir=~/.vim
 set directory=~/.vim
 
 
-" MacVim
-if has("gui_macvim")
+" GUI
+if has("gui_running")
     colorscheme wombat
-    let macvim_hig_shift_movement = 1
     set colorcolumn=80
     set guioptions-=T
     set guicursor=a:blinkoff0-blinkwait0
+endif
+
+
+" MacVim
+if has("gui_macvim")
+    let macvim_hig_shift_movement = 1
 endif
