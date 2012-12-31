@@ -53,6 +53,7 @@ syntax on
 set nobackup                            " no backups
 set nowritebackup                       " write the buffer to the original file
 set noswapfile                          " no swap files
+set novisualbell                        " disable blinking when moving cursor
 set number                              " show line numbers
 set modeline
 set modelines=5
@@ -78,6 +79,7 @@ nmap <F8> :TagbarToggle<CR>
 nmap <F6> :cl<CR>
 let g:syntastic_check_on_open = 1
 let g:ctrlp_working_path_mode = 0
+let g:NERDTreeDirArrows=0
 
 
 " Autocomplete settings
@@ -100,7 +102,6 @@ set smarttab
 set autoindent
 set smartindent
 set shiftwidth=4 tabstop=4 softtabstop=4
-set visualbell
 
 
 " Some useful abbreviations to common mistyped commands
@@ -188,6 +189,12 @@ if has("gui_running")
     set colorcolumn=80
     set guioptions-=T
     set guicursor=a:blinkoff0-blinkwait0
+endif
+
+
+" GVim
+if has("gui_gtk2")
+    set guifont=Monospace\ 14
 endif
 
 
