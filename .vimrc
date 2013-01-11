@@ -50,6 +50,8 @@ colorscheme xoria256
 filetype plugin indent on               " indent files, ftplugins
 syntax on
 
+set encoding=utf8
+set fileencoding=utf8
 set nobackup                            " no backups
 set nowritebackup                       " write the buffer to the original file
 set noswapfile                          " no swap files
