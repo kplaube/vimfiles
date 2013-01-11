@@ -75,13 +75,13 @@ let mapleader=","
 
 
 " Plugins settings
-nmap <F2> :NERDTree<CR>
-nmap <F3> :Project<CR>
+nmap <F2> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
 nmap <F6> :cl<CR>
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:ctrlp_working_path_mode = 0
-let g:NERDTreeDirArrows=0
+let g:NERDTreeDirArrows = 0
+let g:Powerline_symbols = 'unicode'
 
 
 " Autocomplete settings
@@ -191,6 +191,7 @@ if has("gui_running")
     set colorcolumn=80
     set guioptions-=T
     set guicursor=a:blinkoff0-blinkwait0
+    let g:NERDTreeDirArrows=1
 endif
 
 
