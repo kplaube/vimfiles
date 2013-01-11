@@ -23,6 +23,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/vimprj'
 " Other utilities
+Bundle 'tpope/vim-eunuch'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-surround'
 " Snippets
@@ -74,10 +75,14 @@ set writeany                            " Allow writing readonly files
 let mapleader=","
 
 
-" Plugins settings
+" Shortcuts
 nmap <F2> :NERDTreeToggle<CR>
-nmap <F8> :TagbarToggle<CR>
 nmap <F6> :cl<CR>
+nmap <F7> :Errors<CR>
+nmap <F8> :TagbarToggle<CR>
+
+
+" Plugins settings
 let g:syntastic_check_on_open = 0
 let g:ctrlp_working_path_mode = 0
 let g:NERDTreeDirArrows = 0
