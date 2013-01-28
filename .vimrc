@@ -13,7 +13,6 @@ Bundle 'gmarik/vundle'
 Bundle 'vim-scripts/DfrankUtil'
 " Code quality checker
 Bundle 'scrooloose/syntastic'
-Bundle 'nvie/vim-flake8'
 " Why use shell?
 Bundle 'tpope/vim-fugitive'
 Bundle 'jmcantrell/vim-virtualenv'
@@ -83,6 +82,8 @@ nmap <F8> :TagbarToggle<CR>
 
 
 " Plugins settings
+let g:syntastic_python_checker = 'flake8'
+let g:syntastic_python_checker_args = '--ignore=E501'
 let g:syntastic_check_on_open = 0
 let g:ctrlp_working_path_mode = 0
 let g:NERDTreeDirArrows = 0
