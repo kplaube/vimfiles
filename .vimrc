@@ -57,6 +57,7 @@ set nowritebackup                       " write the buffer to the original file
 set noswapfile                          " no swap files
 set novisualbell                        " disable blinking when moving cursor
 set number                              " show line numbers
+set cursorline                          " highlight current line
 set modeline
 set modelines=5
 set laststatus=2
@@ -85,7 +86,7 @@ nmap <F8> :TagbarToggle<CR>
 let g:syntastic_python_checker = 'flake8'
 let g:syntastic_python_checker_args = '--ignore=E501'
 let g:syntastic_check_on_open = 0
-let g:ctrlp_working_path_mode = 0
+let g:ctrlp_working_path_mode = 'ra'
 let g:NERDTreeDirArrows = 0
 let g:Powerline_symbols = 'unicode'
 
