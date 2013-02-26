@@ -90,12 +90,12 @@ nmap <F8> :TagbarToggle<CR>
 
 
 " ### Plugins settings ###
-let g:syntastic_python_checker = 'flake8'
-let g:syntastic_python_checker_args = '--ignore=E501'
-let g:syntastic_check_on_open = 1
-let g:ctrlp_working_path_mode = 'ra'
-let g:NERDTreeDirArrows = 0
-let g:Powerline_symbols = 'unicode'
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_flake8_args='--ignore=E501'
+let g:syntastic_check_on_open=1
+let g:ctrlp_working_path_mode='ra'
+let g:NERDTreeDirArrows=0
+let g:Powerline_symbols='unicode'
 
 
 " ### Autocomplete settings ###
@@ -121,11 +121,11 @@ set shiftwidth=4 tabstop=4 softtabstop=4
 
 " ### Comment ###
 " Comment/Uncomment for different languages
-au FileType haskell,vhdl,ada            let comment = '-- '
-au FileType sh,make,python,ruby         let comment = '# '
-au FileType c,cpp,java,javascript,scss  let comment = '// '
-au FileType tex                         let comment = '% '
-au FileType vim                         let comment = '" '
+au FileType haskell,vhdl,ada            let comment='-- '
+au FileType sh,make,python,ruby         let comment='# '
+au FileType c,cpp,java,javascript,scss  let comment='// '
+au FileType tex                         let comment='% '
+au FileType vim                         let comment='" '
 
 " Comment Blocks
 " ,c -> comment selected
@@ -135,9 +135,9 @@ noremap <silent> ,u :s,^\V<C-R>=comment<CR>,,e<CR>:noh<CR>
 
 
 " ### Language settings ###
-au FileType make set noexpandtab
-au FileType c set omnifunc=ccomplete#Complete
-au FileType ruby,eruby set omnifunc=rubycomplete#Complete
+au FileType make        set noexpandtab
+au FileType c           set omnifunc=ccomplete#Complete
+au FileType ruby,eruby  set omnifunc=rubycomplete#Complete
 
 " Python
 let python_highlight_all = 1
@@ -153,14 +153,14 @@ au FileType javascript setlocal shiftwidth=2 tabstop=2
 au FileType javascript set omnifunc=jscomplete#CompleteJS
 
 " HTML & CSS
-au FileType html setlocal shiftwidth=4 tabstop=4
-au FileType htmldjango setlocal ft=html
-au FileType html set omnifunc=htmlcomplete#CompleteTags
-au FileType xml setlocal shiftwidth=2 tabstop=2
-au FileType xml set omnifunc=xmlcomplete#CompleteTags
-au FileType scss setlocal ft=css
-au FileType css setlocal shiftwidth=2 tabstop=2
-au FileType css set omnifunc=csscomplete#CompleteCSS
+au FileType html        setlocal shiftwidth=4 tabstop=4
+au FileType htmldjango  setlocal ft=html
+au FileType html        set omnifunc=htmlcomplete#CompleteTags
+au FileType xml         setlocal shiftwidth=2 tabstop=2
+au FileType xml         set omnifunc=xmlcomplete#CompleteTags
+au FileType scss        setlocal ft=css
+au FileType css         setlocal shiftwidth=2 tabstop=2
+au FileType css         set omnifunc=csscomplete#CompleteCSS
 
 
 " ### Useful settings ###
