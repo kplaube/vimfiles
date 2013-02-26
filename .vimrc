@@ -4,49 +4,56 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()                        " start vundle
 
-
 " Let Vundle manage!
 Bundle 'gmarik/vundle'
 
-" Bundles
+
+" ### Bundles ###
 " Libraries
 Bundle 'vim-scripts/DfrankUtil'
+
 " Code quality checker
 Bundle 'scrooloose/syntastic'
+
 " Why use shell?
 Bundle 'tpope/vim-fugitive'
 Bundle 'jmcantrell/vim-virtualenv'
+
 " Organize project
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/vimprj'
+
 " Other utilities
 Bundle 'tpope/vim-eunuch'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-surround'
+
 " Snippets
-Bundle 'msanders/snipmate.vim'
+Bundle 'kplaube/snipmate.vim'
 Bundle 'mattn/zencoding-vim'
+
 " Syntax Highlight
 Bundle 'skammer/vim-css-color'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
 Bundle 'vim-scripts/Wombat'
 Bundle 'vim-scripts/xoria256.vim'
+
 " Code complete
-Bundle 'teramako/jscomplete-vim'
 Bundle 'vim-scripts/indexer.tar.gz'
+Bundle 'teramako/jscomplete-vim'
 Bundle 'vim-scripts/pythoncomplete'
 
 
-" Font & Color
+" ### Font & Color ###
 set t_Co=256
 set gfn=Monospace:h14
 colorscheme xoria256
 
 
-" General settings
+" ### General settings ###
 filetype plugin indent on               " indent files, ftplugins
 syntax on
 
@@ -75,36 +82,35 @@ set writeany                            " Allow writing readonly files
 let mapleader=","
 
 
-" Shortcuts
+" ### Shortcuts ###
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F6> :cl<CR>
 nmap <F7> :Errors<CR>
 nmap <F8> :TagbarToggle<CR>
 
 
-" Plugins settings
+" ### Plugins settings ###
 let g:syntastic_python_checker = 'flake8'
 let g:syntastic_python_checker_args = '--ignore=E501'
-let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_open = 1
 let g:ctrlp_working_path_mode = 'ra'
 let g:NERDTreeDirArrows = 0
 let g:Powerline_symbols = 'unicode'
 
 
-" Autocomplete settings
+" ### Autocomplete settings ###
 set completeopt=menu,preview                    " configure drop-down menu when completing with ctrl-n
 set wildmode=list:longest                       " bash like command line tab completion
-set wildignore=*.o,*.obj,*~,*.swp,*.pyc         " ignore when tab completing:
+set wildignore=*.o,*.obj,*~,*.swp,*.pyc         " ignore when tab completing
 let g:indexer_disableCtagsWarning=1
 inoremap <C-space> <C-x><C-o>
-
 
 " Go to definition config
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 
-" Tab/Indent config
+" ### Tab/Indent config ###
 " 4 soft-space tabs for all kind of documents
 set expandtab
 set smarttab
@@ -113,17 +119,13 @@ set smartindent
 set shiftwidth=4 tabstop=4 softtabstop=4
 
 
-" Some useful abbreviations to common mistyped commands
-cab W w | cab Q q | cab Wq wq | cab wQ wq | cab WQ wq
-
-
+" ### Comment ###
 " Comment/Uncomment for different languages
 au FileType haskell,vhdl,ada            let comment = '-- '
 au FileType sh,make,python,ruby         let comment = '# '
 au FileType c,cpp,java,javascript,scss  let comment = '// '
 au FileType tex                         let comment = '% '
 au FileType vim                         let comment = '" '
-
 
 " Comment Blocks
 " ,c -> comment selected
@@ -132,34 +134,8 @@ noremap <silent> ,c :s,^,<C-R>=comment<CR>,<CR>:noh<CR>
 noremap <silent> ,u :s,^\V<C-R>=comment<CR>,,e<CR>:noh<CR>
 
 
-" Highlight trailing whitespaces
-highlight WhitespaceEOL ctermbg=red guibg=red
-au ColorScheme * highlight WhitespaceEOL ctermbg=red guibg=red
-match WhitespaceEOL /\s\+$/
-
-
-" Simple recursive grep
-command! -nargs=1 RecurGrep lvimgrep /<args>/gj ./**/*.* | lopen | set nowrap
-command! -nargs=1 RecurGrepFast silent exec 'lgrep! <q-args> ./**/*.*' | lopen
-nmap ,R :RecurGrep
-nmap ,r :RecurGrepFast
-nmap ,wR :RecurGrep <cword><CR>
-nmap ,wr :RecurGrepFast <cword><CR>
-
-
-" Terminal.app keyboard settings
-map <Esc>[H <Home>
-imap <Esc>[H <Home>
-map <Esc>[F <End>
-imap <Esc>[F <End>
-map <Esc>[5~ <PageUp>
-imap <Esc>[5~ <PageUp>
-map <Esc>[6~ <PageDown>
-imap <Esc>[6~ <PageDown>
-
-
-" Language settings
-au FileType make   set noexpandtab
+" ### Language settings ###
+au FileType make set noexpandtab
 au FileType c set omnifunc=ccomplete#Complete
 au FileType ruby,eruby set omnifunc=rubycomplete#Complete
 
@@ -174,7 +150,7 @@ au FileType php set omnifunc=phpcomplete#CompletePHP
 
 " Javascript
 au FileType javascript setlocal shiftwidth=2 tabstop=2
-au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+au FileType javascript set omnifunc=jscomplete#CompleteJS
 
 " HTML & CSS
 au FileType html setlocal shiftwidth=4 tabstop=4
@@ -187,12 +163,29 @@ au FileType css setlocal shiftwidth=2 tabstop=2
 au FileType css set omnifunc=csscomplete#CompleteCSS
 
 
+" ### Useful settings ###
+" Some useful abbreviations to common mistyped commands
+cab W w | cab Q q | cab Wq wq | cab wQ wq | cab WQ wq
+
+" Simple recursive grep
+command! -nargs=1 RecurGrep lvimgrep /<args>/gj ./**/*.* | lopen | set nowrap
+command! -nargs=1 RecurGrepFast silent exec 'lgrep! <q-args> ./**/*.*' | lopen
+nmap ,R :RecurGrep
+nmap ,r :RecurGrepFast
+nmap ,wR :RecurGrep <cword><CR>
+nmap ,wr :RecurGrepFast <cword><CR>
+
+" Highlight trailing whitespaces
+highlight WhitespaceEOL ctermbg=red guibg=red
+au ColorScheme * highlight WhitespaceEOL ctermbg=red guibg=red
+match WhitespaceEOL /\s\+$/
+
 " Moving .swp files away
 set backupdir=~/.vim
 set directory=~/.vim
 
 
-" GUI
+" ### GUI settings ###
 if has("gui_running")
     colorscheme wombat
     set colorcolumn=80
@@ -201,14 +194,12 @@ if has("gui_running")
     let g:NERDTreeDirArrows=1
 endif
 
-
 " GVim
 if has("gui_gtk2")
     set guifont=Monospace\ 14
 endif
 
-
 " MacVim
 if has("gui_macvim")
-    let macvim_hig_shift_movement = 1
+    let macvim_hig_shift_movement=1
 endif

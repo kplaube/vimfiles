@@ -45,19 +45,28 @@ Open VIM and run `:BundleInstall`.
 
 That's all!
 
-The plugins that `Vundle` will install are:
+Plugins that `Vundle` will install are:
 
 * [ctrlp.vim](https://github.com/kien/ctrlp.vim) - Find files in your projects
-* [jslint.vim](https://github.com/hallettj/jslint.vim) - Spots errors and common mistakes in `Javascript` code (requires `Rhino` or `Spidermonkey`)
+* [DfrankUtil](https://github.com/vim-scripts/DfrankUtil) - Just a library for some scripts
+* [indexer.tar.gz](https://github.com/vim-scripts/indexer.tar.gz) - Indexing all files in project with ctags
 * [nerdtree](https://github.com/scrooloose/nerdtree) - A tree explorer plugin
+* [snipmate.vim](https://github.com/kplaube/snipmate.vim) - TextMate's snippets features in VIM
+* [syntastic](https://github.com/scrooloose/syntastic) - Syntax checking for a lot of languages
 * [tagbar](https://github.com/majutsushi/tagbar)  - Display tags in a window, ordered by class
+* [vimprj](https://github.com/vim-scripts/vimprj) - Plugin for managing options for different projects
 * [vim-css-color](https://github.com/skammer/vim-css-color) - Highlight colors in `CSS` files
+* [vim-eunuch](https://github.com/tpope/vim-eunuch) - Sugar for `UNIX` shell commands
 * [vim-flake8](https://github.com/nvie/vim-flake8) - Syntax and style checker for `Python` source code
 * [vim-fugitive](https://github.com/tpope/vim-fugitive) - A (awesome) `Git` wrapper
-* [vim-haml](https://github.com/tpope/vim-haml) - Syntax highlight to `SCSS` and `HAML`
-* [vim-powerline](https://github.com/Lokaltog/vim-powerline) - Increase your VIM statusline
-* [vim-railscasts-theme](https://github.com/gilsondev/vim-railscasts-theme) - A port of the Railscasts Textmate theme to Vim (GUI Only)
-* [vim-virtualenv](https://github.com/jmcantrell/vim-virtualenv) - Work with `virtualenv` in VIM
+* [vim-haml](https://github.com/tpope/vim-haml) - Syntax highlight for `SCSS` and `HAML`
+* [vim-markdown](https://github.com/tpope/vim-markdown) - Syntax highlight for `Markdown`
+* [vim-powerline](https://github.com/Lokaltog/vim-powerline) - Increases your VIM statusline
+* [vim-surround](https://github.com/tpope/vim-surround) Provides mappings to easily delete, change and add surroundings
+* [vim-virtualenv](https://github.com/jmcantrell/vim-virtualenv) - Works with `virtualenv` in VIM
+* [xoria256.vim](https://github.com/vim-scripts/xoria256.vim) - Finely tuned soft gamma, 256 colors, dark background
+* [Wombat](https://github.com/vim-scripts/Wombat) - Dark gray color scheme sharing some similarities with Desert
+* [zencoding-vim](https://github.com/mattn/zencoding-vim) - High-speed `HTML`, `XML` and `XSL`
 
 
 Strongly inspired in [Francisco Souza's vim files repository](https://github.com/fsouza/vimfiles).
