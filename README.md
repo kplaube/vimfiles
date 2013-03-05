@@ -63,7 +63,6 @@ Plugins that `Vundle` will install are:
 * [vim-powerline](https://github.com/Lokaltog/vim-powerline) - Increases your VIM statusline
 * [vim-surround](https://github.com/tpope/vim-surround) Provides mappings to easily delete, change and add surroundings
 * [vim-virtualenv](https://github.com/jmcantrell/vim-virtualenv) - Works with `virtualenv` in VIM
-* [xoria256.vim](https://github.com/vim-scripts/xoria256.vim) - Finely tuned soft gamma, 256 colors, dark background
 * [Wombat](https://github.com/vim-scripts/Wombat) - Dark gray color scheme sharing some similarities with Desert
 * [zencoding-vim](https://github.com/mattn/zencoding-vim) - High-speed `HTML`, `XML` and `XSL`
 
