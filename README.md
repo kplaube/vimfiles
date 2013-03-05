@@ -58,6 +58,7 @@ Plugins that `Vundle` will install are:
 * [vim-eunuch](https://github.com/tpope/vim-eunuch) - Sugar for `UNIX` shell commands
 * [vim-flake8](https://github.com/nvie/vim-flake8) - Syntax and style checker for `Python` source code
 * [vim-fugitive](https://github.com/tpope/vim-fugitive) - A (awesome) `Git` wrapper
+* [vim-gitgutter](https://github.com/airblade/vim-gitgutter) - A plugin which shows a git diff in the gutter (sign column)
 * [vim-haml](https://github.com/tpope/vim-haml) - Syntax highlight for `SCSS` and `HAML`
 * [vim-markdown](https://github.com/tpope/vim-markdown) - Syntax highlight for `Markdown`
 * [vim-powerline](https://github.com/Lokaltog/vim-powerline) - Increases your VIM statusline

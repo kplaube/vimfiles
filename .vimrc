@@ -18,6 +18,7 @@ Bundle 'scrooloose/syntastic'
 " Why use shell?
 Bundle 'tpope/vim-fugitive'
 Bundle 'jmcantrell/vim-virtualenv'
+Bundle 'airblade/vim-gitgutter'
 
 " Organize project
 Bundle 'kien/ctrlp.vim'
