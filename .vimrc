@@ -35,11 +35,10 @@ Bundle 'kplaube/snipmate.vim'
 Bundle 'mattn/zencoding-vim'
 
 " Syntax Highlight
-Bundle 'skammer/vim-css-color'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
 Bundle 'vim-scripts/Wombat'
-Bundle 'vim-scripts/xoria256.vim'
+Bundle 'vim-scripts/wombat256.vim'
 
 " Code complete
 Bundle 'vim-scripts/indexer.tar.gz'
@@ -50,7 +49,7 @@ Bundle 'vim-scripts/pythoncomplete'
 " ### Font & Color ###
 set t_Co=256
 set gfn=Monospace:h14
-colorscheme xoria256
+colorscheme wombat256mod
 
 
 " ### General settings ###
@@ -92,7 +91,7 @@ nmap <F8> :TagbarToggle<CR>
 " ### Plugins settings ###
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_args='--ignore=E501'
-let g:syntastic_check_on_open=1
+let g:syntastic_check_on_open=0
 let g:ctrlp_working_path_mode='ra'
 let g:NERDTreeDirArrows=0
 let g:Powerline_symbols='unicode'

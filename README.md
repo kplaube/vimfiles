@@ -55,7 +55,6 @@ Plugins that `Vundle` will install are:
 * [syntastic](https://github.com/scrooloose/syntastic) - Syntax checking for a lot of languages
 * [tagbar](https://github.com/majutsushi/tagbar)  - Display tags in a window, ordered by class
 * [vimprj](https://github.com/vim-scripts/vimprj) - Plugin for managing options for different projects
-* [vim-css-color](https://github.com/skammer/vim-css-color) - Highlight colors in `CSS` files
 * [vim-eunuch](https://github.com/tpope/vim-eunuch) - Sugar for `UNIX` shell commands
 * [vim-flake8](https://github.com/nvie/vim-flake8) - Syntax and style checker for `Python` source code
 * [vim-fugitive](https://github.com/tpope/vim-fugitive) - A (awesome) `Git` wrapper
