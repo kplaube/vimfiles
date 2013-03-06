@@ -96,6 +96,7 @@ let g:syntastic_check_on_open=0
 let g:ctrlp_working_path_mode='ra'
 let g:NERDTreeDirArrows=0
 let g:Powerline_symbols='unicode'
+let g:gitgutter_enabled=0
 
 
 " ### Autocomplete settings ###
@@ -192,6 +193,7 @@ if has("gui_running")
     set guioptions-=T
     set guicursor=a:blinkoff0-blinkwait0
     let g:NERDTreeDirArrows=1
+    let g:gitgutter_enabled=1
 endif
 
 " GVim
