@@ -16,6 +16,7 @@ Bundle 'vim-scripts/DfrankUtil'
 Bundle 'scrooloose/syntastic'
 
 " Why use shell?
+Bundle 'int3/vim-extradite'
 Bundle 'tpope/vim-fugitive'
 Bundle 'jmcantrell/vim-virtualenv'
 Bundle 'airblade/vim-gitgutter'
@@ -82,13 +83,6 @@ set writeany                            " Allow writing readonly files
 let mapleader=","
 
 
-" ### Shortcuts ###
-nmap <F2> :NERDTreeToggle<CR>
-nmap <F6> :cl<CR>
-nmap <F7> :Errors<CR>
-nmap <F8> :TagbarToggle<CR>
-
-
 " ### Plugins settings ###
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_args='--ignore=E501'
@@ -97,6 +91,14 @@ let g:ctrlp_working_path_mode='ra'
 let g:NERDTreeDirArrows=0
 let g:Powerline_symbols='unicode'
 let g:gitgutter_enabled=0
+
+
+" ### Shortcuts ###
+nmap <F2> :NERDTreeToggle<CR>
+nmap <F6> :cl<CR>
+nmap <F7> :Errors<CR>
+nmap <F8> :TagbarToggle<CR>
+nmap ,Gl :Extradite<CR>
 
 
 " ### Autocomplete settings ###
