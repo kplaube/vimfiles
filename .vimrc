@@ -93,6 +93,27 @@ let g:Powerline_symbols='unicode'
 let g:gitgutter_enabled=0
 
 
+" ### GUI settings ###
+if has("gui_running")
+    colorscheme wombat
+    set guioptions-=T
+    set guioptions-=m
+    set guicursor=a:blinkoff0-blinkwait0
+    let g:NERDTreeDirArrows=1
+    let g:gitgutter_enabled=1
+endif
+
+" GVim
+if has("gui_gtk2")
+    set guifont=Monospace\ 14
+endif
+
+" MacVim
+if has("gui_macvim")
+    let macvim_hig_shift_movement=1
+endif
+
+
 " ### Shortcuts ###
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F6> :cl<CR>
@@ -173,8 +194,8 @@ cab W w | cab Q q | cab Wq wq | cab wQ wq | cab WQ wq
 " Copy and paste without clipboard made easy!
 nnoremap <C-y> "+y
 vnoremap <C-y> "+y
-nnoremap <C-p> "+gP
-vnoremap <C-p> "+gP
+nnoremap <C-P> "+gP
+vnoremap <C-P> "+gP
 
 " Simple recursive grep
 command! -nargs=1 RecurGrep lvimgrep /<args>/gj ./**/*.* | lopen | set nowrap
@@ -189,37 +210,12 @@ highlight WhitespaceEOL ctermbg=red guibg=red
 au ColorScheme * highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
 
-" Highlight the 80th column
+" Highlight 80th and 120th columns
 if exists('+colorcolumn')
-    set colorcolumn=80
-    highlight ColorColumn ctermbg=darkgrey guibg=darkgrey
+    highlight ColorColumn guibg=#2d2d2d ctermbg=236
+    let &colorcolumn="80,".join(range(120,320),",")
 endif
-
-" Highlight the text above 120 columns
-highlight OverLength ctermbg=red ctermfg=white guibg=red
-match OverLength /\%121v.\+/
 
 " Moving .swp files away
 set backupdir=~/.vim
 set directory=~/.vim
-
-
-" ### GUI settings ###
-if has("gui_running")
-    colorscheme wombat
-    set guioptions-=T
-    set guioptions-=m
-    set guicursor=a:blinkoff0-blinkwait0
-    let g:NERDTreeDirArrows=1
-    let g:gitgutter_enabled=1
-endif
-
-" GVim
-if has("gui_gtk2")
-    set guifont=Monospace\ 14
-endif
-
-" MacVim
-if has("gui_macvim")
-    let macvim_hig_shift_movement=1
-endif
