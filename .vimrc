@@ -80,6 +80,8 @@ set ignorecase                          " case insensitive search
 set nojoinspaces                        " don't add space when joining line
 set textwidth=0 nowrap                  " infinite lines with no wrap
 set writeany                            " allow writing readonly files
+set backspace=indent,eol,start          " sane backspace
+set nomousehide                         " don't hide the mouse cursor while typing
 set guioptions-=T                       " turn off GUI toolbar
 set guioptions-=m                       " turn off GUI menu
 set guioptions-=r                       " turn off GUI right scrollbar
