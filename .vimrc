@@ -196,8 +196,8 @@ if exists('+colorcolumn')
 endif
 
 " Highlight the text above 120 columns
-match OverLength /\%121v.\+/
 highlight OverLength ctermbg=red ctermfg=white guibg=red
+match OverLength /\%121v.\+/
 
 " Moving .swp files away
 set backupdir=~/.vim
