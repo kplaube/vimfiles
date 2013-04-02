@@ -170,6 +170,12 @@ au FileType css         set omnifunc=csscomplete#CompleteCSS
 " Some useful abbreviations to common mistyped commands
 cab W w | cab Q q | cab Wq wq | cab wQ wq | cab WQ wq
 
+" Copy and paste without clipboard made easy!
+nnoremap <C-y> "+y
+vnoremap <C-y> "+y
+nnoremap <C-p> "+gP
+vnoremap <C-p> "+gP
+
 " Simple recursive grep
 command! -nargs=1 RecurGrep lvimgrep /<args>/gj ./**/*.* | lopen | set nowrap
 command! -nargs=1 RecurGrepFast silent exec 'lgrep! <q-args> ./**/*.*' | lopen
@@ -183,6 +189,16 @@ highlight WhitespaceEOL ctermbg=red guibg=red
 au ColorScheme * highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
 
+" Highlight the 80th column
+if exists('+colorcolumn')
+    set colorcolumn=80
+    highlight ColorColumn ctermbg=darkgrey guibg=darkgrey
+endif
+
+" Highlight the text above 120 columns
+match OverLength /\%121v.\+/
+highlight OverLength ctermbg=red ctermfg=white guibg=red
+
 " Moving .swp files away
 set backupdir=~/.vim
 set directory=~/.vim
@@ -191,8 +207,8 @@ set directory=~/.vim
 " ### GUI settings ###
 if has("gui_running")
     colorscheme wombat
-    set colorcolumn=80
     set guioptions-=T
+    set guioptions-=m
     set guicursor=a:blinkoff0-blinkwait0
     let g:NERDTreeDirArrows=1
     let g:gitgutter_enabled=1
