@@ -79,7 +79,11 @@ set hlsearch                            " highlight search results
 set ignorecase                          " case insensitive search
 set nojoinspaces                        " don't add space when joining line
 set textwidth=0 nowrap                  " infinite lines with no wrap
-set writeany                            " Allow writing readonly files
+set writeany                            " allow writing readonly files
+set guioptions-=T                       " turn off GUI toolbar
+set guioptions-=m                       " turn off GUI menu
+set guioptions-=r                       " turn off GUI right scrollbar
+set guioptions-=L                       " turn off GUI left scrollba
 let mapleader=","
 
 
@@ -96,8 +100,6 @@ let g:gitgutter_enabled=0
 " ### GUI settings ###
 if has("gui_running")
     colorscheme wombat
-    set guioptions-=T
-    set guioptions-=m
     set guicursor=a:blinkoff0-blinkwait0
     let g:NERDTreeDirArrows=1
     let g:gitgutter_enabled=1
