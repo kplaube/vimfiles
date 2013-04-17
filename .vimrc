@@ -63,7 +63,7 @@ set fileencoding=utf8
 set nobackup                            " no backups
 set nowritebackup                       " write the buffer to the original file
 set noswapfile                          " no swap files
-set novisualbell                        " disable blinking when moving cursor
+set visualbell                          " disable beeping
 set number                              " show line numbers
 set cursorline                          " highlight current line
 set modeline
@@ -85,7 +85,7 @@ set nomousehide                         " don't hide the mouse cursor while typi
 set guioptions-=T                       " turn off GUI toolbar
 set guioptions-=m                       " turn off GUI menu
 set guioptions-=r                       " turn off GUI right scrollbar
-set guioptions-=L                       " turn off GUI left scrollba
+set guioptions-=L                       " turn off GUI left scrollbar
 let mapleader=","
 
 
@@ -97,6 +97,7 @@ let g:ctrlp_working_path_mode='ra'
 let g:NERDTreeDirArrows=0
 let g:Powerline_symbols='unicode'
 let g:gitgutter_enabled=0
+let g:indexer_disableCtagsWarning=1
 
 
 " ### GUI settings ###
@@ -120,17 +121,15 @@ endif
 
 " ### Shortcuts ###
 nmap <F2> :NERDTreeToggle<CR>
-nmap <F6> :cl<CR>
+nmap <F6> :Extradite<CR>
 nmap <F7> :Errors<CR>
 nmap <F8> :TagbarToggle<CR>
-nmap ,Gl :Extradite<CR>
 
 
 " ### Autocomplete settings ###
 set completeopt=menu,preview                    " configure drop-down menu when completing with ctrl-n
 set wildmode=list:longest                       " bash like command line tab completion
 set wildignore=*.o,*.obj,*~,*.swp,*.pyc         " ignore when tab completing
-let g:indexer_disableCtagsWarning=1
 inoremap <C-space> <C-x><C-o>
 
 " Go to definition config
@@ -154,6 +153,7 @@ au FileType sh,make,python,ruby         let comment='# '
 au FileType c,cpp,java,javascript,scss  let comment='// '
 au FileType tex                         let comment='% '
 au FileType vim                         let comment='" '
+
 
 " Comment Blocks
 " ,c -> comment selected
