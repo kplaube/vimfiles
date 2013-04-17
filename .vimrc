@@ -110,12 +110,13 @@ endif
 
 " GVim
 if has("gui_gtk2")
-    set guifont=Monospace\ 14
+    set gfn=Monospace\ 14
 endif
 
 " MacVim
 if has("gui_macvim")
     let macvim_hig_shift_movement=1
+    set gfn=Monaco:h15
 endif
 
 
@@ -195,11 +196,9 @@ au FileType css         set omnifunc=csscomplete#CompleteCSS
 " Some useful abbreviations to common mistyped commands
 cab W w | cab Q q | cab Wq wq | cab wQ wq | cab WQ wq
 
-" Copy and paste without clipboard made easy!
+" Copy to clipboard made easy!
 nnoremap <C-y> "+y
 vnoremap <C-y> "+y
-nnoremap <C-P> "+gP
-vnoremap <C-P> "+gP
 
 " Simple recursive grep
 command! -nargs=1 RecurGrep lvimgrep /<args>/gj ./**/*.* | lopen | set nowrap
