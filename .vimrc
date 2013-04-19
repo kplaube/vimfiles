@@ -111,6 +111,7 @@ endif
 " GVim
 if has("gui_gtk2")
     set gfn=Monospace\ 14
+	set novisualbell
 endif
 
 " MacVim
