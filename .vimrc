@@ -92,6 +92,8 @@ let mapleader=","
 " ### Plugins settings ###
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_args='--ignore=E501'
+let g:syntastic_php_checkers=['php', 'phpcs']
+let g:syntastic_php_phpcs_args='--report=csv --standard=PSR2'
 let g:syntastic_check_on_open=0
 let g:ctrlp_working_path_mode='ra'
 let g:NERDTreeDirArrows=0
@@ -174,7 +176,6 @@ au FileType python set smartindent cinwords=if,elif,else,for,while,try,except,fi
 au FileType python set omnifunc=pythoncomplete#Complete
 
 " PHP
-au FileType php set noexpandtab shiftwidth=4 tabstop=4
 au FileType php set omnifunc=phpcomplete#CompletePHP
 
 " Javascript
