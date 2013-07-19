@@ -37,6 +37,7 @@ Bundle 'kplaube/snipmate.vim'
 Bundle 'mattn/zencoding-vim'
 
 " Syntax Highlight
+Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
 Bundle 'vim-scripts/Wombat'
