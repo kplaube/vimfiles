@@ -28,7 +28,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/vimprj'
 
 " Other utilities
-Bundle 'tpope/vim-eunuch'
+Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-surround'
 

@@ -35,9 +35,6 @@ It already contains the setup of Vundle:
     $ git clone https://github.com/kplaube/vimfiles vimfiles
     $ cp vimfiles/.vimrc $HOME/.vimrc
 
-To keep your ctags updated, copy the `update_ctags` script to `~/.vim/`:
-
-    $ cp vimfiles/.vim/update_ctags $HOME/.vim/
 
 ### Installing plugins
 
@@ -55,7 +52,9 @@ Plugins that `Vundle` will install are:
 * [syntastic](https://github.com/scrooloose/syntastic) - Syntax checking for a lot of languages
 * [tagbar](https://github.com/majutsushi/tagbar)  - Display tags in a window, ordered by class
 * [vimprj](https://github.com/vim-scripts/vimprj) - Plugin for managing options for different projects
-* [vim-eunuch](https://github.com/tpope/vim-eunuch) - Sugar for `UNIX` shell commands
+* [vim-coffee-script](https://github.com/kchmck/vim-coffee-script) - `CoffeeScript` support for VIM
+* [vim-easymotion](https://github.com/Lokaltog/vim-easymotion) - Provides a much simpler way to use motions in VIM
+* [vim-extradite](https://github.com/int3/vim-extradite) - A `Git` commit browser for VIM
 * [vim-flake8](https://github.com/nvie/vim-flake8) - Syntax and style checker for `Python` source code
 * [vim-fugitive](https://github.com/tpope/vim-fugitive) - A (awesome) `Git` wrapper
 * [vim-gitgutter](https://github.com/airblade/vim-gitgutter) - A plugin which shows a git diff in the gutter (sign column)
