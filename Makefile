@@ -11,4 +11,4 @@ copy_vimrc:
 
 symbolic_link_to_vimrc:
 	@echo "Creating a symbolic link to .vimrc file..."
-	@ln -s .vimrc ~/.vimrc
+	@ln -sf `pwd`/.vimrc ~/.vimrc

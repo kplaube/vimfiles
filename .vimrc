@@ -51,7 +51,6 @@ Bundle 'vim-scripts/pythoncomplete'
 
 " ### Font & Color ###
 set t_Co=256
-set gfn=Monospace:h14
 colorscheme wombat256mod
 
 
@@ -73,14 +72,12 @@ set laststatus=2
 set ruler                               " show line, col in status bar
 set hidden                              " hide buffers with closed files
 set incsearch                           " use incremental search
-set autowrite                           " auto save file before some commands
 set showcmd                             " show command/mode in at bottom
 set showmatch                           " show match (), [] and {}
 set hlsearch                            " highlight search results
 set ignorecase                          " case insensitive search
 set nojoinspaces                        " don't add space when joining line
 set textwidth=0 nowrap                  " infinite lines with no wrap
-set writeany                            " allow writing readonly files
 set backspace=indent,eol,start          " sane backspace
 set nomousehide                         " don't hide the mouse cursor while typing
 set guioptions-=T                       " turn off GUI toolbar
@@ -103,6 +100,13 @@ let g:gitgutter_enabled=0
 let g:indexer_disableCtagsWarning=1
 
 
+" ### Shortcuts ###
+nmap <F2> :NERDTreeToggle<CR>
+nmap <F6> :Extradite<CR>
+nmap <F7> :Errors<CR>
+nmap <F8> :TagbarToggle<CR>
+
+
 " ### GUI settings ###
 if has("gui_running")
     colorscheme wombat
@@ -122,13 +126,6 @@ if has("gui_macvim")
     let macvim_hig_shift_movement=1
     set gfn=Monaco:h15
 endif
-
-
-" ### Shortcuts ###
-nmap <F2> :NERDTreeToggle<CR>
-nmap <F6> :Extradite<CR>
-nmap <F7> :Errors<CR>
-nmap <F8> :TagbarToggle<CR>
 
 
 " ### Autocomplete settings ###
