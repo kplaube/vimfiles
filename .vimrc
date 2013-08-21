@@ -94,9 +94,7 @@ let g:syntastic_php_checkers=['php', 'phpcs']
 let g:syntastic_php_phpcs_args='--report=csv --standard=PSR2'
 let g:syntastic_check_on_open=0
 let g:ctrlp_working_path_mode='ra'
-let g:NERDTreeDirArrows=0
 let g:Powerline_symbols='unicode'
-let g:gitgutter_enabled=0
 let g:indexer_disableCtagsWarning=1
 
 
@@ -111,8 +109,6 @@ nmap <F8> :TagbarToggle<CR>
 if has("gui_running")
     colorscheme wombat
     set guicursor=a:blinkoff0-blinkwait0
-    let g:NERDTreeDirArrows=1
-    let g:gitgutter_enabled=1
 endif
 
 " GVim
