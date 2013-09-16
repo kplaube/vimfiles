@@ -44,10 +44,12 @@ That's all!
 
 Plugins that `Vundle` will install are:
 
+* [Crunch](https://github.com/vim-scripts/Crunch) - An easier way to perform calculations inside VIM
 * [ctrlp.vim](https://github.com/kien/ctrlp.vim) - Find files in your projects
 * [DfrankUtil](https://github.com/vim-scripts/DfrankUtil) - Just a library for some scripts
 * [indexer.tar.gz](https://github.com/vim-scripts/indexer.tar.gz) - Indexing all files in project with ctags
 * [nerdtree](https://github.com/scrooloose/nerdtree) - A tree explorer plugin
+* [scss-syntax.vim](https://github.com/cakebaker/scss-syntax.vim) - VIM syntax file for `SCSS`
 * [snipmate.vim](https://github.com/kplaube/snipmate.vim) - TextMate's snippets features in VIM
 * [syntastic](https://github.com/scrooloose/syntastic) - Syntax checking for a lot of languages
 * [tagbar](https://github.com/majutsushi/tagbar)  - Display tags in a window, ordered by class
@@ -61,10 +63,10 @@ Plugins that `Vundle` will install are:
 * [vim-haml](https://github.com/tpope/vim-haml) - Syntax highlight for `SCSS` and `HAML`
 * [vim-markdown](https://github.com/tpope/vim-markdown) - Syntax highlight for `Markdown`
 * [vim-powerline](https://github.com/Lokaltog/vim-powerline) - Increases your VIM statusline
+* [vim-startify](https://github.com/mhinz/vim-startify) - A fancy start screen for VIM
 * [vim-surround](https://github.com/tpope/vim-surround) Provides mappings to easily delete, change and add surroundings
 * [vim-virtualenv](https://github.com/jmcantrell/vim-virtualenv) - Works with `virtualenv` in VIM
 * [Wombat](https://github.com/vim-scripts/Wombat) - Dark gray color scheme sharing some similarities with Desert
-* [zencoding-vim](https://github.com/mattn/zencoding-vim) - High-speed `HTML`, `XML` and `XSL`
 
 
 Strongly inspired in [Francisco Souza's vim files repository](https://github.com/fsouza/vimfiles).

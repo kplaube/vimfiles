@@ -28,14 +28,17 @@ Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/vimprj'
 
 " Other utilities
+Bundle 'vim-scripts/Crunch'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'mhinz/vim-startify'
 Bundle 'tpope/vim-surround'
 
 " Snippets
 Bundle 'kplaube/snipmate.vim'
 
 " Syntax Highlight
+Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
@@ -86,10 +89,13 @@ let mapleader=","
 
 " ### Plugins settings ###
 let g:ctrlp_working_path_mode='ra'
+let g:ctrlp_match_window = 'top,order:ttb,min:1,max:10,results:10'
 
 let g:indexer_disableCtagsWarning=1
 
 let g:Powerline_symbols='unicode'
+
+let g:startify_lists = ['files', 'dir', 'bookmarks', 'sessions']
 
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting=1
