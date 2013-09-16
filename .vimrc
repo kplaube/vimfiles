@@ -34,7 +34,6 @@ Bundle 'tpope/vim-surround'
 
 " Snippets
 Bundle 'kplaube/snipmate.vim'
-Bundle 'mattn/zencoding-vim'
 
 " Syntax Highlight
 Bundle 'kchmck/vim-coffee-script'
@@ -45,8 +44,6 @@ Bundle 'vim-scripts/wombat256.vim'
 
 " Code complete
 Bundle 'vim-scripts/indexer.tar.gz'
-Bundle 'teramako/jscomplete-vim'
-Bundle 'vim-scripts/pythoncomplete'
 
 
 " ### Font & Color ###
@@ -88,14 +85,21 @@ let mapleader=","
 
 
 " ### Plugins settings ###
-let g:syntastic_python_checkers=['flake8']
-let g:syntastic_python_flake8_args='--ignore=E501'
+let g:ctrlp_working_path_mode='ra'
+
+let g:indexer_disableCtagsWarning=1
+
+let g:Powerline_symbols='unicode'
+
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_highlighting=1
 let g:syntastic_php_checkers=['php', 'phpcs']
 let g:syntastic_php_phpcs_args='--report=csv --standard=PSR2'
-let g:syntastic_check_on_open=0
-let g:ctrlp_working_path_mode='ra'
-let g:Powerline_symbols='unicode'
-let g:indexer_disableCtagsWarning=1
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_flake8_args='--ignore=E501'
+
+let g:tagbar_compact=1
+let g:tagbar_sort=0
 
 
 " ### Shortcuts ###
