@@ -31,7 +31,6 @@ Bundle 'vim-scripts/vimprj'
 Bundle 'vim-scripts/Crunch'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'mhinz/vim-startify'
 Bundle 'tpope/vim-surround'
 
 " Snippets
@@ -94,8 +93,6 @@ let g:ctrlp_match_window = 'top,order:ttb,min:1,max:10,results:10'
 let g:indexer_disableCtagsWarning=1
 
 let g:Powerline_symbols='unicode'
-
-let g:startify_lists = ['files', 'dir', 'bookmarks', 'sessions']
 
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting=1
