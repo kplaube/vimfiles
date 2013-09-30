@@ -75,10 +75,12 @@ set showcmd                             " show command/mode in at bottom
 set showmatch                           " show match (), [] and {}
 set hlsearch                            " highlight search results
 set ignorecase                          " case insensitive search
+set smartcase
 set nojoinspaces                        " don't add space when joining line
 set textwidth=0 nowrap                  " infinite lines with no wrap
 set backspace=indent,eol,start          " sane backspace
 set nomousehide                         " don't hide the mouse cursor while typing
+set ttyfast                             " improves redrawing
 set guioptions-=T                       " turn off GUI toolbar
 set guioptions-=m                       " turn off GUI menu
 set guioptions-=r                       " turn off GUI right scrollbar
@@ -87,8 +89,11 @@ let mapleader=","
 
 
 " ### Plugins settings ###
+let g:ctrlp_match_window='top,order:ttb,min:1,max:10,results:10'
+let g:ctrlp_max_height=20
+let g:ctrlp_max_files=200000
+let g:ctrlp_clear_cache_on_exit=0
 let g:ctrlp_working_path_mode='ra'
-let g:ctrlp_match_window = 'top,order:ttb,min:1,max:10,results:10'
 
 let g:indexer_disableCtagsWarning=1
 
@@ -96,6 +101,8 @@ let g:Powerline_symbols='unicode'
 
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting=1
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
 let g:syntastic_php_checkers=['php', 'phpcs']
 let g:syntastic_php_phpcs_args='--report=csv --standard=PSR2'
 let g:syntastic_python_checkers=['flake8']
