@@ -1,11 +1,14 @@
+" My Vimrc file
+" Maintainer: www.klauslaube.com.br/about/
+" License: www.opensource.org/licenses/bsd-license.php
+
 set nocompatible                        " disable compatible mode
-filetype off
+filetype off                            " we are doing this for Vundle!
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()                        " start vundle
+call vundle#rc()                        " start Vundle
 
-" Let Vundle manage!
-Bundle 'gmarik/vundle'
+Bundle 'gmarik/vundle'                  " let Vundle manage!
 
 
 " ### Bundles ###
@@ -55,43 +58,51 @@ colorscheme wombat256mod
 
 " ### General settings ###
 filetype plugin indent on               " indent files, ftplugins
-syntax on
+syntax on                               " enable syntax highlighting
 
 set encoding=utf8
 set fileencoding=utf8
+
 set nobackup                            " no backups
 set nowritebackup                       " write the buffer to the original file
 set noswapfile                          " no swap files
-set visualbell                          " disable beeping
+set backupdir=~/.vim
+set directory=~/.vim
+
 set number                              " show line numbers
-set cursorline                          " highlight current line
-set modeline
-set modelines=5
-set laststatus=2
 set ruler                               " show line, col in status bar
-set hidden                              " hide buffers with closed files
-set incsearch                           " use incremental search
+set cursorline                          " highlight current line
 set showcmd                             " show command/mode in at bottom
 set showmatch                           " show match (), [] and {}
+
+set visualbell                          " disable beeping
+set modeline
+set laststatus=2                        " last window always have a status line
+set hidden                              " hide buffers with closed files
+
+set incsearch                           " search as you type
 set hlsearch                            " highlight search results
 set ignorecase                          " case insensitive search
-set smartcase
+set smartcase                           " override ignorecase when using upper case
+
 set nojoinspaces                        " don't add space when joining line
 set textwidth=0 nowrap                  " infinite lines with no wrap
 set backspace=indent,eol,start          " sane backspace
 set nomousehide                         " don't hide the mouse cursor while typing
+
 set ttyfast                             " improves redrawing
 set guioptions-=T                       " turn off GUI toolbar
 set guioptions-=m                       " turn off GUI menu
 set guioptions-=r                       " turn off GUI right scrollbar
 set guioptions-=L                       " turn off GUI left scrollbar
+
 let mapleader=","
 
 
 " ### Plugins settings ###
-let g:ctrlp_match_window='top,order:ttb,min:1,max:10,results:10'
+let g:ctrlp_match_window='bottom,order:ttb,min:1,max:10,results:10'
 let g:ctrlp_max_height=20
-let g:ctrlp_max_files=200000
+let g:ctrlp_max_files=100000
 let g:ctrlp_clear_cache_on_exit=0
 let g:ctrlp_working_path_mode='ra'
 
@@ -114,9 +125,13 @@ let g:tagbar_sort=0
 
 " ### Shortcuts ###
 nmap <F2> :NERDTreeToggle<CR>
+imap <F2> <Esc><F2><CR>
 nmap <F6> :Extradite<CR>
+imap <F6> <Esc><F6><CR>
 nmap <F7> :Errors<CR>
+imap <F7> <Esc><F7><CR>
 nmap <F8> :TagbarToggle<CR>
+imap <F8> <Esc><F8><CR>
 
 
 " ### GUI settings ###
@@ -170,8 +185,8 @@ au FileType vim                         let comment='" '
 " Comment Blocks
 " ,c -> comment selected
 " ,u -> uncomment selected
-noremap <silent> ,c :s,^,<C-R>=comment<CR>,<CR>:noh<CR>
-noremap <silent> ,u :s,^\V<C-R>=comment<CR>,,e<CR>:noh<CR>
+noremap <Leader>c :s,^,<C-R>=comment<CR>,<CR>:noh<CR>
+noremap <Leader>u :s,^\V<C-R>=comment<CR>,,e<CR>:noh<CR>
 
 
 " ### Language settings ###
@@ -204,7 +219,11 @@ au FileType css         set omnifunc=csscomplete#CompleteCSS
 
 " ### Useful settings ###
 " Some useful abbreviations to common mistyped commands
-cab W w | cab Q q | cab Wq wq | cab wQ wq | cab WQ wq
+cab W w
+cab Q q
+cab Wq wq
+cab wQ wq
+cab WQ wq
 
 " Copy to clipboard made easy!
 nnoremap <C-y> "+y
@@ -213,10 +232,10 @@ vnoremap <C-y> "+y
 " Simple recursive grep
 command! -nargs=1 RecurGrep lvimgrep /<args>/gj ./**/*.* | lopen | set nowrap
 command! -nargs=1 RecurGrepFast silent exec 'lgrep! <q-args> ./**/*.*' | lopen
-nmap ,R :RecurGrep
-nmap ,r :RecurGrepFast
-nmap ,wR :RecurGrep <cword><CR>
-nmap ,wr :RecurGrepFast <cword><CR>
+nmap <Leader>R :RecurGrep
+nmap <Leader>r :RecurGrepFast
+nmap <Leader>wR :RecurGrep <cword><CR>
+nmap <Leader>wr :RecurGrepFast <cword><CR>
 
 " Highlight trailing whitespaces
 highlight WhitespaceEOL ctermbg=red guibg=red
@@ -228,7 +247,3 @@ if exists('+colorcolumn')
     highlight ColorColumn guibg=#2d2d2d ctermbg=236
     let &colorcolumn="80,".join(range(120,320),",")
 endif
-
-" Moving .swp files away
-set backupdir=~/.vim
-set directory=~/.vim
