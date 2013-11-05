@@ -8,7 +8,8 @@ filetype off                            " we are doing this for Vundle!
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()                        " start Vundle
 
-Bundle 'gmarik/vundle'                  " let Vundle manage!
+" Let Vundle manage!
+Bundle 'gmarik/vundle'
 
 
 " ### Bundles ###
