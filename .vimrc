@@ -14,7 +14,7 @@ Bundle 'gmarik/vundle'
 
 " ### Bundles ###
 " Libraries
-Bundle 'vim-scripts/DfrankUtil'
+Bundle 'xolox/vim-misc'
 
 " Code quality checker
 Bundle 'scrooloose/syntastic'
@@ -29,7 +29,6 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
-Bundle 'vim-scripts/vimprj'
 
 " Other utilities
 Bundle 'vim-scripts/Crunch'
@@ -49,7 +48,7 @@ Bundle 'vim-scripts/Wombat'
 Bundle 'vim-scripts/wombat256.vim'
 
 " Code complete
-Bundle 'vim-scripts/indexer.tar.gz'
+Bundle 'xolox/vim-easytags'
 
 
 " ### Font & Color ###
@@ -106,8 +105,6 @@ let g:ctrlp_max_height=20
 let g:ctrlp_max_files=100000
 let g:ctrlp_clear_cache_on_exit=0
 let g:ctrlp_working_path_mode='ra'
-
-let g:indexer_disableCtagsWarning=1
 
 let g:Powerline_symbols='unicode'
 
