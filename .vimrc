@@ -14,7 +14,7 @@ Bundle 'gmarik/vundle'
 
 " ### Bundles ###
 " Libraries
-Bundle 'xolox/vim-misc'
+Bundle 'tpope/vim-dispatch'
 
 " Code quality checker
 Bundle 'scrooloose/syntastic'
@@ -33,6 +33,7 @@ Bundle 'majutsushi/tagbar'
 " Other utilities
 Bundle 'vim-scripts/Crunch'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-surround'
 
@@ -48,7 +49,7 @@ Bundle 'vim-scripts/Wombat'
 Bundle 'vim-scripts/wombat256.vim'
 
 " Code complete
-Bundle 'xolox/vim-easytags'
+Bundle 'szw/vim-tags'
 
 
 " ### Font & Color ###
@@ -105,6 +106,8 @@ let g:ctrlp_max_height=20
 let g:ctrlp_max_files=100000
 let g:ctrlp_clear_cache_on_exit=0
 let g:ctrlp_working_path_mode='ra'
+
+let g:gitgutter_realtime=0
 
 let g:Powerline_symbols='unicode'
 
@@ -178,13 +181,6 @@ au FileType sh,make,python,ruby         let comment='# '
 au FileType c,cpp,java,javascript,scss  let comment='// '
 au FileType tex                         let comment='% '
 au FileType vim                         let comment='" '
-
-
-" Comment Blocks
-" ,c -> comment selected
-" ,u -> uncomment selected
-noremap <Leader>c :s,^,<C-R>=comment<CR>,<CR>:noh<CR>
-noremap <Leader>u :s,^\V<C-R>=comment<CR>,,e<CR>:noh<CR>
 
 
 " ### Language settings ###
