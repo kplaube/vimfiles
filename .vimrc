@@ -49,6 +49,7 @@ Bundle 'vim-scripts/Wombat'
 Bundle 'vim-scripts/wombat256.vim'
 
 " Code complete
+Bundle 'davidhalter/jedi-vim'
 Bundle 'szw/vim-tags'
 
 
@@ -154,17 +155,6 @@ if has("gui_macvim")
 endif
 
 
-" ### Autocomplete settings ###
-set completeopt=menu,preview                    " configure drop-down menu when completing with ctrl-n
-set wildmode=list:longest                       " bash like command line tab completion
-set wildignore=*.o,*.obj,*~,*.swp,*.pyc         " ignore when tab completing
-inoremap <C-space> <C-x><C-o>
-
-" Go to definition config
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-
-
 " ### Tab/Indent config ###
 " 4 soft-space tabs for all kind of documents
 set expandtab
@@ -174,41 +164,24 @@ set smartindent
 set shiftwidth=4 tabstop=4 softtabstop=4
 
 
-" ### Comment ###
-" Comment/Uncomment for different languages
-au FileType haskell,vhdl,ada            let comment='-- '
-au FileType sh,make,python,ruby         let comment='# '
-au FileType c,cpp,java,javascript,scss  let comment='// '
-au FileType tex                         let comment='% '
-au FileType vim                         let comment='" '
-
-
 " ### Language settings ###
 au FileType make        set noexpandtab
-au FileType c           set omnifunc=ccomplete#Complete
-au FileType ruby,eruby  set omnifunc=rubycomplete#Complete
 
 " Python
 let python_highlight_all = 1
 au FileType python set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-au FileType python set omnifunc=pythoncomplete#Complete
 
 " PHP
-au FileType php set omnifunc=phpcomplete#CompletePHP
 
 " Javascript
 au FileType javascript setlocal shiftwidth=2 tabstop=2
-au FileType javascript set omnifunc=jscomplete#CompleteJS
 
 " HTML & CSS
 au FileType html        setlocal shiftwidth=4 tabstop=4
 au FileType htmldjango  setlocal ft=html
-au FileType html        set omnifunc=htmlcomplete#CompleteTags
 au FileType xml         setlocal shiftwidth=2 tabstop=2
-au FileType xml         set omnifunc=xmlcomplete#CompleteTags
 au FileType scss        setlocal ft=css
 au FileType css         setlocal shiftwidth=2 tabstop=2
-au FileType css         set omnifunc=csscomplete#CompleteCSS
 
 
 " ### Useful settings ###
