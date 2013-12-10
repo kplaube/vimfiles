@@ -31,10 +31,12 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
 
 " Other utilities
+Bundle 'bling/vim-airline'
+Bundle 'bling/vim-bufferline'
 Bundle 'vim-scripts/Crunch'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'mhinz/vim-startify'
 Bundle 'tpope/vim-surround'
 
 " Snippets
@@ -42,11 +44,9 @@ Bundle 'kplaube/snipmate.vim'
 
 " Syntax Highlight
 Bundle 'cakebaker/scss-syntax.vim'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-haml'
+Bundle 'Pychimp/vim-luna'
 Bundle 'tpope/vim-markdown'
-Bundle 'vim-scripts/Wombat'
-Bundle 'vim-scripts/wombat256.vim'
 
 " Code complete
 Bundle 'davidhalter/jedi-vim'
@@ -55,7 +55,7 @@ Bundle 'szw/vim-tags'
 
 " ### Font & Color ###
 set t_Co=256
-colorscheme wombat256mod
+colorscheme luna
 
 
 " ### General settings ###
@@ -102,6 +102,10 @@ let mapleader=","
 
 
 " ### Plugins settings ###
+let g:airline_powerline_fonts=1
+let g:airline_theme='dark'
+let g:airline#extensions#tabline#enabled = 1
+
 let g:ctrlp_match_window='bottom,order:ttb,min:1,max:10,results:10'
 let g:ctrlp_max_height=20
 let g:ctrlp_max_files=100000
@@ -109,8 +113,6 @@ let g:ctrlp_clear_cache_on_exit=0
 let g:ctrlp_working_path_mode='ra'
 
 let g:gitgutter_realtime=0
-
-let g:Powerline_symbols='unicode'
 
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting=1
@@ -138,20 +140,19 @@ imap <F8> <Esc><F8><CR>
 
 " ### GUI settings ###
 if has("gui_running")
-    colorscheme wombat
     set guicursor=a:blinkoff0-blinkwait0
 endif
 
 " GVim
 if has("gui_gtk2")
-    set gfn=Monospace\ 14
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 14
 	set novisualbell
 endif
 
 " MacVim
 if has("gui_macvim")
     let macvim_hig_shift_movement=1
-    set gfn=Monaco:h15
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline:h16
 endif
 
 
@@ -195,6 +196,10 @@ cab WQ wq
 " Copy to clipboard made easy!
 nnoremap <C-y> "+y
 vnoremap <C-y> "+y
+
+" Go to definition config
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " Simple recursive grep
 command! -nargs=1 RecurGrep lvimgrep /<args>/gj ./**/*.* | lopen | set nowrap
