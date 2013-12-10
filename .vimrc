@@ -32,7 +32,6 @@ Bundle 'majutsushi/tagbar'
 
 " Other utilities
 Bundle 'bling/vim-airline'
-Bundle 'bling/vim-bufferline'
 Bundle 'vim-scripts/Crunch'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/nerdcommenter'
@@ -104,7 +103,7 @@ let mapleader=","
 " ### Plugins settings ###
 let g:airline_powerline_fonts=1
 let g:airline_theme='dark'
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled=1
 
 let g:ctrlp_match_window='bottom,order:ttb,min:1,max:10,results:10'
 let g:ctrlp_max_height=20
@@ -171,6 +170,7 @@ au FileType make        set noexpandtab
 " Python
 let python_highlight_all = 1
 au FileType python set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+au FileType python setlocal completeopt-=preview
 
 " PHP
 
