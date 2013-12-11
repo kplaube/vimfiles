@@ -48,7 +48,6 @@ Bundle 'Pychimp/vim-luna'
 Bundle 'tpope/vim-markdown'
 
 " Code complete
-Bundle 'davidhalter/jedi-vim'
 Bundle 'szw/vim-tags'
 
 
@@ -124,6 +123,8 @@ let g:syntastic_python_flake8_args='--ignore=E501'
 
 let g:tagbar_compact=1
 let g:tagbar_sort=0
+
+let g:vim_tags_project_tags_command="ctags -R {OPTIONS} --exclude=*.html --exclude=*.js {DIRECTORY} `python -c \"import os; print os.environ.get('VIRTUAL_ENV', '')\"` 2>/dev/null"
 
 
 " ### Shortcuts ###
