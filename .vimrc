@@ -175,6 +175,9 @@ au FileType python setlocal completeopt-=preview
 
 " PHP
 
+" Perl
+au FileType perl setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
 " Javascript
 au FileType javascript setlocal shiftwidth=2 tabstop=2
 
