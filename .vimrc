@@ -5,50 +5,51 @@
 set nocompatible                        " disable compatible mode
 filetype off                            " we are doing this for Vundle!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()                        " start Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()                        " start Vundle
 
 " Let Vundle manage!
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 
 " ### Bundles ###
 " Libraries
-Bundle 'tpope/vim-dispatch'
+Plugin 'tpope/vim-dispatch'
 
 " Code quality checker
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 
 " Why use shell?
-Bundle 'int3/vim-extradite'
-Bundle 'tpope/vim-fugitive'
-Bundle 'jmcantrell/vim-virtualenv'
-Bundle 'airblade/vim-gitgutter'
+Plugin 'int3/vim-extradite'
+Plugin 'tpope/vim-fugitive'
+Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'airblade/vim-gitgutter'
 
 " Organize project
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'majutsushi/tagbar'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
 
 " Other utilities
-Bundle 'bling/vim-airline'
-Bundle 'vim-scripts/Crunch'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'mhinz/vim-startify'
-Bundle 'tpope/vim-surround'
+Plugin 'bling/vim-airline'
+Plugin 'vim-scripts/Crunch'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-surround'
 
 " Snippets
-Bundle 'kplaube/snipmate.vim'
+Plugin 'kplaube/snipmate.vim'
 
 " Syntax Highlight
-Bundle 'cakebaker/scss-syntax.vim'
-Bundle 'tpope/vim-haml'
-Bundle 'Pychimp/vim-luna'
-Bundle 'tpope/vim-markdown'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'tpope/vim-haml'
+Plugin 'Pychimp/vim-luna'
+Plugin 'tpope/vim-markdown'
 
 " Code complete
-Bundle 'szw/vim-tags'
+Plugin 'szw/vim-tags'
+
+call vundle#end()
 
 
 " ### Font & Color ###
