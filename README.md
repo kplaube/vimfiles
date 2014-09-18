@@ -38,35 +38,8 @@ It already contains the setup of Vundle:
 
 ### Installing plugins
 
-Open VIM and run `:BundleInstall`.
+Open VIM and run `:PluginInstall`.
 
 That's all!
-
-Plugins that `Vundle` will install are:
-
-* [Crunch](https://github.com/vim-scripts/Crunch) - An easier way to perform calculations inside VIM
-* [ctrlp.vim](https://github.com/kien/ctrlp.vim) - Find files in your projects
-* [DfrankUtil](https://github.com/vim-scripts/DfrankUtil) - Just a library for some scripts
-* [indexer.tar.gz](https://github.com/vim-scripts/indexer.tar.gz) - Indexing all files in project with ctags
-* [nerdtree](https://github.com/scrooloose/nerdtree) - A tree explorer plugin
-* [scss-syntax.vim](https://github.com/cakebaker/scss-syntax.vim) - VIM syntax file for `SCSS`
-* [snipmate.vim](https://github.com/kplaube/snipmate.vim) - TextMate's snippets features in VIM
-* [syntastic](https://github.com/scrooloose/syntastic) - Syntax checking for a lot of languages
-* [tagbar](https://github.com/majutsushi/tagbar)  - Display tags in a window, ordered by class
-* [vimprj](https://github.com/vim-scripts/vimprj) - Plugin for managing options for different projects
-* [vim-coffee-script](https://github.com/kchmck/vim-coffee-script) - `CoffeeScript` support for VIM
-* [vim-easymotion](https://github.com/Lokaltog/vim-easymotion) - Provides a much simpler way to use motions in VIM
-* [vim-extradite](https://github.com/int3/vim-extradite) - A `Git` commit browser for VIM
-* [vim-flake8](https://github.com/nvie/vim-flake8) - Syntax and style checker for `Python` source code
-* [vim-fugitive](https://github.com/tpope/vim-fugitive) - A (awesome) `Git` wrapper
-* [vim-gitgutter](https://github.com/airblade/vim-gitgutter) - A plugin which shows a git diff in the gutter (sign column)
-* [vim-haml](https://github.com/tpope/vim-haml) - Syntax highlight for `SCSS` and `HAML`
-* [vim-markdown](https://github.com/tpope/vim-markdown) - Syntax highlight for `Markdown`
-* [vim-powerline](https://github.com/Lokaltog/vim-powerline) - Increases your VIM statusline
-* [vim-startify](https://github.com/mhinz/vim-startify) - A fancy start screen for VIM
-* [vim-surround](https://github.com/tpope/vim-surround) Provides mappings to easily delete, change and add surroundings
-* [vim-virtualenv](https://github.com/jmcantrell/vim-virtualenv) - Works with `virtualenv` in VIM
-* [Wombat](https://github.com/vim-scripts/Wombat) - Dark gray color scheme sharing some similarities with Desert
-
 
 Strongly inspired in [Francisco Souza's vim files repository](https://github.com/fsouza/vimfiles).
