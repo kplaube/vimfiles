@@ -22,6 +22,7 @@ Plugin 'majutsushi/tagbar'              " tags in a window
 Plugin 'bling/vim-airline'              " status/tabline
 Plugin 'tpope/vim-fugitive'             " a git wrapper
 Plugin 'airblade/vim-gitgutter'         " git diff in the sign column
+Plugin 'fatih/vim-go'                   " go development plugin
 Plugin 'tpope/vim-haml'                 " runtime files for Haml, Sass and SCSS
 Plugin 'tpope/vim-markdown'             " markdown runtime files
 Plugin 'jistr/vim-nerdtree-tabs'        " NerdTree and tabs, together
