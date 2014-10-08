@@ -13,7 +13,11 @@ call vundle#begin()                     " start Vundle
 Plugin 'gmarik/vundle'
 
 " Bundles
+Plugin 'vim-scripts/DfrankUtil'         " library for some scripts
+Plugin 'vim-scripts/vimprj'             " managing options for different proj
+
 Plugin 'kien/ctrlp.vim'                 " fuzzy file finder
+Plugin 'vim-scripts/indexer.tar.gz'     " indexing all files in project with ctags
 Plugin 'tomasr/molokai'                 " color scheme
 Plugin 'scrooloose/nerdcommenter'       " commenting
 Plugin 'scrooloose/nerdtree'            " tree explorer
@@ -175,6 +179,10 @@ if exists('+colorcolumn')
     let &colorcolumn="80,".join(range(120,320),",")
 endif
 
+" Switch buffers with tab
+nnoremap <S-Tab> :bprevious<CR>
+nnoremap <Tab> :bnext<CR>
+
 
 " Plugins settings
 let g:airline_powerline_fonts=1
@@ -188,6 +196,9 @@ let g:ctrlp_working_path_mode='r'
 
 let g:gitgutter_realtime=0
 
+let g:nerdtree_tabs_open_on_new_tab=0
+let g:nerdtree_tabs_autoclose=0
+
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting=1
 let g:syntastic_error_symbol='✗'
@@ -199,3 +210,5 @@ let g:syntastic_python_flake8_args='--ignore=E501'
 
 let g:tagbar_compact=1
 let g:tagbar_sort=0
+
+let g:vim_tags_project_tags_command="ctags -R {OPTIONS} --exclude=*.html --exclude=*.js {DIRECTORY} `python -c \"import os; print os.environ.get('VIRTUAL_ENV', '')\"` 2>/dev/null"
