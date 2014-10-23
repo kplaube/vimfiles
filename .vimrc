@@ -183,6 +183,10 @@ endif
 nnoremap <S-Tab> :bprevious<CR>
 nnoremap <Tab> :bnext<CR>
 
+" Go to definition config
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
 
 " Plugins settings
 let g:airline_powerline_fonts=1
@@ -195,6 +199,8 @@ let g:ctrlp_clear_cache_on_exit=0
 let g:ctrlp_working_path_mode='r'
 
 let g:gitgutter_realtime=0
+
+let g:indexer_disableCtagsWarning=1
 
 let g:nerdtree_tabs_open_on_new_tab=0
 let g:nerdtree_tabs_autoclose=0
@@ -209,6 +215,3 @@ let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_args='--ignore=E501'
 
 let g:tagbar_compact=1
-let g:tagbar_sort=0
-
-let g:vim_tags_project_tags_command="ctags -R {OPTIONS} --exclude=*.html --exclude=*.js {DIRECTORY} `python -c \"import os; print os.environ.get('VIRTUAL_ENV', '')\"` 2>/dev/null"
