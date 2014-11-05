@@ -28,6 +28,7 @@ Plugin 'tpope/vim-fugitive'             " a git wrapper
 Plugin 'airblade/vim-gitgutter'         " git diff in the sign column
 Plugin 'fatih/vim-go'                   " go development plugin
 Plugin 'tpope/vim-haml'                 " runtime files for Haml, Sass and SCSS
+Plugin 'noahfrederick/vim-hemisu'       " color scheme
 Plugin 'tpope/vim-markdown'             " markdown runtime files
 Plugin 'jistr/vim-nerdtree-tabs'        " NerdTree and tabs, together
 
@@ -108,19 +109,18 @@ set guioptions-=L                       " turn off GUI left scrollbar
 " GUI settings
 if has("gui_running")
     set guicursor=a:blinkoff0-blinkwait0
-	set transparency=5
 endif
 
 " GVim
 if has("gui_gtk2")
     set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 14
-	set novisualbell
 endif
 
 " MacVim
 if has("gui_macvim")
     let macvim_hig_shift_movement=1
     set guifont=Droid\ Sans\ Mono\ for\ Powerline:h16
+    set transparency=8
 endif
 
 
@@ -145,7 +145,7 @@ au FileType perl        setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au FileType javascript setlocal shiftwidth=4 tabstop=4
 
 " HTML & CSS
-au FileType html        setlocal shiftwidth=2 tabstop=2
+au FileType html        setlocal shiftwidth=4 tabstop=4
 au FileType htmldjango  setlocal ft=html
 au FileType xml         setlocal shiftwidth=2 tabstop=2
 au FileType scss        setlocal ft=css
