@@ -17,6 +17,7 @@ Plugin 'vim-scripts/DfrankUtil'         " library for some scripts
 Plugin 'vim-scripts/vimprj'             " managing options for different proj
 
 Plugin 'kien/ctrlp.vim'                 " fuzzy file finder
+Plugin 'editorconfig/editorconfig-vim'  " editorconfig plugin
 Plugin 'vim-scripts/indexer.tar.gz'     " indexing all files in project with ctags
 Plugin 'tomasr/molokai'                 " color scheme
 Plugin 'scrooloose/nerdcommenter'       " commenting
