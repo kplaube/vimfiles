@@ -13,25 +13,20 @@ call vundle#begin()                     " start Vundle
 Plugin 'gmarik/vundle'
 
 " Bundles
-Plugin 'vim-scripts/DfrankUtil'         " library for some scripts
-Plugin 'vim-scripts/vimprj'             " managing options for different proj
-
-Plugin 'kien/ctrlp.vim'                 " fuzzy file finder
-Plugin 'editorconfig/editorconfig-vim'  " editorconfig plugin
-Plugin 'vim-scripts/indexer.tar.gz'     " indexing all files in project with ctags
-Plugin 'tomasr/molokai'                 " color scheme
-Plugin 'scrooloose/nerdcommenter'       " commenting
-Plugin 'scrooloose/nerdtree'            " tree explorer
-Plugin 'scrooloose/syntastic'           " syntax checking
-Plugin 'majutsushi/tagbar'              " tags in a window
-Plugin 'bling/vim-airline'              " status/tabline
-Plugin 'tpope/vim-fugitive'             " a git wrapper
-Plugin 'airblade/vim-gitgutter'         " git diff in the sign column
-Plugin 'fatih/vim-go'                   " go development plugin
-Plugin 'tpope/vim-haml'                 " runtime files for Haml, Sass and SCSS
-Plugin 'noahfrederick/vim-hemisu'       " color scheme
-Plugin 'tpope/vim-markdown'             " markdown runtime files
-Plugin 'jistr/vim-nerdtree-tabs'        " NerdTree and tabs, together
+Plugin 'bling/vim-airline'                  " status/tabline
+Plugin 'bling/vim-bufferline'               " show the list of buffers in the command bar
+Plugin 'bronson/vim-trailing-whitespace'    " highlights trailing whitespace
+Plugin 'davidhalter/jedi-vim'               " autocompletion library
+Plugin 'editorconfig/editorconfig-vim'      " editorconfig plugin
+Plugin 'ervandew/supertab'                  " perform all insert mode completions with Tab
+Plugin 'int3/vim-extradite'                 " git commit browser explorer
+Plugin 'kien/ctrlp.vim'                     " fuzzy file, buffer, mru, tag, etc finder
+Plugin 'majutsushi/tagbar'                  " displays tags in a window
+Plugin 'scrooloose/nerdcommenter'           " intensely orgasmic commenting
+Plugin 'scrooloose/nerdtree'                " a tree explorer plugin
+Plugin 'scrooloose/syntastic'               " syntax checking
+Plugin 'tomasr/molokai'                     " color scheme
+Plugin 'tpope/vim-fugitive'                 " a Git wrapper so awesome, it should be illegal
 
 call vundle#end()
 
@@ -39,8 +34,6 @@ call vundle#end()
 " Shortcuts
 nmap <F2> :NERDTreeToggle<CR>
 imap <F2> <Esc><F2><CR>
-nmap <F6> :Extradite<CR>
-imap <F6> <Esc><F6><CR>
 nmap <F7> :Errors<CR>
 imap <F7> <Esc><F7><CR>
 nmap <F8> :TagbarToggle<CR>
@@ -51,6 +44,7 @@ imap <F8> <Esc><F8><CR>
 filetype plugin indent on               " required
 syntax on                               " enable syntax highlighting
 set t_Co=256
+set background=dark
 colorscheme molokai
 
 let mapleader=","
@@ -121,7 +115,7 @@ endif
 if has("gui_macvim")
     let macvim_hig_shift_movement=1
     set guifont=Droid\ Sans\ Mono\ for\ Powerline:h16
-    set transparency=8
+    set transparency=2
 endif
 
 
@@ -169,24 +163,11 @@ nmap <Leader>r :RecurGrepFast
 nmap <Leader>wR :RecurGrep <cword><CR>
 nmap <Leader>wr :RecurGrepFast <cword><CR>
 
-" Highlight trailing whitespaces
-highlight WhitespaceEOL ctermbg=red guibg=red
-au ColorScheme * highlight WhitespaceEOL ctermbg=red guibg=red
-match WhitespaceEOL /\s\+$/
-
 " Highlight 80th and 120th columns
 if exists('+colorcolumn')
     highlight ColorColumn guibg=#2d2d2d ctermbg=236
     let &colorcolumn="80,".join(range(120,320),",")
 endif
-
-" Switch buffers with tab
-nnoremap <S-Tab> :bprevious<CR>
-nnoremap <Tab> :bnext<CR>
-
-" Go to definition config
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 
 " Plugins settings
@@ -196,14 +177,12 @@ let g:airline_theme='dark'
 let g:ctrlp_match_window='bottom,order:ttb,min:1,max:10,results:10'
 let g:ctrlp_max_height=20
 let g:ctrlp_max_files=100000
-let g:ctrlp_clear_cache_on_exit=0
+let g:ctrlp_clear_cache_on_exit=1
 let g:ctrlp_working_path_mode='r'
 
-let g:gitgutter_realtime=0
+let g:jedi#popup_on_dot = 0
 
-let g:indexer_disableCtagsWarning=1
-
-let g:nerdtree_tabs_open_on_new_tab=0
+let g:nerdtree_tabs_open_on_new_tab=1
 let g:nerdtree_tabs_autoclose=0
 
 let g:syntastic_check_on_open=1
