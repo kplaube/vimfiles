@@ -19,14 +19,16 @@ Plugin 'bronson/vim-trailing-whitespace'    " highlights trailing whitespace
 Plugin 'davidhalter/jedi-vim'               " autocompletion library
 Plugin 'editorconfig/editorconfig-vim'      " editorconfig plugin
 Plugin 'ervandew/supertab'                  " perform all insert mode completions with Tab
+Plugin 'honza/vim-snippets'                 " vim-snipmate default snippets
 Plugin 'int3/vim-extradite'                 " git commit browser explorer
 Plugin 'kien/ctrlp.vim'                     " fuzzy file, buffer, mru, tag, etc finder
 Plugin 'majutsushi/tagbar'                  " displays tags in a window
 Plugin 'scrooloose/nerdcommenter'           " intensely orgasmic commenting
 Plugin 'scrooloose/nerdtree'                " a tree explorer plugin
 Plugin 'scrooloose/syntastic'               " syntax checking
+Plugin 'SirVer/ultisnips'                   " ultimate snippet solution
 Plugin 'tomasr/molokai'                     " color scheme
-Plugin 'tpope/vim-fugitive'                 " a Git wrapper so awesome, it should be illegal
+Plugin 'tpope/vim-fugitive'                 " a git wrapper so awesome, it should be illegal
 
 call vundle#end()
 
@@ -59,7 +61,6 @@ set noswapfile                          " no swap files
 set backupdir=/tmp/
 set directory=/tmp/
 
-set clipboard+=unnamed                  " yanks go on clipboard instead.
 set pastetoggle=<F10>                   " toggle between paste and normal: for 'safer' pasting from keyboard
 
 set modeline
@@ -195,3 +196,6 @@ let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_args='--ignore=E501'
 
 let g:tagbar_compact=1
+
+set runtimepath+=~/.vim/bundle/vim-snippets/snippets
+let g:UltiSnipsEditSplit="horizontal"
