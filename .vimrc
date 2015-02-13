@@ -19,6 +19,7 @@ Plugin 'bronson/vim-trailing-whitespace'    " highlights trailing whitespace
 Plugin 'davidhalter/jedi-vim'               " autocompletion library
 Plugin 'editorconfig/editorconfig-vim'      " editorconfig plugin
 Plugin 'ervandew/supertab'                  " perform all insert mode completions with Tab
+Plugin 'Glench/Vim-Jinja2-Syntax'           " jinja2 syntax file
 Plugin 'honza/vim-snippets'                 " vim-snipmate default snippets
 Plugin 'int3/vim-extradite'                 " git commit browser explorer
 Plugin 'kien/ctrlp.vim'                     " fuzzy file, buffer, mru, tag, etc finder
@@ -141,8 +142,11 @@ au FileType perl        setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au FileType javascript setlocal shiftwidth=4 tabstop=4
 
 " HTML & CSS
-au FileType html        setlocal shiftwidth=4 tabstop=4
-au FileType htmldjango  setlocal ft=html
+au FileType html                        setlocal shiftwidth=4 tabstop=4
+au BufNewFile,BufRead *.html.desktop    setlocal ft=jinja
+au BufNewFile,BufRead *.html.tablet     setlocal ft=jinja
+au BufNewFile,BufRead *.html.smart      setlocal ft=jinja
+
 au FileType xml         setlocal shiftwidth=2 tabstop=2
 au FileType scss        setlocal ft=css
 au FileType css         setlocal shiftwidth=2 tabstop=2
