@@ -14,7 +14,6 @@ Plugin 'gmarik/vundle'
 
 " Bundles
 Plugin 'bling/vim-airline'                  " status/tabline
-Plugin 'bling/vim-bufferline'               " show the list of buffers in the command bar
 Plugin 'bronson/vim-trailing-whitespace'    " highlights trailing whitespace
 Plugin 'davidhalter/jedi-vim'               " autocompletion library
 Plugin 'editorconfig/editorconfig-vim'      " editorconfig plugin
@@ -140,6 +139,7 @@ au FileType perl        setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Javascript
 au FileType javascript setlocal shiftwidth=4 tabstop=4
+au FileType json       setlocal ft=javascript
 
 " HTML & CSS
 au FileType html                        setlocal shiftwidth=4 tabstop=4
@@ -185,10 +185,11 @@ let g:ctrlp_max_files=100000
 let g:ctrlp_clear_cache_on_exit=1
 let g:ctrlp_working_path_mode='r'
 
-let g:jedi#popup_on_dot = 0
+let g:jedi#popup_on_dot=0
 
 let g:nerdtree_tabs_open_on_new_tab=1
 let g:nerdtree_tabs_autoclose=0
+let NERDTreeIgnore=['\~$', '__pycache__']
 
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting=1
