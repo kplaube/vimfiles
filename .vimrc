@@ -23,6 +23,7 @@ Plugin 'honza/vim-snippets'                 " vim-snipmate default snippets
 Plugin 'int3/vim-extradite'                 " git commit browser explorer
 Plugin 'kien/ctrlp.vim'                     " fuzzy file, buffer, mru, tag, etc finder
 Plugin 'majutsushi/tagbar'                  " displays tags in a window
+Plugin 'mileszs/ack.vim'                    " search tool with an enhanced results list
 Plugin 'scrooloose/nerdcommenter'           " intensely orgasmic commenting
 Plugin 'scrooloose/nerdtree'                " a tree explorer plugin
 Plugin 'scrooloose/syntastic'               " syntax checking
@@ -161,12 +162,7 @@ cab wQ wq
 cab WQ wq
 
 " Simple recursive grep
-command! -nargs=1 RecurGrep lvimgrep /<args>/gj ./**/*.* | lopen | set nowrap
-command! -nargs=1 RecurGrepFast silent exec 'lgrep! <q-args> ./**/*.*' | lopen
-nmap <Leader>R :RecurGrep
-nmap <Leader>r :RecurGrepFast
-nmap <Leader>wR :RecurGrep <cword><CR>
-nmap <Leader>wr :RecurGrepFast <cword><CR>
+nmap <Leader>R :Ack<space>
 
 " Highlight 80th and 120th columns
 if exists('+colorcolumn')
