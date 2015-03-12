@@ -23,7 +23,7 @@ Plugin 'honza/vim-snippets'                 " vim-snipmate default snippets
 Plugin 'int3/vim-extradite'                 " git commit browser explorer
 Plugin 'kien/ctrlp.vim'                     " fuzzy file, buffer, mru, tag, etc finder
 Plugin 'majutsushi/tagbar'                  " displays tags in a window
-Plugin 'mileszs/ack.vim'                    " search tool with an enhanced results list
+Plugin 'rking/ag.vim'                       " the silver searcher
 Plugin 'scrooloose/nerdcommenter'           " intensely orgasmic commenting
 Plugin 'scrooloose/nerdtree'                " a tree explorer plugin
 Plugin 'scrooloose/syntastic'               " syntax checking
@@ -161,8 +161,8 @@ cab Wq wq
 cab wQ wq
 cab WQ wq
 
-" Simple recursive grep
-nmap <Leader>R :Ack<space>
+" Using AG to search in project
+nmap <Leader>f :Ag<space>
 
 " Highlight 80th and 120th columns
 if exists('+colorcolumn')
@@ -191,6 +191,8 @@ let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
+let g:syntastic_javascript_checkers=['jshint']
+let g:syntastic_json_checkers=['jsonlint']
 let g:syntastic_php_checkers=['php', 'phpcs']
 let g:syntastic_php_phpcs_args='--report=csv --standard=PSR2'
 let g:syntastic_python_checkers=['flake8']
