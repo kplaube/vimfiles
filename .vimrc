@@ -21,6 +21,7 @@ Plugin 'ervandew/supertab'                  " perform all insert mode completion
 Plugin 'Glench/Vim-Jinja2-Syntax'           " jinja2 syntax file
 Plugin 'honza/vim-snippets'                 " vim-snipmate default snippets
 Plugin 'int3/vim-extradite'                 " git commit browser explorer
+Plugin 'kannokanno/previm'                  " realtime preview for markdown
 Plugin 'kien/ctrlp.vim'                     " fuzzy file, buffer, mru, tag, etc finder
 Plugin 'majutsushi/tagbar'                  " displays tags in a window
 Plugin 'rking/ag.vim'                       " the silver searcher
@@ -163,6 +164,9 @@ au FileType xml         setlocal shiftwidth=2 tabstop=2
 au FileType scss        setlocal ft=css
 au FileType css         setlocal shiftwidth=2 tabstop=2
 
+" Markdown
+au BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+
 
 " Useful settings
 " Some useful abbreviations to common mistyped commands
@@ -197,6 +201,8 @@ let g:jedi#popup_on_dot=0
 let g:nerdtree_tabs_open_on_new_tab=1
 let g:nerdtree_tabs_autoclose=0
 let NERDTreeIgnore=['\~$', '__pycache__']
+
+let g:previm_open_cmd='open -a "Google Chrome"'
 
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting=1
