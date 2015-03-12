@@ -43,6 +43,17 @@ nmap <F8> :TagbarToggle<CR>
 imap <F8> <Esc><F8><CR>
 
 
+" Arrows are unvimlike
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
+
 " General settings
 filetype plugin indent on               " required
 syntax on                               " enable syntax highlighting
