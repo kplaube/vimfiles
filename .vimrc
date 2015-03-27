@@ -13,6 +13,7 @@ call vundle#begin()                     " start Vundle
 Plugin 'gmarik/vundle'
 
 " Bundles
+Plugin 'airblade/vim-gitgutter'             " shows a git diff in the gutter
 Plugin 'bling/vim-airline'                  " status/tabline
 Plugin 'bronson/vim-trailing-whitespace'    " highlights trailing whitespace
 Plugin 'davidhalter/jedi-vim'               " autocompletion library
@@ -24,11 +25,13 @@ Plugin 'int3/vim-extradite'                 " git commit browser explorer
 Plugin 'kannokanno/previm'                  " realtime preview for markdown
 Plugin 'kien/ctrlp.vim'                     " fuzzy file, buffer, mru, tag, etc finder
 Plugin 'majutsushi/tagbar'                  " displays tags in a window
+Plugin 'nginx.vim'                          " nginx highlights
 Plugin 'rking/ag.vim'                       " the silver searcher
 Plugin 'scrooloose/nerdcommenter'           " intensely orgasmic commenting
 Plugin 'scrooloose/nerdtree'                " a tree explorer plugin
 Plugin 'scrooloose/syntastic'               " syntax checking
 Plugin 'SirVer/ultisnips'                   " ultimate snippet solution
+Plugin 'terryma/vim-multiple-cursors'       " sublime text multiple selections
 Plugin 'tomasr/molokai'                     " color scheme
 Plugin 'tpope/vim-fugitive'                 " a git wrapper so awesome, it should be illegal
 
