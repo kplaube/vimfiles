@@ -18,7 +18,6 @@ Plugin 'bling/vim-airline'                  " status/tabline
 Plugin 'bronson/vim-trailing-whitespace'    " highlights trailing whitespace
 Plugin 'davidhalter/jedi-vim'               " autocompletion library
 Plugin 'editorconfig/editorconfig-vim'      " editorconfig plugin
-Plugin 'ervandew/supertab'                  " perform all insert mode completions with Tab
 Plugin 'Glench/Vim-Jinja2-Syntax'           " jinja2 syntax file
 Plugin 'honza/vim-snippets'                 " vim-snipmate default snippets
 Plugin 'int3/vim-extradite'                 " git commit browser explorer
@@ -45,17 +44,6 @@ nmap <F7> :Errors<CR>
 imap <F7> <Esc><F7><CR>
 nmap <F8> :TagbarToggle<CR>
 imap <F8> <Esc><F8><CR>
-
-
-" Arrows are unvimlike
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
 
 
 " General settings
@@ -154,8 +142,8 @@ au FileType python      set smartindent cinwords=if,elif,else,for,while,try,exce
 au FileType perl        setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Javascript
-au FileType javascript setlocal shiftwidth=4 tabstop=4
-au FileType json       setlocal ft=javascript
+au FileType javascript			setlocal shiftwidth=4 tabstop=4
+au BufNewFile,BufRead *.json	setlocal ft=json shiftwidth=2 tabstop=2
 
 " HTML & CSS
 au FileType html                        setlocal shiftwidth=4 tabstop=4
