@@ -16,13 +16,13 @@ Plugin 'gmarik/vundle'
 Plugin 'airblade/vim-gitgutter'             " shows a git diff in the gutter
 Plugin 'bling/vim-airline'                  " status/tabline
 Plugin 'bronson/vim-trailing-whitespace'    " highlights trailing whitespace
-Plugin 'davidhalter/jedi-vim'               " autocompletion library
 Plugin 'editorconfig/editorconfig-vim'      " editorconfig plugin
 Plugin 'Glench/Vim-Jinja2-Syntax'           " jinja2 syntax file
 Plugin 'honza/vim-snippets'                 " vim-snipmate default snippets
 Plugin 'int3/vim-extradite'                 " git commit browser explorer
 Plugin 'kannokanno/previm'                  " realtime preview for markdown
 Plugin 'kien/ctrlp.vim'                     " fuzzy file, buffer, mru, tag, etc finder
+Plugin 'klen/python-mode'                   " python-mode, bitch!
 Plugin 'majutsushi/tagbar'                  " displays tags in a window
 Plugin 'nginx.vim'                          " nginx highlights
 Plugin 'rking/ag.vim'                       " the silver searcher
@@ -187,13 +187,17 @@ let g:ctrlp_max_files=100000
 let g:ctrlp_clear_cache_on_exit=1
 let g:ctrlp_working_path_mode='r'
 
-let g:jedi#popup_on_dot=0
-
 let g:nerdtree_tabs_open_on_new_tab=1
 let g:nerdtree_tabs_autoclose=0
 let NERDTreeIgnore=['\~$', '__pycache__']
 
 let g:previm_open_cmd='open -a "Google Chrome"'
+
+let g:pymode=1
+let g:pymode_folding=0
+let g:pymode_lint=0
+let g:pymode_rope_complete_on_dot = 0
+let g:pymode_rope_goto_definition_bind = "<C-]>"
 
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting=1
