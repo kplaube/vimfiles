@@ -18,6 +18,7 @@ Plugin 'bling/vim-airline'                  " status/tabline
 Plugin 'bronson/vim-trailing-whitespace'    " highlights trailing whitespace
 Plugin 'editorconfig/editorconfig-vim'      " editorconfig plugin
 Plugin 'Glench/Vim-Jinja2-Syntax'           " jinja2 syntax file
+Plugin 'gregsexton/gitv'                    " gitk for vim
 Plugin 'honza/vim-snippets'                 " vim-snipmate default snippets
 Plugin 'int3/vim-extradite'                 " git commit browser explorer
 Plugin 'kannokanno/previm'                  " realtime preview for markdown
@@ -25,6 +26,7 @@ Plugin 'kien/ctrlp.vim'                     " fuzzy file, buffer, mru, tag, etc 
 Plugin 'klen/python-mode'                   " python-mode, bitch!
 Plugin 'majutsushi/tagbar'                  " displays tags in a window
 Plugin 'nginx.vim'                          " nginx highlights
+Plugin 'reinh/vim-makegreen'                " runs make and shows red or green
 Plugin 'rking/ag.vim'                       " the silver searcher
 Plugin 'scrooloose/nerdcommenter'           " intensely orgasmic commenting
 Plugin 'scrooloose/nerdtree'                " a tree explorer plugin
@@ -196,8 +198,10 @@ let g:previm_open_cmd='open -a "Google Chrome"'
 let g:pymode=1
 let g:pymode_folding=0
 let g:pymode_lint=0
-let g:pymode_rope_complete_on_dot = 0
-let g:pymode_rope_goto_definition_bind = "<C-]>"
+let g:pymode_options_colorcolumn=0
+let g:pymode_rope_complete_on_dot=0
+let g:pymode_rope_goto_definition_bind="<C-]>"
+let g:pymode_rope_goto_definition_cmd='new'
 
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting=1
