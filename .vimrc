@@ -21,12 +21,13 @@ Plugin 'Glench/Vim-Jinja2-Syntax'           " jinja2 syntax file
 Plugin 'gregsexton/gitv'                    " gitk for vim
 Plugin 'honza/vim-snippets'                 " vim-snipmate default snippets
 Plugin 'int3/vim-extradite'                 " git commit browser explorer
+Plugin 'janko-m/vim-test'                   " run your tests at the speed of thought
+Plugin 'jistr/vim-nerdtree-tabs'            " nerdtree and tabs
 Plugin 'kannokanno/previm'                  " realtime preview for markdown
 Plugin 'kien/ctrlp.vim'                     " fuzzy file, buffer, mru, tag, etc finder
 Plugin 'klen/python-mode'                   " python-mode, bitch!
 Plugin 'majutsushi/tagbar'                  " displays tags in a window
 Plugin 'nginx.vim'                          " nginx highlights
-Plugin 'reinh/vim-makegreen'                " runs make and shows red or green
 Plugin 'rking/ag.vim'                       " the silver searcher
 Plugin 'scrooloose/nerdcommenter'           " intensely orgasmic commenting
 Plugin 'scrooloose/nerdtree'                " a tree explorer plugin
@@ -40,7 +41,7 @@ call vundle#end()
 
 
 " Shortcuts
-nmap <F2> :NERDTreeToggle<CR>
+nmap <F2> :NERDTreeMirrorToggle<CR>
 imap <F2> <Esc><F2><CR>
 nmap <F7> :Errors<CR>
 imap <F7> <Esc><F7><CR>
@@ -172,6 +173,9 @@ cab WQ wq
 " Using AG to search in project
 nmap <Leader>f :Ag<space>
 
+" Opening 'go to definition' in a new tab
+:nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
+
 " Highlight 80th and 120th columns
 if exists('+colorcolumn')
     highlight ColorColumn guibg=#2d2d2d ctermbg=236
@@ -189,9 +193,10 @@ let g:ctrlp_max_files=100000
 let g:ctrlp_clear_cache_on_exit=1
 let g:ctrlp_working_path_mode='r'
 
+let g:nerdtree_tabs_open_on_gui_startup=0
 let g:nerdtree_tabs_open_on_new_tab=1
 let g:nerdtree_tabs_autoclose=0
-let NERDTreeIgnore=['\~$', '__pycache__']
+let NERDTreeIgnore=['\~$', '__pycache__', '\.pyc$']
 
 let g:previm_open_cmd='open -a "Google Chrome"'
 
