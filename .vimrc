@@ -219,6 +219,8 @@ let g:syntastic_php_phpcs_args='--report=csv --standard=PSR2'
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_args='--ignore=E501'
 
+let test#python#nose#options='--logging-clear-handlers'
+
 let g:tagbar_compact=1
 
 set runtimepath+=~/.vim/bundle/vim-snippets/snippets
