@@ -17,6 +17,7 @@ Plugin 'airblade/vim-gitgutter'             " shows a git diff in the gutter
 Plugin 'bling/vim-airline'                  " status/tabline
 Plugin 'bronson/vim-trailing-whitespace'    " highlights trailing whitespace
 Plugin 'editorconfig/editorconfig-vim'      " editorconfig plugin
+Plugin 'elzr/vim-json'                      " better json for vim
 Plugin 'Glench/Vim-Jinja2-Syntax'           " jinja2 syntax file
 Plugin 'gregsexton/gitv'                    " gitk for vim
 Plugin 'honza/vim-snippets'                 " vim-snipmate default snippets
@@ -146,7 +147,6 @@ au FileType perl        setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Javascript
 au FileType javascript			setlocal shiftwidth=4 tabstop=4
-au BufNewFile,BufRead *.json	setlocal ft=json shiftwidth=2 tabstop=2
 
 " HTML & CSS
 au FileType html                        setlocal shiftwidth=4 tabstop=4
