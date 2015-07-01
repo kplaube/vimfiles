@@ -22,13 +22,15 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'airblade/vim-gitgutter'              " shows a git diff in the gutter
 NeoBundle 'bling/vim-airline'                   " lean & mean status/tabline
 NeoBundle 'bronson/vim-trailing-whitespace'     " highlights trailing whitespace
-NeoBundle 'davidhalter/jedi-vim'                " python autocompletion
 NeoBundle 'easymotion/vim-easymotion'           " vim motions on speed
 NeoBundle 'editorconfig/editorconfig-vim'       " editorconfig plugin
+NeoBundle 'elzr/vim-json'                       " a better json for vim
 NeoBundle 'janko-m/vim-test'                    " run your tests at the speed of thought
 NeoBundle 'jistr/vim-nerdtree-tabs'             " NERDTree and tabs together
 NeoBundle 'kien/ctrlp.vim'                      " fuzzy file, buffer, mru, tag, finder
-NeoBundle 'nathanaelkane/vim-indent-guides'	" displaying indent levels in code
+NeoBundle 'majutsushi/tagbar'                   " displays tags ordered by scope
+NeoBundle 'mustache/vim-mustache-handlebars'    " mustache and handlebars mode
+NeoBundle 'nathanaelkane/vim-indent-guides'	    " displaying indent levels in code
 NeoBundle 'raimondi/delimitmate'                " auto-completion for quotes, parens, brackets
 NeoBundle 'rking/ag.vim'                        " the silver searcher
 NeoBundle 'scrooloose/nerdtree'                 " tree explorer
@@ -54,9 +56,10 @@ call neobundle#end()
 " General Settings ------------------------------------------------------------
 
 filetype plugin indent on  " we are doing this for NeoBundle!
+set encoding=utf8
 colorscheme molokai
 
-let mapleader = ','
+let mapleader=','
 
 set t_Co=256
 set background=dark
@@ -65,12 +68,23 @@ set guioptions-=T                       " turn off GUI toolbar
 set guioptions-=m                       " turn off GUI menu
 set guioptions-=r                       " turn off GUI right scrollbar
 set guioptions-=L                       " turn off GUI left scrollbar
+set ignorecase                          " case insensitive search
+set laststatus=2                        " last window always have a status line
+set modeline
+set modelines=5
+set noerrorbells                        " no noise
+set noswapfile                          " no swap files
+set novisualbell                        " no blinking
 set number                              " show line numbers
 set pastetoggle=<F10>                   " toggle between paste and normal: for 'safer' pasting from keyboard
 set ruler                               " show line, col in status bar
+set smartcase                           " override ignorecase when using upper case
 set splitbelow                          " :split opens below
 set splitright                          " :vsplit opens right
 set ttyfast                             " improves redrawing
+set vb t_vb=                            " disable any beeps or flashes on erro
+set wildmenu                            " more useful command-line completion
+set wildmode=list:longest               " auto-completion menu
 
 " Tab/indent
 set expandtab
@@ -82,41 +96,46 @@ set shiftwidth=4 tabstop=4 softtabstop=4
 " Shortcuts ------------------------------------------------------------------
 
 nmap <F2> :NERDTreeMirrorToggle<CR>
+nmap <F8> :TagbarToggle<CR>
 nmap <Leader>f :Ag<space>
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Plugin Settings ------------------------------------------------------------
 
 " Airline
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'dark'
+let g:airline_powerline_fonts=1
+let g:airline_theme='dark'
 
 " CtrlP
-let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
-let g:ctrlp_max_height = 20
-let g:ctrlp_max_files = 100000
-let g:ctrlp_clear_cache_on_exit = 1
-let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_match_window='bottom,order:ttb,min:1,max:10,results:10'
+let g:ctrlp_max_height=20
+let g:ctrlp_max_files=100000
+let g:ctrlp_clear_cache_on_exit=1
+let g:ctrlp_working_path_mode='r'
+
+" JSON
+let g:vim_json_syntax_conceal=0
 
 " NERDTree
-let g:nerdtree_tabs_autoclose = 0
-let g:nerdtree_tabs_open_on_gui_startup = 0
-let g:nerdtree_tabs_open_on_new_tab = 1
-let NERDTreeIgnore = ['\~$', '__pycache__', '\.pyc$']
+let g:nerdtree_tabs_autoclose=0
+let g:nerdtree_tabs_open_on_gui_startup=1
+let g:nerdtree_tabs_open_on_new_tab=0
+let NERDTreeIgnore=['\~$', '__pycache__', '\.pyc$']
 
 " Syntastic
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_highlighting = 1
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_json_checkers = ['jsonlint']
-let g:syntastic_lua_checkers = ['luacheck']
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_args = '--ignore=E501'
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
+let g:syntastic_enable_highlighting=1
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_javascript_checkers=['jshint']
+let g:syntastic_json_checkers=['jsonlint']
+let g:syntastic_lua_checkers=['luacheck']
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_flake8_args='--ignore=E501'
 
 " Test
-let test#python#nose#options = '--logging-clear-handlers'
+let test#python#nose#options='--logging-clear-handlers'
 
 " GUI Settings ---------------------------------------------------------------
 
@@ -132,7 +151,7 @@ endif
 " MacVim
 if has("gui_macvim")
     let macvim_hig_shift_movement=1
-    set guifont=Droid\ Sans\ Mono\ for\ Powerline:h16
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline:h15
     set transparency=2
     set lines=999       " force opening fullscreen
     set columns=9999    " force opening fullscreen
