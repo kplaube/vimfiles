@@ -22,6 +22,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'airblade/vim-gitgutter'              " shows a git diff in the gutter
 NeoBundle 'bling/vim-airline'                   " lean & mean status/tabline
 NeoBundle 'bronson/vim-trailing-whitespace'     " highlights trailing whitespace
+NeoBundle 'davidhalter/jedi-vim'                " jedi autocompletion
 NeoBundle 'easymotion/vim-easymotion'           " vim motions on speed
 NeoBundle 'editorconfig/editorconfig-vim'       " editorconfig plugin
 NeoBundle 'elzr/vim-json'                       " a better json for vim
@@ -47,7 +48,6 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'tomasr/molokai'                      " color scheme
 NeoBundle 'tpope/vim-fugitive'                  " a git wrapper
 NeoBundle 'tpope/vim-sensible'                  " a universal set of defaults
-NeoBundle 'Valloric/YouCompleteMe'              " a code-completion engine
 NeoBundle 'vitaly/vim-gitignore'                " make vim respect .gitignore
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'         " a NERDTree plugin that shows git status
 
@@ -68,10 +68,11 @@ set guioptions-=T                       " turn off GUI toolbar
 set guioptions-=m                       " turn off GUI menu
 set guioptions-=r                       " turn off GUI right scrollbar
 set guioptions-=L                       " turn off GUI left scrollbar
+set hlsearch                            " highlight search result
 set ignorecase                          " case insensitive search
 set laststatus=2                        " last window always have a status line
 set modeline
-set modelines=5
+set modelines=5 nowrap
 set noerrorbells                        " no noise
 set noswapfile                          " no swap files
 set novisualbell                        " no blinking
@@ -98,7 +99,6 @@ set shiftwidth=4 tabstop=4 softtabstop=4
 nmap <F2> :NERDTreeMirrorToggle<CR>
 nmap <F8> :TagbarToggle<CR>
 nmap <Leader>f :Ag<space>
-nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Plugin Settings ------------------------------------------------------------
 
