@@ -30,6 +30,11 @@ NeoBundle 'janko-m/vim-test'                    " run your tests at the speed of
 NeoBundle 'jistr/vim-nerdtree-tabs'             " NERDTree and tabs together
 NeoBundle 'kien/ctrlp.vim'                      " fuzzy file, buffer, mru, tag, finder
 NeoBundle 'majutsushi/tagbar'                   " displays tags ordered by scope
+NeoBundle 'marijnh/tern_for_vim', {
+\ 'build': {
+\       'mac': 'npm install -g tern'
+\     }
+\ }
 NeoBundle 'mustache/vim-mustache-handlebars'    " mustache and handlebars mode
 NeoBundle 'nathanaelkane/vim-indent-guides'	    " displaying indent levels in code
 NeoBundle 'raimondi/delimitmate'                " auto-completion for quotes, parens, brackets
@@ -48,6 +53,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'tomasr/molokai'                      " color scheme
 NeoBundle 'tpope/vim-fugitive'                  " a git wrapper
 NeoBundle 'tpope/vim-sensible'                  " a universal set of defaults
+NeoBundle 'Valloric/YouCompleteMe'              " code-completion engine
 NeoBundle 'vitaly/vim-gitignore'                " make vim respect .gitignore
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'         " a NERDTree plugin that shows git status
 
@@ -63,6 +69,7 @@ let mapleader=','
 
 set t_Co=256
 set background=dark
+set completeopt-=preview
 set cursorline                          " highlight current line
 set guioptions-=T                       " turn off GUI toolbar
 set guioptions-=m                       " turn off GUI menu
@@ -93,6 +100,9 @@ set smarttab
 set autoindent
 set smartindent
 set shiftwidth=4 tabstop=4 softtabstop=4
+
+" Languages
+autocmd FileType javascript setlocal omnifunc=tern#Complete
 
 " Shortcuts ------------------------------------------------------------------
 
@@ -136,6 +146,10 @@ let g:syntastic_python_flake8_args='--ignore=E501'
 
 " Test
 let test#python#nose#options='--logging-clear-handlers'
+
+" YouCompleteMe
+let g:ycm_add_preview_to_completeopt=0
+let g:ycm_min_num_of_chars_for_completion=3
 
 " GUI Settings ---------------------------------------------------------------
 
