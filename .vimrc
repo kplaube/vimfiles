@@ -26,6 +26,7 @@ NeoBundle 'davidhalter/jedi-vim'                " jedi autocompletion
 NeoBundle 'easymotion/vim-easymotion'           " vim motions on speed
 NeoBundle 'editorconfig/editorconfig-vim'       " editorconfig plugin
 NeoBundle 'elzr/vim-json'                       " a better json for vim
+NeoBundle 'Glench/Vim-Jinja2-Syntax'            " jinja2 syntax file
 NeoBundle 'janko-m/vim-test'                    " run your tests at the speed of thought
 NeoBundle 'jistr/vim-nerdtree-tabs'             " NERDTree and tabs together
 NeoBundle 'kien/ctrlp.vim'                      " fuzzy file, buffer, mru, tag, finder
@@ -101,8 +102,16 @@ set autoindent
 set smartindent
 set shiftwidth=4 tabstop=4 softtabstop=4
 
-" Languages
-autocmd FileType javascript setlocal omnifunc=tern#Complete
+" Languages ------------------------------------------------------------------
+
+" Javascript
+au FileType javascript setlocal shiftwidth=4 tabstop=4 omnifunc=tern#Complete
+
+" HTML
+au FileType html                        setlocal shiftwidth=4 tabstop=4
+au BufNewFile,BufRead *.html.desktop    setlocal ft=jinja
+au BufNewFile,BufRead *.html.tablet     setlocal ft=jinja
+au BufNewFile,BufRead *.html.smart      setlocal ft=jinja
 
 " Shortcuts ------------------------------------------------------------------
 
@@ -111,6 +120,9 @@ nmap <F8> :TagbarToggle<CR>
 nmap <Leader>f :Ag<space>
 
 " Plugin Settings ------------------------------------------------------------
+
+" Ag
+let g:ag_working_path_mode='r'
 
 " Airline
 let g:airline_powerline_fonts=1
