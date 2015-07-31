@@ -29,6 +29,7 @@ NeoBundle 'elzr/vim-json'                       " a better json for vim
 NeoBundle 'Glench/Vim-Jinja2-Syntax'            " jinja2 syntax file
 NeoBundle 'janko-m/vim-test'                    " run your tests at the speed of thought
 NeoBundle 'jistr/vim-nerdtree-tabs'             " NERDTree and tabs together
+NeoBundle 'kennethzfeng/vim-raml'               " raml plugin
 NeoBundle 'kien/ctrlp.vim'                      " fuzzy file, buffer, mru, tag, finder
 NeoBundle 'majutsushi/tagbar'                   " displays tags ordered by scope
 NeoBundle 'marijnh/tern_for_vim', {
@@ -76,20 +77,24 @@ set guioptions-=T                       " turn off GUI toolbar
 set guioptions-=m                       " turn off GUI menu
 set guioptions-=r                       " turn off GUI right scrollbar
 set guioptions-=L                       " turn off GUI left scrollbar
+set hidden                              " hide buffers with closed files
 set hlsearch                            " highlight search result
 set ignorecase                          " case insensitive search
 set laststatus=2                        " last window always have a status line
 set modeline
 set modelines=5 nowrap
+set nobackup                            " no backups
 set noerrorbells                        " no noise
 set noswapfile                          " no swap files
 set novisualbell                        " no blinking
+set nowritebackup                       " write the buffer to the original file
 set number                              " show line numbers
 set pastetoggle=<F10>                   " toggle between paste and normal: for 'safer' pasting from keyboard
 set ruler                               " show line, col in status bar
 set smartcase                           " override ignorecase when using upper case
 set splitbelow                          " :split opens below
 set splitright                          " :vsplit opens right
+set switchbuf+=usetab,newtab
 set ttyfast                             " improves redrawing
 set vb t_vb=                            " disable any beeps or flashes on erro
 set wildmenu                            " more useful command-line completion
@@ -116,12 +121,15 @@ au BufNewFile,BufRead *.html.smart      setlocal ft=jinja
 " Shortcuts ------------------------------------------------------------------
 
 nmap <F2> :NERDTreeMirrorToggle<CR>
+nmap <F7> :Errors<CR>
 nmap <F8> :TagbarToggle<CR>
 nmap <Leader>f :Ag<space>
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Plugin Settings ------------------------------------------------------------
 
 " Ag
+let g:ag_highlight=1
 let g:ag_working_path_mode='r'
 
 " Airline
@@ -135,6 +143,10 @@ let g:ctrlp_max_files=100000
 let g:ctrlp_clear_cache_on_exit=1
 let g:ctrlp_working_path_mode='r'
 
+" Jedi-vim
+let g:jedi#show_call_signatures=0
+let g:jedi#use_tabs_not_buffers=1
+
 " JSON
 let g:vim_json_syntax_conceal=0
 
@@ -146,10 +158,10 @@ let NERDTreeIgnore=['\~$', '__pycache__', '\.pyc$']
 
 " Syntastic
 let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=0
 let g:syntastic_enable_highlighting=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
+
 let g:syntastic_javascript_checkers=['jshint']
 let g:syntastic_json_checkers=['jsonlint']
 let g:syntastic_lua_checkers=['luacheck']
@@ -161,7 +173,8 @@ let test#python#nose#options='--logging-clear-handlers'
 
 " YouCompleteMe
 let g:ycm_add_preview_to_completeopt=0
-let g:ycm_min_num_of_chars_for_completion=3
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_min_num_of_chars_for_completion=2
 
 " GUI Settings ---------------------------------------------------------------
 
