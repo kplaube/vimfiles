@@ -188,7 +188,7 @@ if has("gui_gtk2")
 endif
 
 " MacVim
-if has("gui_macvim")
+if has("gui_macvim") || has("gui_vimr")
     let macvim_hig_shift_movement=1
     set guifont=Droid\ Sans\ Mono\ for\ Powerline:h15
     set transparency=2
