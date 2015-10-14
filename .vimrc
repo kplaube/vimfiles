@@ -37,8 +37,8 @@ NeoBundle 'marijnh/tern_for_vim', {
 \       'mac': 'npm install -g tern'
 \     }
 \ }
-NeoBundle 'mustache/vim-mustache-handlebars'    " mustache and handlebars mode
 NeoBundle 'nathanaelkane/vim-indent-guides'	    " displaying indent levels in code
+NeoBundle 'mustache/vim-mustache-handlebars'    " mustache and handlebars mode
 NeoBundle 'raimondi/delimitmate'                " auto-completion for quotes, parens, brackets
 NeoBundle 'rking/ag.vim'                        " the silver searcher
 NeoBundle 'scrooloose/nerdtree'                 " tree explorer
@@ -152,7 +152,7 @@ let g:vim_json_syntax_conceal=0
 
 " NERDTree
 let g:nerdtree_tabs_autoclose=0
-let g:nerdtree_tabs_open_on_gui_startup=1
+let g:nerdtree_tabs_open_on_gui_startup=0
 let g:nerdtree_tabs_open_on_new_tab=0
 let NERDTreeIgnore=['\~$', '__pycache__', '\.pyc$']
 
@@ -192,8 +192,6 @@ if has("gui_macvim") || has("gui_vimr")
     let macvim_hig_shift_movement=1
     set guifont=Droid\ Sans\ Mono\ for\ Powerline:h15
     set transparency=2
-    set lines=999       " force opening fullscreen
-    set columns=9999    " force opening fullscreen
 endif
 
 " ----------------------------------------------------------------------------
