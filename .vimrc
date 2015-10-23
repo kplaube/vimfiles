@@ -53,6 +53,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 \     'unix' : 'gmake',
 \    },
 \ }
+NeoBundle 'terryma/vim-multiple-cursors'        " Sublime Text multiple selections
 NeoBundle 'tomasr/molokai'                      " color scheme
 NeoBundle 'tpope/vim-fugitive'                  " a git wrapper
 NeoBundle 'tpope/vim-sensible'                  " a universal set of defaults
