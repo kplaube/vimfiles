@@ -38,7 +38,7 @@ It already contains the setup of Vundle:
 
 ### Installing plugins
 
-Open VIM and run `:PluginInstall`.
+Open VIM and run `:NeoBundleInstall`.
 
 That's all!
 
