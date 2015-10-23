@@ -41,6 +41,7 @@ NeoBundle 'nathanaelkane/vim-indent-guides'	    " displaying indent levels in co
 NeoBundle 'mustache/vim-mustache-handlebars'    " mustache and handlebars mode
 NeoBundle 'raimondi/delimitmate'                " auto-completion for quotes, parens, brackets
 NeoBundle 'rking/ag.vim'                        " the silver searcher
+NeoBundle 'scrooloose/nerdcommenter'            " orgasmic commenting
 NeoBundle 'scrooloose/nerdtree'                 " tree explorer
 NeoBundle 'scrooloose/syntastic'                " syntax checking
 NeoBundle 'Shougo/vimproc.vim', {
