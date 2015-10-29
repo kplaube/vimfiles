@@ -26,13 +26,14 @@ NeoBundle 'davidhalter/jedi-vim'                " jedi autocompletion
 NeoBundle 'easymotion/vim-easymotion'           " vim motions on speed
 NeoBundle 'editorconfig/editorconfig-vim'       " editorconfig plugin
 NeoBundle 'elzr/vim-json'                       " a better json for vim
+NeoBundle 'fatih/vim-go'                        " go development plugin
+NeoBundle 'fatih/molokai'                       " color scheme
 NeoBundle 'Glench/Vim-Jinja2-Syntax'            " jinja2 syntax file
 NeoBundle 'janko-m/vim-test'                    " run your tests at the speed of thought
 NeoBundle 'jistr/vim-nerdtree-tabs'             " NERDTree and tabs together
 NeoBundle 'kennethzfeng/vim-raml'               " raml plugin
 NeoBundle 'kien/ctrlp.vim'                      " fuzzy file, buffer, mru, tag, finder
 NeoBundle 'majutsushi/tagbar'                   " displays tags ordered by scope
-NeoBundle 'marijnh/tern_for_vim', {
 \ 'build': {
 \       'mac': 'npm install -g tern'
 \     }
@@ -53,11 +54,18 @@ NeoBundle 'Shougo/vimproc.vim', {
 \     'unix' : 'gmake',
 \    },
 \ }
+NeoBundle 'ternjs/tern_for_vim'                 " tern plugin
 NeoBundle 'terryma/vim-multiple-cursors'        " Sublime Text multiple selections
-NeoBundle 'tomasr/molokai'                      " color scheme
 NeoBundle 'tpope/vim-fugitive'                  " a git wrapper
 NeoBundle 'tpope/vim-sensible'                  " a universal set of defaults
-NeoBundle 'Valloric/YouCompleteMe'              " code-completion engine
+NeoBundle 'Valloric/YouCompleteMe', {
+\ 'build'      : {
+    \ 'mac'     : './install.py --clang-completer --gocode-completer',
+    \ 'unix'    : './install.py',
+    \ 'windows' : 'install.py',
+    \ 'cygwin'  : './install.py'
+    \ }
+\ }
 NeoBundle 'vitaly/vim-gitignore'                " make vim respect .gitignore
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'         " a NERDTree plugin that shows git status
 
@@ -173,8 +181,7 @@ let g:syntastic_python_flake8_args='--ignore=E501'
 " Test
 let test#python#nose#options='--logging-clear-handlers'
 
-" YouCompleteMe
-let g:ycm_add_preview_to_completeopt=0
+" YCM
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_min_num_of_chars_for_completion=2
 
