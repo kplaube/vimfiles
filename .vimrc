@@ -20,6 +20,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))  " let bundle begins!
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'airblade/vim-gitgutter'              " shows a git diff in the gutter
+NeoBundle 'ajh17/VimCompletesMe'                " super simple tab-completion
 NeoBundle 'bling/vim-airline'                   " lean & mean status/tabline
 NeoBundle 'bronson/vim-trailing-whitespace'     " highlights trailing whitespace
 NeoBundle 'davidhalter/jedi-vim'                " jedi autocompletion
@@ -29,6 +30,7 @@ NeoBundle 'elzr/vim-json'                       " a better json for vim
 NeoBundle 'fatih/vim-go'                        " go development plugin
 NeoBundle 'fatih/molokai'                       " color scheme
 NeoBundle 'Glench/Vim-Jinja2-Syntax'            " jinja2 syntax file
+NeoBundle 'gregsexton/gitv'                     " gitk for vim
 NeoBundle 'janko-m/vim-test'                    " run your tests at the speed of thought
 NeoBundle 'jistr/vim-nerdtree-tabs'             " NERDTree and tabs together
 NeoBundle 'kennethzfeng/vim-raml'               " raml plugin
@@ -40,6 +42,7 @@ NeoBundle 'majutsushi/tagbar'                   " displays tags ordered by scope
 \ }
 NeoBundle 'nathanaelkane/vim-indent-guides'	    " displaying indent levels in code
 NeoBundle 'mustache/vim-mustache-handlebars'    " mustache and handlebars mode
+NeoBundle 'othree/html5.vim'                    " html5 omnicomplete
 NeoBundle 'raimondi/delimitmate'                " auto-completion for quotes, parens, brackets
 NeoBundle 'rking/ag.vim'                        " the silver searcher
 NeoBundle 'scrooloose/nerdcommenter'            " orgasmic commenting
@@ -58,16 +61,9 @@ NeoBundle 'ternjs/tern_for_vim'                 " tern plugin
 NeoBundle 'terryma/vim-multiple-cursors'        " Sublime Text multiple selections
 NeoBundle 'tpope/vim-fugitive'                  " a git wrapper
 NeoBundle 'tpope/vim-sensible'                  " a universal set of defaults
-NeoBundle 'Valloric/YouCompleteMe', {
-\ 'build'      : {
-    \ 'mac'     : './install.py --clang-completer --gocode-completer',
-    \ 'unix'    : './install.py',
-    \ 'windows' : 'install.py',
-    \ 'cygwin'  : './install.py'
-    \ }
-\ }
 NeoBundle 'vitaly/vim-gitignore'                " make vim respect .gitignore
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'         " a NERDTree plugin that shows git status
+
 
 call neobundle#end()
 
@@ -134,7 +130,6 @@ nmap <F2> :NERDTreeMirrorToggle<CR>
 nmap <F7> :Errors<CR>
 nmap <F8> :TagbarToggle<CR>
 nmap <Leader>f :Ag<space>
-nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Plugin Settings ------------------------------------------------------------
 
@@ -180,10 +175,6 @@ let g:syntastic_python_flake8_args='--ignore=E501'
 
 " Test
 let test#python#nose#options='--logging-clear-handlers'
-
-" YCM
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_min_num_of_chars_for_completion=2
 
 " GUI Settings ---------------------------------------------------------------
 
