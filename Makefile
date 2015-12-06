@@ -15,4 +15,5 @@ symbolic_link_to_vimrc:
 
 
 install_package_manager:
-	@wget -O - https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | bash
+	@curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	@curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

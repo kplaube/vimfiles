@@ -7,16 +7,19 @@ functionalities, so I compiled most common and easy to use plugins. Enjoy :)
 Getting started
 ---------------
 
-### Installing Vundle
+### Installing vim-plug
 
-With [Vundle](https://github.com/gmarik/vundle) you can easily install
-add-ons to your VIM.
+With [vim-plug](https://github.com/junegunn/vim-plug) you can easily install
+add-ons to your `vim`:
 
-To install, clone (or download) the repository to your `$HOME/.vim/bundle` folder:
+    $ make install
 
-    $ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+Or, you can download the extension and put it into your `autoload` path:
 
-See more details in [Vundle repository](https://github.com/gmarik/vundle).
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+See more details in [vim-plug repository](https://github.com/junegunn/vim-plug).
 
 ### Installing .vimrc
 
@@ -29,7 +32,7 @@ configuration file to `~/` and the scripts to `~/.vim/`:
     $ make install
 
 Or you can do this manually. Simply copy the `.vimrc` file to your `$HOME` path.
-It already contains the setup of Vundle:
+It already contains the setup of `vim-plug`:
 
     $ cd /tmp/
     $ git clone https://github.com/kplaube/vimfiles vimfiles
@@ -38,7 +41,9 @@ It already contains the setup of Vundle:
 
 ### Installing plugins
 
-Open VIM and run `:NeoBundleInstall`.
+Open `vim` and run `:PlugInstall`.
+
+[Check out the plugin list](https://github.com/kplaube/vimfiles/blob/master/.vimrc#L11).
 
 That's all!
 
