@@ -8,11 +8,13 @@ call plug#begin('~/.vim/plugged')
 
 " Let NeoBundle manage -------------------------------------------------------
 
-Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'bling/vim-airline'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'davidhalter/jedi-vim'
+Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'airblade/vim-gitgutter'
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'janko-m/vim-test'
 Plug 'kien/ctrlp.vim'
@@ -44,6 +46,8 @@ set guioptions-=m                       " turn off GUI menu
 set guioptions-=r                       " turn off GUI right scrollbar
 set guioptions-=L                       " turn off GUI left scrollbar
 set ignorecase                          " case insensitive search
+set modeline
+set modelines=5 nowrap
 set nobackup                            " no backups
 set noerrorbells                        " no noise
 set noswapfile                          " no swap files
@@ -88,19 +92,24 @@ let g:airline_powerline_fonts=1
 let g:airline_theme='dark'
 
 " CtrlP
+let g:ctrlp_clear_cache_on_exit=1
 let g:ctrlp_match_window='bottom,order:ttb,min:1,max:10,results:10'
 let g:ctrlp_max_height=20
 let g:ctrlp_max_files=50000
-let g:ctrlp_clear_cache_on_exit=1
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_working_path_mode='r'
+
+" Jedi-Vim
+let g:jedi#popup_on_dot=0
+let g:jedi#show_call_signatures=0
+let g:jedi#use_tabs_not_buffers=1
 
 " Markdown Preview
 let vim_markdown_preview_github=1
 let vim_markdown_preview_hotkey='<C-m>'
 
 " NERDTree
-let g:nerdtree_tabs_open_on_gui_startup=1
-let NERDTreeIgnore=['\~$', '__pycache__', '\.pyc$']
+let g:NERDTreeRespectWildIgnore=1
 
 " Syntastic
 let g:syntastic_check_on_open=1
@@ -133,5 +142,5 @@ endif
 if has("gui_macvim") || has("gui_vimr")
     let macvim_hig_shift_movement=1
     set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
-    set transparency=4
+    set transparency=2
 endif
