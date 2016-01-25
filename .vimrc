@@ -8,7 +8,6 @@ call plug#begin('~/.vim/plugged')
 
 " Let NeoBundle manage -------------------------------------------------------
 
-Plug 'altercation/vim-colors-solarized'
 Plug 'bling/vim-airline'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'davidhalter/jedi-vim'
@@ -24,9 +23,13 @@ Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'scrooloose/syntastic'
-Plug 'ternjs/tern_for_vim', {'do': 'npm install -g tern' }
+Plug 'sheerun/vim-polyglot'
+Plug 'Shougo/vimproc.vim', {'do': 'make'}
+Plug 'ternjs/tern_for_vim', {'do': 'npm install -g tern'}
+Plug 'tomasr/molokai'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
+Plug 'Valloric/YouCompleteMe', {'do': './install.sh --clang-completer'}
 Plug 'vitaly/vim-gitignore'
 
 call plug#end()
@@ -34,7 +37,8 @@ call plug#end()
 
 " General Settings ------------------------------------------------------------
 
-colorscheme solarized
+colorscheme molokai
+set background=dark
 
 let mapleader=','
 let g:mapleader=','
@@ -66,6 +70,9 @@ set shiftwidth=4 tabstop=4 softtabstop=4
 
 
 " Languages ------------------------------------------------------------------
+
+" Javascript
+au FileType javascript setlocal omnifunc=tern#Complete
 
 " HTML
 au BufNewFile,BufRead *.html.desktop    setlocal ft=jinja
@@ -126,11 +133,16 @@ let g:syntastic_python_flake8_args='--ignore=E501'
 " Test
 let test#python#nose#options='--logging-clear-handlers'
 
+" YCM
+let g:ycm_collect_identifiers_from_tags_files=1
+let g:ycm_path_to_python_interpreter = "/usr/local/bin/python"
+
 
 " GUI Settings ---------------------------------------------------------------
 
 if has("gui_running")
     set guicursor=a:blinkoff0-blinkwait0
+    set transparency=0
 endif
 
 " GVim
@@ -142,5 +154,4 @@ endif
 if has("gui_macvim") || has("gui_vimr")
     let macvim_hig_shift_movement=1
     set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
-    set transparency=2
 endif
