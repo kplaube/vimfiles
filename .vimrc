@@ -6,7 +6,7 @@
 call plug#begin('~/.vim/plugged')
 
 
-" Let NeoBundle manage -------------------------------------------------------
+" Let Plug manage -------------------------------------------------------
 
 Plug 'bling/vim-airline'
 Plug 'bronson/vim-trailing-whitespace'
@@ -16,7 +16,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'janko-m/vim-test'
-Plug 'kien/ctrlp.vim'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'rking/ag.vim'
@@ -39,6 +40,7 @@ call plug#end()
 
 colorscheme molokai
 set background=dark
+let g:molokai_original = 1
 
 let mapleader=','
 let g:mapleader=','
@@ -82,7 +84,7 @@ au BufNewFile,BufRead *.html.smart      setlocal ft=jinja
 
 " Shortcuts ------------------------------------------------------------------
 
-nmap <F2> :NERDTreeToggle<CR>
+nmap <F2> :NERDTreeTabsToggle<CR>
 nmap <F7> :Errors<CR>
 nmap <F8> :TagbarToggle<CR>
 nmap <Leader>f :Ag<space>
@@ -117,6 +119,9 @@ let vim_markdown_preview_hotkey='<C-m>'
 
 " NERDTree
 let g:NERDTreeRespectWildIgnore=1
+let g:nerdtree_tabs_open_on_gui_startup=0
+let g:nerdtree_tabs_open_on_new_tab=0
+let g:nerdtree_tabs_autoclose=0
 
 " Syntastic
 let g:syntastic_check_on_open=1
@@ -124,7 +129,7 @@ let g:syntastic_enable_highlighting=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 
-let g:syntastic_javascript_checkers=['jshint']
+let g:syntastic_javascript_checkers=['eslint']
 let g:syntastic_json_checkers=['jsonlint']
 let g:syntastic_lua_checkers=['luacheck']
 let g:syntastic_python_checkers=['flake8']
