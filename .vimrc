@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged')
 
 " Let Plug manage -------------------------------------------------------
 
+Plug 'ajh17/VimCompletesMe'
 Plug 'bling/vim-airline'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'davidhalter/jedi-vim'
@@ -16,21 +17,18 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'janko-m/vim-test'
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'jistr/vim-nerdtree-tabs'
 Plug 'scrooloose/syntastic'
-Plug 'sheerun/vim-polyglot'
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
-Plug 'ternjs/tern_for_vim', {'do': 'npm install -g tern'}
+Plug 'ternjs/tern_for_vim', {'do': 'npm install tern'}
 Plug 'tomasr/molokai'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
-Plug 'Valloric/YouCompleteMe', {'do': './install.sh --clang-completer'}
 Plug 'vitaly/vim-gitignore'
 
 call plug#end()
@@ -46,6 +44,7 @@ let mapleader=','
 let g:mapleader=','
 
 set background=dark
+set completeopt-=preview
 set hlsearch                            " highlight search result
 set guioptions-=T                       " turn off GUI toolbar
 set guioptions-=m                       " turn off GUI menu
@@ -73,13 +72,17 @@ set shiftwidth=4 tabstop=4 softtabstop=4
 
 " Languages ------------------------------------------------------------------
 
-" Javascript
-au FileType javascript setlocal omnifunc=tern#Complete
-
-" HTML
+" HTML/Jinja
 au BufNewFile,BufRead *.html.desktop    setlocal ft=jinja
 au BufNewFile,BufRead *.html.tablet     setlocal ft=jinja
 au BufNewFile,BufRead *.html.smart      setlocal ft=jinja
+au FileType jinja setlocal omnifunc=htmlcomplete#CompleteTags
+
+" Javascript
+au FileType javascript setlocal omnifunc=tern#Complete
+
+" Markdown
+au FileType text,markdown let b:vcm_tab_complete='local'
 
 
 " Shortcuts ------------------------------------------------------------------
@@ -87,7 +90,7 @@ au BufNewFile,BufRead *.html.smart      setlocal ft=jinja
 nmap <F2> :NERDTreeTabsToggle<CR>
 nmap <F7> :Errors<CR>
 nmap <F8> :TagbarToggle<CR>
-nmap <Leader>f :Ag<space>
+nmap <Leader>f :Ag!<space>
 
 
 " Plugin Settings ------------------------------------------------------------
@@ -138,9 +141,8 @@ let g:syntastic_python_flake8_args='--ignore=E501'
 " Test
 let test#python#nose#options='--logging-clear-handlers'
 
-" YCM
-let g:ycm_collect_identifiers_from_tags_files=1
-let g:ycm_path_to_python_interpreter = "/usr/local/bin/python"
+" Vim Completes Me
+au FileType javascript,jinja let b:vcm_tab_complete='omni'
 
 
 " GUI Settings ---------------------------------------------------------------
@@ -158,5 +160,5 @@ endif
 " MacVim
 if has("gui_macvim") || has("gui_vimr")
     let macvim_hig_shift_movement=1
-    set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline:h15
 endif
