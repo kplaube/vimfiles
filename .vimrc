@@ -8,28 +8,41 @@ call plug#begin('~/.vim/plugged')
 
 " Let Plug manage -------------------------------------------------------
 
+" Libs
+Plug 'Shougo/vimproc.vim', {'do': 'make'}
+Plug 'tpope/vim-sensible'
+
+" Code standards and completion
 Plug 'ajh17/VimCompletesMe'
-Plug 'bling/vim-airline'
-Plug 'bronson/vim-trailing-whitespace'
 Plug 'davidhalter/jedi-vim'
-Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'gregsexton/gitv'
+Plug 'scrooloose/syntastic'
+Plug 'ternjs/tern_for_vim', {'do': 'npm install tern'}
+
+" Display
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'tomasr/molokai'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" File explorer
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'rking/ag.vim'
+Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'jistr/vim-nerdtree-tabs'
+
+" Git
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'vitaly/vim-gitignore'
+
+" Tools
+Plug 'easymotion/vim-easymotion'
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'janko-m/vim-test'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'jistr/vim-nerdtree-tabs'
-Plug 'scrooloose/syntastic'
-Plug 'Shougo/vimproc.vim', {'do': 'make'}
-Plug 'ternjs/tern_for_vim', {'do': 'npm install tern'}
-Plug 'tomasr/molokai'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-sensible'
-Plug 'vitaly/vim-gitignore'
 
 call plug#end()
 
@@ -101,7 +114,7 @@ let g:ag_working_path_mode='r'
 
 " Airline
 let g:airline_powerline_fonts=1
-let g:airline_theme='dark'
+let g:airline_theme='molokai'
 
 " CtrlP
 let g:ctrlp_clear_cache_on_exit=1
@@ -149,7 +162,7 @@ au FileType javascript,jinja let b:vcm_tab_complete='omni'
 
 if has("gui_running")
     set guicursor=a:blinkoff0-blinkwait0
-    set transparency=0
+    set transparency=4
 endif
 
 " GVim
