@@ -20,8 +20,9 @@ Plug 'ternjs/tern_for_vim', {'do': 'npm install tern', 'for': 'javascript'}
 
 " Display
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'glench/vim-jinja2-syntax'
 Plug 'majutsushi/tagbar'
-Plug 'notpratheek/vim-luna'
+Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -38,7 +39,7 @@ Plug 'tpope/vim-fugitive'
 
 " Misc
 Plug 'easymotion/vim-easymotion'
-Plug 'JamshedVesuna/vim-markdown-preview', {'for': 'markdown'}
+Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'janko-m/vim-test'
 Plug 'scrooloose/nerdcommenter'
 
@@ -83,7 +84,7 @@ let g:ag_working_path_mode='r'
 
 " Airline
 let g:airline_powerline_fonts=1
-let g:airline_theme='luna'
+let g:airline_theme='gruvbox'
 
 " CtrlP
 let g:ctrlp_clear_cache_on_exit=1
@@ -98,7 +99,7 @@ let g:jedi#popup_on_dot=0
 let g:jedi#show_call_signatures=0
 let g:jedi#use_tabs_not_buffers=1
 
-" Markdown Preview
+" Markdown
 let vim_markdown_preview_github=1
 let vim_markdown_preview_hotkey='<C-m>'
 
@@ -118,7 +119,7 @@ let g:syntastic_error_symbol='✗'
 let g:syntastic_mode_map={'passive_filetypes': ['sass', 'scss']}
 let g:syntastic_warning_symbol='⚠'
 
-let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_javascript_checkers=['jshint']
 let g:syntastic_json_checkers=['jsonlint']
 let g:syntastic_lua_checkers=['luacheck']
 let g:syntastic_python_checkers=['flake8']
@@ -138,6 +139,7 @@ au FileType jinja setlocal omnifunc=htmlcomplete#CompleteTags
 
 " Javascript
 au FileType javascript setlocal omnifunc=tern#Complete
+au FileType javascript let g:syntastic_javascript_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['standard']
 
 " Markdown
 au FileType text,markdown let b:vcm_tab_complete='local'
@@ -145,11 +147,9 @@ au FileType text,markdown let b:vcm_tab_complete='local'
 " GUI Settings ---------------------------------------------------------------
 
 set background=dark
-colorscheme luna-term
+colorscheme gruvbox
 
 if has("gui_running")
-    colorscheme luna
-
     set guicursor=a:blinkoff0-blinkwait0
     set guifont=Droid\ Sans\ Mono\ for\ Powerline:h15
 endif
@@ -174,7 +174,7 @@ nmap <leader>tn :TernRefs<CR>
 
 " Useful shortcuts
 nmap <silent> <F2> :NERDTreeTabsToggle<CR>
-nmap <silent> <F6> :SyntasticCheck
+nmap <silent> <F6> :SyntasticCheck<CR>
 nmap <silent> <F7> :<C-u>call ToggleErrors()<CR>
 nmap <silent> <F8> :TagbarToggle<CR>
 
@@ -185,6 +185,7 @@ function! ToggleErrors()
     lclose
     if old_last_winnr == winnr('$')
         " Nothing was closed, open syntastic error location panel
+        SyntasticCheck
         Errors
     endif
 endfunction

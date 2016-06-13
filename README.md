@@ -10,7 +10,6 @@ Getting started
 ### Installing vim-plug
 
 With [vim-plug](https://github.com/junegunn/vim-plug) you can easily install
-
 add-ons to your `vim`:
 
     $ make install
