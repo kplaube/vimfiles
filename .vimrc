@@ -57,7 +57,10 @@ set guioptions-=T                       " turn off GUI toolbar
 set guioptions-=m                       " turn off GUI menu
 set guioptions-=r                       " turn off GUI right scrollbar
 set guioptions-=L                       " turn off GUI left scrollbar
+set guioptions-=e                       " turn off GUI tabs
+set guioptions-=b
 set ignorecase                          " case insensitive search
+set linespace=1
 set modeline
 set modelines=5 nowrap
 set nobackup                            " no backups
