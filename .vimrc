@@ -154,7 +154,6 @@ colorscheme gruvbox
 
 if has("gui_running")
     set guicursor=a:blinkoff0-blinkwait0
-    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 12
 endif
 
 if has("gui_macvim")
@@ -169,6 +168,7 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Performing searches with Ag
 nmap <leader>f :Ag!<space>
+nmap <leader>f, :Ag <cword><CR>
 
 " Cleaning search highlights
 nmap <silent> <leader>/ :nohlsearch<CR>
