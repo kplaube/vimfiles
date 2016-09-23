@@ -66,13 +66,13 @@ set modelines=5 nowrap
 set nobackup                            " no backups
 set noerrorbells                        " no noise
 set noswapfile                          " no swap files
-set novisualbell t_vb=                  " disable any beeps or flashes on erro
 set nowritebackup                       " write the buffer to the original file
 set number                              " show line numbers
 set pastetoggle=<F10>                   " toggle between paste and normal: for 'safer' pasting from keyboard
 set showmatch                           " set show matching parenthesis
 set splitbelow                          " :split opens below
 set splitright                          " :vsplit opens right
+set vb t_vb=                            " disable any beeps or flashes on erro
 
 
 " Tab/indent
