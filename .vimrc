@@ -17,6 +17,7 @@ Plug 'davidhalter/jedi-vim', {'for': 'python'}
 Plug 'editorconfig/editorconfig-vim'
 Plug 'scrooloose/syntastic'
 Plug 'ternjs/tern_for_vim', {'do': 'npm install tern', 'for': 'javascript'}
+Plug 'tpope/vim-rails'
 
 " Display
 Plug 'bronson/vim-trailing-whitespace'
@@ -168,7 +169,7 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Performing searches with Ag
 nmap <leader>f :Ag!<space>
-nmap <leader>f, :Ag <cword><CR>
+nmap <leader>f, :Ag! <cword><CR>
 
 " Cleaning search highlights
 nmap <silent> <leader>/ :nohlsearch<CR>
