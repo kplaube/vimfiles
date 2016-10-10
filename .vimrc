@@ -17,7 +17,9 @@ Plug 'davidhalter/jedi-vim', {'for': 'python'}
 Plug 'editorconfig/editorconfig-vim'
 Plug 'scrooloose/syntastic'
 Plug 'ternjs/tern_for_vim', {'do': 'npm install tern', 'for': 'javascript'}
+Plug 'fisadev/vim-isort', {'do': 'pip install isort', 'for': 'python'}
 Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
 
 " Display
 Plug 'bronson/vim-trailing-whitespace'
@@ -52,6 +54,7 @@ call plug#end()
 let mapleader=','
 let g:mapleader=','
 
+set clipboard=unnamed
 set completeopt-=preview
 set copyindent                          " copy the previous indentation on autoindenting
 set hlsearch                            " highlight search result
