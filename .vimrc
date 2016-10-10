@@ -13,11 +13,11 @@ Plug 'tpope/vim-sensible'
 
 " Code standards and completion
 Plug 'ajh17/VimCompletesMe'
-Plug 'davidhalter/jedi-vim', {'for': 'python'}
+Plug 'davidhalter/jedi-vim', {'for': ['python', 'python3']}
 Plug 'editorconfig/editorconfig-vim'
 Plug 'scrooloose/syntastic'
 Plug 'ternjs/tern_for_vim', {'do': 'npm install tern', 'for': 'javascript'}
-Plug 'fisadev/vim-isort', {'do': 'pip install isort', 'for': 'python'}
+Plug 'fisadev/vim-isort', {'do': 'pip install isort', 'for': ['python', 'python3']}
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 
@@ -45,6 +45,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'easymotion/vim-easymotion'
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'janko-m/vim-test'
+Plug 'jmcantrell/vim-virtualenv'
 Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
