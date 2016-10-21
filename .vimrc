@@ -107,7 +107,10 @@ let vim_markdown_preview_github=1
 let vim_markdown_preview_hotkey='<C-m>'
 
 " NERDTree
+let g:NERDTreeAutoDeleteBuffer=1
+let NERDTreeDirArrows=1
 let g:NERDTreeRespectWildIgnore=1
+let NERDTreeMinimalUI=1
 let g:nerdtree_tabs_open_on_gui_startup=1
 let g:nerdtree_tabs_open_on_new_tab=0
 let g:nerdtree_tabs_autoclose=0
@@ -171,6 +174,9 @@ nmap <leader>f, :Ag! <cword><CR>
 
 " Cleaning search highlights
 nmap <silent> <leader>/ :nohlsearch<CR>
+
+" Show the current file on NERDTree
+nmap <silent> <leader>v :NERDTreeFind<CR>
 
 " Useful shortcuts
 nmap <silent> <F2> :NERDTreeTabsToggle<CR>
