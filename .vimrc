@@ -18,8 +18,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'scrooloose/syntastic'
 Plug 'ternjs/tern_for_vim', {'do': 'npm install tern', 'for': 'javascript'}
 Plug 'fisadev/vim-isort', {'do': 'pip install isort', 'for': ['python', 'python3']}
-Plug 'tpope/vim-rails'
-Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails', {'for': 'ruby'}
+Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
 
 " Display
 Plug 'bronson/vim-trailing-whitespace'
