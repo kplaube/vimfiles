@@ -12,13 +12,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 
 " Code standards and completion
-Plug 'ajh17/VimCompletesMe'
-Plug 'davidhalter/jedi-vim', {'for': ['python', 'python3']}
 Plug 'editorconfig/editorconfig-vim'
 Plug 'scrooloose/syntastic'
 Plug 'ternjs/tern_for_vim', {'do': 'npm install tern', 'for': 'javascript'}
 Plug 'fisadev/vim-isort', {'do': 'pip install isort', 'for': ['python', 'python3']}
 Plug 'tpope/vim-rails', {'for': 'ruby'}
+Plug 'Valloric/YouCompleteMe'
 Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
 
 " Display
@@ -103,11 +102,6 @@ let g:ctrlp_max_files=5000
 let g:ctrlp_user_command=['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_working_path_mode='r'
 
-" Jedi-Vim
-let g:jedi#popup_on_dot=0
-let g:jedi#show_call_signatures=0
-let g:jedi#use_tabs_not_buffers=1
-
 " Markdown
 let vim_markdown_preview_github=1
 let vim_markdown_preview_hotkey='<C-m>'
@@ -147,11 +141,10 @@ au BufNewFile,BufRead *.html.smart      setlocal ft=jinja
 au FileType jinja setlocal omnifunc=htmlcomplete#CompleteTags
 
 " Javascript
-au FileType javascript setlocal omnifunc=tern#Complete
+"au FileType javascript setlocal omnifunc=tern#Complete
 au FileType javascript let g:syntastic_javascript_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['standard']
 
 " Markdown
-au FileType text,markdown let b:vcm_tab_complete='local'
 
 " GUI Settings ---------------------------------------------------------------
 
@@ -178,12 +171,6 @@ nmap <leader>f, :Ag! <cword><CR>
 
 " Cleaning search highlights
 nmap <silent> <leader>/ :nohlsearch<CR>
-
-" Tern with Jedi-like key bindings
-nmap <leader>td :TernDef<CR>
-nmap <leader>tK :TernDoc<CR>
-nmap <leader>tr :TernRename<CR>
-nmap <leader>tn :TernRefs<CR>
 
 " Useful shortcuts
 nmap <silent> <F2> :NERDTreeTabsToggle<CR>
