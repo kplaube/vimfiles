@@ -23,6 +23,7 @@ Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
 " Display
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'glench/vim-jinja2-syntax'
+Plug 'IN3D/vim-raml'
 Plug 'majutsushi/tagbar'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
