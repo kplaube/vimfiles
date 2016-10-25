@@ -108,12 +108,13 @@ let vim_markdown_preview_hotkey='<C-m>'
 
 " NERDTree
 let g:NERDTreeAutoDeleteBuffer=1
-let NERDTreeDirArrows=1
+let g:NERDTreeDirArrows=1
 let g:NERDTreeRespectWildIgnore=1
-let NERDTreeMinimalUI=1
+let g:NERDTreeWinSize=30
+let g:NERDTreeMinimalUI=1
 let g:nerdtree_tabs_open_on_gui_startup=1
 let g:nerdtree_tabs_open_on_new_tab=0
-let g:nerdtree_tabs_autoclose=0
+let g:nerdtree_tabs_autoclose=1
 
 " Syntastic
 let g:syntastic_always_populate_loc_list = 1
