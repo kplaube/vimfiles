@@ -137,6 +137,9 @@ let g:syntastic_scss_checkers = ['scss_lint']
 " Test
 let test#python#nose#options='--logging-clear-handlers'
 
+" YouCompleteMe
+let g:ycm_goto_buffer_command='new-tab'
+
 " Languages ------------------------------------------------------------------
 
 " HTML/Jinja
@@ -146,10 +149,7 @@ au BufNewFile,BufRead *.html.smart      setlocal ft=jinja
 au FileType jinja setlocal omnifunc=htmlcomplete#CompleteTags
 
 " Javascript
-"au FileType javascript setlocal omnifunc=tern#Complete
 au FileType javascript let g:syntastic_javascript_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['standard']
-
-" Markdown
 
 " GUI Settings ---------------------------------------------------------------
 
@@ -172,13 +172,15 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Performing searches with Ag
 nmap <leader>f :Ag!<space>
-nmap <leader>f, :Ag! <cword><CR>
 
 " Cleaning search highlights
 nmap <silent> <leader>/ :nohlsearch<CR>
 
 " Show the current file on NERDTree
 nmap <silent> <leader>v :NERDTreeFind<CR>
+
+" Goto shortcuts
+nmap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Useful shortcuts
 nmap <silent> <F2> :NERDTreeTabsToggle<CR>
