@@ -14,16 +14,13 @@ Plug 'tpope/vim-sensible'
 " Code standards and completion
 Plug 'editorconfig/editorconfig-vim'
 Plug 'scrooloose/syntastic'
-Plug 'ternjs/tern_for_vim', {'do': 'npm install tern', 'for': 'javascript'}
+Plug 'sheerun/vim-polyglot'
 Plug 'fisadev/vim-isort', {'do': 'pip install isort', 'for': ['python', 'python3']}
-Plug 'tpope/vim-rails', {'for': 'ruby'}
 Plug 'Valloric/YouCompleteMe'
-Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
 
 " Display
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'glench/vim-jinja2-syntax'
-Plug 'IN3D/vim-raml'
 Plug 'majutsushi/tagbar'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
@@ -45,7 +42,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'easymotion/vim-easymotion'
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'janko-m/vim-test'
-Plug 'jmcantrell/vim-virtualenv'
 Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
@@ -138,6 +134,7 @@ let g:syntastic_scss_checkers = ['scss_lint']
 let test#python#nose#options='--logging-clear-handlers'
 
 " YouCompleteMe
+let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_goto_buffer_command='new-tab'
 
 " Languages ------------------------------------------------------------------
@@ -199,3 +196,16 @@ function! ToggleErrors()
         Errors
     endif
 endfunction
+
+" Auto running scripts -------------------------------------------------------
+
+" Python with virtualenv support
+py << EOF
+import os
+import sys
+
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
