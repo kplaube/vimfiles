@@ -120,7 +120,7 @@ let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_highlighting=1
 let g:syntastic_error_symbol='✗'
-let g:syntastic_mode_map={'passive_filetypes': ['sass', 'scss']}
+let g:syntastic_mode_map={'passive_filetypes': ['sass', 'scss', 'scala']}
 let g:syntastic_warning_symbol='⚠'
 
 let g:syntastic_javascript_checkers=['jshint']
