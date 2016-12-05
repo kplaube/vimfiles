@@ -39,4 +39,28 @@ Open `nvim` and run `:PlugInstall`.
 
 [Check out the plugin list](https://github.com/kplaube/vimfiles/blob/master/.vimrc#L10).
 
+## Shortcuts
+
+Below is a list of the most common shortcuts:
+
+- `F2`: Show/hide NERDTree (file explorer)
+- `F6`: Run the Syntastic check
+- `F7`: Show/hide file errors
+- `F8`: Show/hide the tag bar
+- `CTRL + p`: File finder
+- `,ev`: Edit `.vimrc`
+- `,sv`: Source `.vimrc`
+- `,f`: Perform searches using Ag
+- `,/`: Clear search highlights
+- `,v`: Show the current file in NERDTree
+- Python shortcuts:
+    - `K`: Show documentation
+    - `,g`: Go to declaration
+    - `,d`: Go to definition
+    - `,n`: Show function usages
+
+## References
+
+* [Setting up Python for Neovim](https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim)
+
 That's all!
