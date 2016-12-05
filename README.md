@@ -53,7 +53,7 @@ Below is a list of the most common shortcuts:
 - `,f`: Perform searches using Ag
 - `,/`: Clear search highlights
 - `,v`: Show the current file in NERDTree
-- Python shortcuts:
+- Python and Javascript shortcuts:
     - `K`: Show documentation
     - `,g`: Go to declaration
     - `,d`: Go to definition
