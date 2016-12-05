@@ -1,50 +1,42 @@
 vimfiles
 ========
 
-Yes... this is small! I just can't handle a lot of shortcuts and
-functionalities, so I compiled most common and easy to use plugins. Enjoy :)
+Yes... this is small (or at least should be)! I just can't handle a lot of shortcuts and
+functionalities, so I compiled the most common and easy to use plugins. Enjoy :)
 
-Getting started
----------------
+## Getting started
+
+### Install NeoVim
+
+Vim by itself have some limitations that can lead you to some very frustrating experiences, as
+*Derek Prior* wrote in his [My Life with NeoVim](https://robots.thoughtbot.com/my-life-with-neovim).
+
+NeoVim is not perfect, but has some cool improvements (like asynchronous checkers) and an active
+community around it. You should give it a try.
+
+[Installing NeoVim](https://github.com/neovim/neovim/wiki/Installing-Neovim).
 
 ### Installing vim-plug
 
 With [vim-plug](https://github.com/junegunn/vim-plug) you can easily install
 add-ons to your `vim`:
-
-    $ make install
-
-Or, you can download the extension and put it into your `autoload` path:
-
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+       
+    curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 See more details in [vim-plug repository](https://github.com/junegunn/vim-plug).
 
 ### Installing .vimrc
 
-It's possible to install vimfiles using `Makefile`. It'll copy the
-configuration file to `~/` and the scripts to `~/.vim/`:
+It's possible to install vimfiles using `Makefile`. It'll make
+a symbolic link of the configuration file to `~/` path.
 
-    $ cd /tmp/
-    $ git clone https://github.com/kplaube/vimfiles vimfiles
-    $ cd vimfiles
-    $ make install
-
-Or you can do this manually. Simply copy the `.vimrc` file to your `$HOME` path.
-It already contains the setup of `vim-plug`:
-
-    $ cd /tmp/
-    $ git clone https://github.com/kplaube/vimfiles vimfiles
-    $ cp vimfiles/.vimrc $HOME/.vimrc
-
+    $ make install
 
 ### Installing plugins
 
-Open `vim` and run `:PlugInstall`.
+Open `nvim` and run `:PlugInstall`.
 
-[Check out the plugin list](https://github.com/kplaube/vimfiles/blob/master/.vimrc#L11).
+[Check out the plugin list](https://github.com/kplaube/vimfiles/blob/master/.vimrc#L10).
 
 That's all!
-
-Strongly inspired in [Francisco Souza's vim files repository](https://github.com/fsouza/vimfiles).
