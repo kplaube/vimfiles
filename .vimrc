@@ -6,61 +6,52 @@
 set nocompatible
 call plug#begin('~/.vim/plugged')
 
-" Let Plug manage -------------------------------------------------------
 
-" Libs
-Plug 'tpope/vim-sensible'
+" Let's Plug manage -----------------------------------------------------
 
-" Code standards and completion
+" Code standards
 Plug 'editorconfig/editorconfig-vim'
 Plug 'scrooloose/syntastic'
-Plug 'sheerun/vim-polyglot'
-Plug 'fisadev/vim-isort', {'do': 'pip install isort', 'for': ['python', 'python3']}
-Plug 'Valloric/YouCompleteMe'
 
 " Display
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'davidhalter/jedi-vim'
 Plug 'glench/vim-jinja2-syntax'
+Plug 'KeitaNakamura/neodark.vim'
 Plug 'majutsushi/tagbar'
-Plug 'morhetz/gruvbox'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'sheerun/vim-polyglot'
 
 " File explorer
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dkprice/vim-easygrep'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'jistr/vim-nerdtree-tabs'
-Plug 'tpope/vim-abolish'
 
-" Git
+" Git integration
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
 
 " Misc
-Plug 'easymotion/vim-easymotion'
-Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'janko-m/vim-test'
-Plug 'scrooloose/nerdcommenter'
+
+if has('nvim')
+    " Code completion
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'zchee/deoplete-jedi'
+else
+    " Libs
+    Plug 'tpope/vim-sensible'
+endif
 
 call plug#end()
 
-" General Settings -----------------------------------------------------------
+
+" General settings ------------------------------------------------------
 
 let mapleader=','
-let g:mapleader=','
 
 set clipboard=unnamed
 set completeopt-=preview
-set copyindent                          " copy the previous indentation on autoindenting
-set hlsearch                            " highlight search result
-set guioptions-=T                       " turn off GUI toolbar
-set guioptions-=m                       " turn off GUI menu
-set guioptions-=r                       " turn off GUI right scrollbar
-set guioptions-=L                       " turn off GUI left scrollbar
-set guioptions-=e                       " turn off GUI tabs
-set guioptions-=b
 set ignorecase                          " case insensitive search
 set linespace=1
 set modeline
@@ -70,26 +61,43 @@ set noerrorbells                        " no noise
 set noswapfile                          " no swap files
 set nowritebackup                       " write the buffer to the original file
 set number                              " show line numbers
-set pastetoggle=<F10>                   " toggle between paste and normal: for 'safer' pasting from keyboard
 set showmatch                           " set show matching parenthesis
 set splitbelow                          " :split opens below
 set splitright                          " :vsplit opens right
 set vb t_vb=                            " disable any beeps or flashes on erro
 
-
 " Tab/indent
 set expandtab                           " use spaces instead of tabs
 set shiftwidth=4 tabstop=4 softtabstop=4
 
-" Plugin Settings ------------------------------------------------------------
+" GUI
+set background=dark
+colorscheme neodark
+let g:neodark#background='gray'
+
+if has('gui_running')
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline:h15
+endif
+
+
+" Neovim specific settings ----------------------------------------------
+
+let g:python_host_prog='/Users/klaus/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog='/Users/klaus/.pyenv/versions/neovim3/bin/python'
+
+
+" VIM specific settings -------------------------------------------------
+
+if !has('nvim')
+    set ttymouse=xterm2
+endif
+
+
+" Plugins settings ------------------------------------------------------
 
 " Ag
 let g:ag_highlight=1
 let g:ag_working_path_mode='r'
-
-" Airline
-let g:airline_powerline_fonts=1
-let g:airline_theme='gruvbox'
 
 " CtrlP
 let g:ctrlp_clear_cache_on_exit=1
@@ -99,9 +107,12 @@ let g:ctrlp_max_files=5000
 let g:ctrlp_user_command=['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_working_path_mode='r'
 
-" Markdown
-let vim_markdown_preview_github=1
-let vim_markdown_preview_hotkey='<C-m>'
+" Deoplete
+let g:deoplete#enable_at_startup=1
+
+" Jedi
+let g:jedi#completions_enabled=0
+let g:jedi#use_tabs_not_buffers=1
 
 " NERDTree
 let g:NERDTreeAutoDeleteBuffer=1
@@ -133,35 +144,8 @@ let g:syntastic_scss_checkers = ['scss_lint']
 " Test
 let test#python#nose#options='--logging-clear-handlers'
 
-" YouCompleteMe
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_goto_buffer_command='new-tab'
 
-" Languages ------------------------------------------------------------------
-
-" HTML/Jinja
-au BufNewFile,BufRead *.html.desktop    setlocal ft=jinja
-au BufNewFile,BufRead *.html.tablet     setlocal ft=jinja
-au BufNewFile,BufRead *.html.smart      setlocal ft=jinja
-au FileType jinja setlocal omnifunc=htmlcomplete#CompleteTags
-
-" Javascript
-au FileType javascript let g:syntastic_javascript_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['standard']
-
-" GUI Settings ---------------------------------------------------------------
-
-set background=dark
-colorscheme gruvbox
-
-if has("gui_running")
-    set guicursor=a:blinkoff0-blinkwait0
-endif
-
-if has("gui_macvim")
-    set guifont=Droid\ Sans\ Mono\ for\ Powerline:h15
-endif
-
-" Key Mappings ---------------------------------------------------------------
+" Key Mappings ----------------------------------------------------------
 
 " Quickly edit/reload vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -176,16 +160,26 @@ nmap <silent> <leader>/ :nohlsearch<CR>
 " Show the current file on NERDTree
 nmap <silent> <leader>v :NERDTreeFind<CR>
 
-" Goto shortcuts
-nmap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
 " Useful shortcuts
 nmap <silent> <F2> :NERDTreeTabsToggle<CR>
 nmap <silent> <F6> :SyntasticCheck<CR>
 nmap <silent> <F7> :<C-u>call ToggleErrors()<CR>
 nmap <silent> <F8> :TagbarToggle<CR>
 
-" Functions ------------------------------------------------------------------
+
+" Languages -------------------------------------------------------------
+
+" Javascript
+au FileType javascript let g:syntastic_javascript_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['standard']
+
+" Python
+au Filetype python nmap <leader>g :call jedi#goto()
+au Filetype python nmap <leader>d :call jedi#goto_definitions()
+au Filetype python nmap <leader>n :call jedi#usages()
+au Filetype python nmap <K> :call jedi#show_documentation()
+
+
+" Functions -------------------------------------------------------------
 
 function! ToggleErrors()
     let old_last_winnr = winnr('$')
@@ -196,16 +190,3 @@ function! ToggleErrors()
         Errors
     endif
 endfunction
-
-" Auto running scripts -------------------------------------------------------
-
-" Python with virtualenv support
-py << EOF
-import os
-import sys
-
-if 'VIRTUAL_ENV' in os.environ:
-    project_base_dir = os.environ['VIRTUAL_ENV']
-    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
-EOF

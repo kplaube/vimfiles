@@ -1,19 +1,16 @@
-install: install_package_manager copy_vimrc
+install: install_configuration_files install_package_manager
 
-
-develop: symbolic_link_to_vimrc
-
-
-copy_vimrc:
-	@echo "Copying .vimrc file..."
-	@cp .vimrc ~/
-
-
-symbolic_link_to_vimrc:
-	@echo "Creating a symbolic link to .vimrc file..."
+install_configuration_files:
+	@echo "Installing VIM config files..."
 	@ln -sf `pwd`/.vimrc ~/.vimrc
+
+	@echo "Transitioning to NeoVim..."
+	@ln -sf ~/.vim ~/.config/nvim
+	@ln -sf ~/.vimrc ~/.config/nvim/init.vim
 
 
 install_package_manager:
+	@echo "vim-plug for VIM"
 	@curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	@echo "vim-plug for NeoVim"
 	@curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
