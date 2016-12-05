@@ -9,13 +9,16 @@ call plug#begin('~/.vim/plugged')
 
 " Let's Plug manage -----------------------------------------------------
 
+" Code completion
+Plug 'davidhalter/jedi-vim'
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install -g tern' }
+
 " Code standards
 Plug 'editorconfig/editorconfig-vim'
 Plug 'scrooloose/syntastic'
 
 " Display
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'davidhalter/jedi-vim'
 Plug 'glench/vim-jinja2-syntax'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'majutsushi/tagbar'
@@ -37,6 +40,7 @@ Plug 'janko-m/vim-test'
 if has('nvim')
     " Code completion
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'carlitux/deoplete-ternjs'
     Plug 'zchee/deoplete-jedi'
 else
     " Libs
@@ -110,6 +114,10 @@ let g:ctrlp_working_path_mode='r'
 " Deoplete
 let g:deoplete#enable_at_startup=1
 
+" Deoplete-tern
+let g:tern_request_timeout=1
+let g:tern_show_signature_in_pum='0'
+
 " Jedi
 let g:jedi#completions_enabled=0
 let g:jedi#use_tabs_not_buffers=1
@@ -141,6 +149,10 @@ let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_args='--ignore=E501'
 let g:syntastic_scss_checkers = ['scss_lint']
 
+" Tern for Vim
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
+
 " Test
 let test#python#nose#options='--logging-clear-handlers'
 
@@ -171,12 +183,16 @@ nmap <silent> <F8> :TagbarToggle<CR>
 
 " Javascript
 au FileType javascript let g:syntastic_javascript_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['standard']
+au Filetype javascript nmap <leader>g :TernDefTab<CR>
+au Filetype javascript nmap <leader>d :TernDefTab<CR>
+au Filetype javascript nmap <leader>n :TernRefs<CR>
+au Filetype javascript nmap <K> :TernDoc<CR>
 
 " Python
-au Filetype python nmap <leader>g :call jedi#goto()
-au Filetype python nmap <leader>d :call jedi#goto_definitions()
-au Filetype python nmap <leader>n :call jedi#usages()
-au Filetype python nmap <K> :call jedi#show_documentation()
+au Filetype python nmap <leader>g :call jedi#goto()<CR>
+au Filetype python nmap <leader>d :call jedi#goto_definitions()<CR>
+au Filetype python nmap <leader>n :call jedi#usages()<CR>
+au Filetype python nmap <K> :call jedi#show_documentation()<CR>
 
 
 " Functions -------------------------------------------------------------
