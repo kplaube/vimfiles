@@ -78,6 +78,7 @@ set shiftwidth=4 tabstop=4 softtabstop=4
 
 " GUI
 set background=dark
+set termguicolors
 colorscheme gruvbox
 
 
