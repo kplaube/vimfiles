@@ -53,7 +53,7 @@ Below is a list of the most common shortcuts:
 - `,f`: Perform searches using Ag
 - `,/`: Clear search highlights
 - `,v`: Show the current file in NERDTree
-- Python shortcuts:
+- Python and Javascript shortcuts:
     - `K`: Show documentation
     - `,g`: Go to declaration
     - `,d`: Go to definition
@@ -62,5 +62,6 @@ Below is a list of the most common shortcuts:
 ## References
 
 * [Setting up Python for Neovim](https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim)
+* [Use Tern with VIM for Node.js development](https://gist.github.com/nisaacson/9234157)
 
 That's all!
