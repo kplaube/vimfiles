@@ -20,10 +20,11 @@ Plug 'scrooloose/syntastic'
 " Display
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'glench/vim-jinja2-syntax'
-Plug 'KeitaNakamura/neodark.vim'
 Plug 'majutsushi/tagbar'
+Plug 'morhetz/gruvbox'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'sheerun/vim-polyglot'
+Plug 'vim-airline/vim-airline'
 
 " File explorer
 Plug 'ctrlpvim/ctrlp.vim'
@@ -33,6 +34,7 @@ Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'jistr/vi
 
 " Git integration
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
 " Misc
 Plug 'janko-m/vim-test'
@@ -76,12 +78,7 @@ set shiftwidth=4 tabstop=4 softtabstop=4
 
 " GUI
 set background=dark
-colorscheme neodark
-let g:neodark#background='gray'
-
-if has('gui_running')
-    set guifont=Droid\ Sans\ Mono\ for\ Powerline:h15
-endif
+colorscheme gruvbox
 
 
 " Neovim specific settings ----------------------------------------------
@@ -103,6 +100,19 @@ endif
 let g:ag_highlight=1
 let g:ag_working_path_mode='r'
 
+" Airline
+let g:airline#extensions#tabline#enabled=2
+let g:airline#extensions#tabline#fnamemod=':t'
+let g:airline#extensions#tabline#left_sep=' '
+let g:airline#extensions#tabline#left_alt_sep='|'
+let g:airline#extensions#tabline#right_sep=' '
+let g:airline#extensions#tabline#right_alt_sep='|'
+let g:airline_left_sep=' '
+let g:airline_left_alt_sep='|'
+let g:airline_right_sep=' '
+let g:airline_right_alt_sep='|'
+let g:airline_theme='gruvbox'
+
 " CtrlP
 let g:ctrlp_clear_cache_on_exit=1
 let g:ctrlp_match_window='bottom,order:ttb,min:1,max:10,results:10'
@@ -117,6 +127,9 @@ let g:deoplete#enable_at_startup=1
 " Deoplete-tern
 let g:tern_request_timeout=1
 let g:tern_show_signature_in_pum='0'
+
+" GitGutter
+let g:gitgutter_max_signs=1000
 
 " Jedi
 let g:jedi#completions_enabled=0
