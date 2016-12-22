@@ -8,7 +8,7 @@ functionalities, so I compiled the most common and easy to use plugins. Enjoy :)
 
 ### Install NeoVim
 
-Vim by itself have some limitations that can lead you to some very frustrating experiences, as
+Vim by itself has some limitations that can lead you to some very frustrating experiences, as
 *Derek Prior* wrote in his [My Life with NeoVim](https://robots.thoughtbot.com/my-life-with-neovim).
 
 NeoVim is not perfect, but has some cool improvements (like asynchronous checkers) and an active
