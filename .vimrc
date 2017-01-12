@@ -102,12 +102,6 @@ let g:ag_highlight=1
 let g:ag_working_path_mode='r'
 
 " Airline
-let g:airline#extensions#tabline#enabled=2
-let g:airline#extensions#tabline#fnamemod=':t'
-let g:airline#extensions#tabline#left_sep=' '
-let g:airline#extensions#tabline#left_alt_sep='|'
-let g:airline#extensions#tabline#right_sep=' '
-let g:airline#extensions#tabline#right_alt_sep='|'
 let g:airline_left_sep=' '
 let g:airline_left_alt_sep='|'
 let g:airline_right_sep=' '
@@ -142,15 +136,12 @@ let g:NERDTreeDirArrows=1
 let g:NERDTreeRespectWildIgnore=1
 let g:NERDTreeWinSize=30
 let g:NERDTreeMinimalUI=1
-let g:nerdtree_tabs_open_on_gui_startup=1
-let g:nerdtree_tabs_open_on_new_tab=0
-let g:nerdtree_tabs_autoclose=1
 
 " Syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list=0
 let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq=0
 let g:syntastic_enable_highlighting=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_mode_map={'passive_filetypes': ['sass', 'scss', 'scala']}
@@ -179,6 +170,9 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Performing searches with Ag
 nmap <leader>f :Ag!<space>
+
+" Search and replace
+nmap <leader>sr :%s///gci<Left><Left><Left><Left><Left>
 
 " Cleaning search highlights
 nmap <silent> <leader>/ :nohlsearch<CR>
