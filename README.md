@@ -20,7 +20,7 @@ community around it. You should give it a try.
 
 With [vim-plug](https://github.com/junegunn/vim-plug) you can easily install
 add-ons to your `vim`:
-       
+
     curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -48,10 +48,11 @@ Below is a list of the most common shortcuts:
 - `F7`: Show/hide file errors
 - `F8`: Show/hide the tag bar
 - `CTRL + p`: File finder
-- `,ev`: Edit `.vimrc`
-- `,sv`: Source `.vimrc`
-- `,f`: Perform searches using Ag
 - `,/`: Clear search highlights
+- `,ev`: Edit `.vimrc`
+- `,f`: Perform searches using Ag
+- `,sr`: Search and replace
+- `,sv`: Source `.vimrc`
 - `,v`: Show the current file in NERDTree
 - Python and Javascript shortcuts:
     - `K`: Show documentation
