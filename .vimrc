@@ -37,6 +37,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 " Misc
+Plug 'keith/investigate.vim'
 Plug 'janko-m/vim-test'
 
 if has('nvim')
@@ -126,6 +127,9 @@ let g:tern_show_signature_in_pum='0'
 " GitGutter
 let g:gitgutter_max_signs=1000
 
+" Investigate
+let g:investigate_use_dash=1
+
 " Jedi
 let g:jedi#completions_enabled=0
 let g:jedi#use_tabs_not_buffers=1
@@ -177,8 +181,11 @@ nmap <leader>sr :%s///gci<Left><Left><Left><Left><Left>
 " Cleaning search highlights
 nmap <silent> <leader>/ :nohlsearch<CR>
 
-" Show the current file on NERDTree
+" Shows the current file on NERDTree
 nmap <silent> <leader>v :NERDTreeFind<CR>
+
+" Shows the documentation through investigate
+nmap <leader>gk :call investigate#Investigate('n')<CR>
 
 " Useful shortcuts
 nmap <silent> <F2> :NERDTreeTabsToggle<CR>

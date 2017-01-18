@@ -57,6 +57,7 @@ Below is a list of the most common shortcuts:
 - Python and Javascript shortcuts:
     - `K`: Show documentation
     - `,g`: Go to declaration
+    - `,gk`: Show documentation through [vim-investigate](https://github.com/keith/investigate.vim)/[Dash](https://kapeli.com/dash)
     - `,d`: Go to definition
     - `,n`: Show function usages
 
