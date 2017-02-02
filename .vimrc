@@ -39,6 +39,8 @@ Plug 'tpope/vim-fugitive'
 " Misc
 Plug 'keith/investigate.vim'
 Plug 'janko-m/vim-test'
+Plug 'terryma/vim-multiple-cursors'
+
 
 if has('nvim')
     " Code completion

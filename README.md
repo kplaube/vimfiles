@@ -54,6 +54,7 @@ Below is a list of the most common shortcuts:
 - `F6`: Run the Syntastic check
 - `F7`: Show/hide file errors
 - `F8`: Show/hide the tag bar
+- `CTRL + n (CTRL + p, CTRL + x)`: Multiple cursos selection
 - `CTRL + p`: File finder
 - `,/`: Clear search highlights
 - `,ev`: Edit `.vimrc`
