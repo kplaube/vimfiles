@@ -2,7 +2,14 @@ vimfiles
 ========
 
 Yes... this is small (or at least should be)! I just can't handle a lot of shortcuts and
-functionalities, so I compiled the most common and easy to use plugins. Enjoy :)
+functionalities, so I compiled the most common and easy to use plugins.
+
+Currently, I'm working with:
+
+* Python
+* Javascript
+
+Enjoy! :)
 
 ## Getting started
 
