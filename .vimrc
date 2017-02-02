@@ -108,6 +108,7 @@ let g:airline_left_alt_sep='|'
 let g:airline_right_sep=' '
 let g:airline_right_alt_sep='|'
 let g:airline_theme='gruvbox'
+let g:airline#extensions#syntastic#enabled=1
 
 " CtrlP
 let g:ctrlp_clear_cache_on_exit=1
