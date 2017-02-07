@@ -200,6 +200,7 @@ nmap <silent> <F8> :TagbarToggle<CR>
 " Languages -------------------------------------------------------------
 
 " Javascript
+au BufReadPost *.js set syntax=javascript
 au FileType javascript let g:syntastic_javascript_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['standard']
 au Filetype javascript nmap <leader>g :TernDefTab<CR>
 au Filetype javascript nmap <leader>d :TernDefTab<CR>

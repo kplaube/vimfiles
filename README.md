@@ -7,9 +7,11 @@ functionalities, so I compiled the most common and easy to use plugins.
 Currently, I'm working with:
 
 * Python
-* Javascript
+* Javascript (*)
 
 Enjoy! :)
+
+(*) Don't forget to create a `.tern-project` file.
 
 ## Getting started
 
