@@ -55,6 +55,19 @@ endif
 call plug#end()
 
 
+" Neovim specific settings ----------------------------------------------
+
+let g:python_host_prog='/home/kplaube/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog='/home/kplaube/.pyenv/versions/neovim3/bin/python'
+
+
+" VIM specific settings -------------------------------------------------
+
+if !has('nvim')
+    set ttymouse=xterm2
+endif
+
+
 " General settings ------------------------------------------------------
 
 let mapleader=','
@@ -83,19 +96,6 @@ set shiftwidth=4 tabstop=4 softtabstop=4
 set background=dark
 set termguicolors
 colorscheme gruvbox
-
-
-" Neovim specific settings ----------------------------------------------
-
-let g:python_host_prog='/Users/klaus/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog='/Users/klaus/.pyenv/versions/neovim3/bin/python'
-
-
-" VIM specific settings -------------------------------------------------
-
-if !has('nvim')
-    set ttymouse=xterm2
-endif
 
 
 " Plugins settings ------------------------------------------------------
@@ -166,6 +166,7 @@ let g:tern#command = ["tern"]
 let g:tern#arguments = ["--persistent"]
 
 " Test
+let test#strategy='neovim'
 let test#python#nose#options='--logging-clear-handlers'
 
 
