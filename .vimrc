@@ -194,6 +194,7 @@ nmap <leader>gk :call investigate#Investigate('n')<CR>
 
 " Useful shortcuts
 nmap <silent> <F2> :NERDTreeTabsToggle<CR>
+nmap <silent> <F3> :<C-u>call TodoList()<CR>
 nmap <silent> <F6> :SyntasticCheck<CR>
 nmap <silent> <F7> :<C-u>call ToggleErrors()<CR>
 nmap <silent> <F8> :TagbarToggle<CR>
@@ -225,5 +226,14 @@ function! ToggleErrors()
         " Nothing was closed, open syntastic error location panel
         SyntasticCheck
         Errors
+    endif
+endfunction
+
+function! TodoList()
+    let old_last_winnr = winnr('$')
+    cclose
+    if old_last_winnr == winnr('$')
+        vimgrep /TODO\|FIXME\|BUG/ %
+        copen
     endif
 endfunction
