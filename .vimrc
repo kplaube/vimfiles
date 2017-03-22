@@ -162,11 +162,12 @@ let g:syntastic_python_flake8_args='--ignore=E501'
 let g:syntastic_scss_checkers = ['scss_lint']
 
 " Tern for Vim
-let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
+let g:tern#command=["tern"]
+let g:tern#arguments=["--persistent"]
 
 " Test
 let test#strategy='neovim'
+let test#python#runner='pytest'
 let test#python#nose#options='--logging-clear-handlers'
 
 
