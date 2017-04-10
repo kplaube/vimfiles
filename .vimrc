@@ -24,6 +24,7 @@ Plug 'majutsushi/tagbar'
 Plug 'morhetz/gruvbox'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'sheerun/vim-polyglot'
+Plug 'shime/vim-livedown', { 'do': 'npm install -g livedown' }
 Plug 'vim-airline/vim-airline'
 
 " File explorer
@@ -33,8 +34,8 @@ Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'jistr/vim-nerdtree-tabs'
 
 " Git integration
-Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'mhinz/vim-signify'
 
 " Misc
 Plug 'keith/investigate.vim'
@@ -127,9 +128,6 @@ let g:deoplete#enable_at_startup=1
 let g:tern_request_timeout=1
 let g:tern_show_signature_in_pum='0'
 
-" GitGutter
-let g:gitgutter_max_signs=1000
-
 " Investigate
 let g:investigate_use_dash=1
 
@@ -140,6 +138,7 @@ let g:jedi#use_tabs_not_buffers=1
 " NERDTree
 let g:NERDTreeAutoDeleteBuffer=1
 let g:NERDTreeDirArrows=1
+let g:NERDTreeIgnore=['\.pyc$']
 let g:NERDTreeRespectWildIgnore=1
 let g:NERDTreeWinSize=30
 let g:NERDTreeMinimalUI=1
@@ -151,7 +150,6 @@ let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_enable_highlighting=1
 let g:syntastic_error_symbol='✗'
-let g:syntastic_mode_map={'passive_filetypes': ['sass', 'scss', 'scala']}
 let g:syntastic_warning_symbol='⚠'
 
 let g:syntastic_javascript_checkers=['jshint']
@@ -192,6 +190,9 @@ nmap <silent> <leader>v :NERDTreeFind<CR>
 " Shows the documentation through investigate
 nmap <leader>gk :call investigate#Investigate('n')<CR>
 
+" Shows Markdown preview
+nmap <leader>gm :LivedownToggle<CR>
+
 " Useful shortcuts
 nmap <silent> <F2> :NERDTreeTabsToggle<CR>
 nmap <silent> <F3> :<C-u>call TodoList()<CR>
@@ -219,6 +220,15 @@ au Filetype python nmap <K> :call jedi#show_documentation()<CR>
 
 " Functions -------------------------------------------------------------
 
+function! TodoList()
+    let old_last_winnr = winnr('$')
+    cclose
+    if old_last_winnr == winnr('$')
+        Ag! 'TODO|FIXME'
+        copen
+    endif
+endfunction
+
 function! ToggleErrors()
     let old_last_winnr = winnr('$')
     lclose
@@ -226,14 +236,5 @@ function! ToggleErrors()
         " Nothing was closed, open syntastic error location panel
         SyntasticCheck
         Errors
-    endif
-endfunction
-
-function! TodoList()
-    let old_last_winnr = winnr('$')
-    cclose
-    if old_last_winnr == winnr('$')
-        vimgrep /TODO\|FIXME\|BUG/ %
-        copen
     endif
 endfunction
