@@ -11,7 +11,9 @@ Currently, I'm working with:
 
 Enjoy! :)
 
-(*) Don't forget to create a `.tern-project` file.
+(*) `make install` will create a `.tern-project` inside your `$HOME`. If you
+want a customized configuration per project, just create a Tern file inside the
+project root folder.
 
 ## Getting started
 

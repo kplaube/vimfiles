@@ -8,6 +8,9 @@ install_configuration_files:
 	@ln -sf ~/.vim ~/.config/nvim
 	@ln -sf ~/.vimrc ~/.config/nvim/init.vim
 
+	@echo "Create tern file (for Javascript projects)..."
+	@ln -sf `pwd`/tern-project-example ~/.tern-project
+
 
 install_package_manager:
 	@echo "vim-plug for VIM"
