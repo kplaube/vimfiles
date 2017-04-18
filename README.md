@@ -55,6 +55,7 @@ Open `nvim` and run `:PlugInstall`.
 Below is a list of the most common shortcuts:
 
 - `F2`: Show/hide NERDTree (file explorer)
+- `F3`: Show/hide TODO/FIXME list
 - `F6`: Run the Syntastic check
 - `F7`: Show/hide file errors
 - `F8`: Show/hide the tag bar
