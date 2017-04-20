@@ -20,6 +20,7 @@ Plug 'scrooloose/syntastic'
 " Display
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'glench/vim-jinja2-syntax'
+Plug 'junegunn/goyo.vim'
 Plug 'majutsushi/tagbar'
 Plug 'morhetz/gruvbox'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -75,6 +76,7 @@ let mapleader=','
 
 set clipboard=unnamed
 set completeopt-=preview
+set exrc                                " alow per project settings
 set ignorecase                          " case insensitive search
 set linespace=1
 set modeline
