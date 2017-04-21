@@ -75,7 +75,7 @@ endif
 let mapleader=','
 
 set clipboard=unnamed
-set completeopt-=preview
+" set completeopt-=preview
 set exrc                                " alow per project settings
 set ignorecase                          " case insensitive search
 set linespace=1
@@ -125,6 +125,8 @@ let g:ctrlp_working_path_mode='r'
 
 " Deoplete
 let g:deoplete#enable_at_startup=1
+let g:deoplete#enable_smart_case=1
+let g:deoplete#sources#jedi#show_docstring=1
 
 " Deoplete-tern
 let g:tern_request_timeout=1
@@ -191,6 +193,10 @@ nmap <silent> <leader>v :NERDTreeFind<CR>
 
 " Shows the documentation through investigate
 nmap <leader>gk :call investigate#Investigate('n')<CR>
+
+" Tab and Enter while autocompleting interacts with complete list
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
 " Shows Markdown preview
 nmap <leader>gm :LivedownToggle<CR>
