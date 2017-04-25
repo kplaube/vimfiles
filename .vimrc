@@ -39,6 +39,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
 
 " Misc
+Plug 'kassio/neoterm'
 Plug 'keith/investigate.vim'
 Plug 'janko-m/vim-test'
 Plug 'terryma/vim-multiple-cursors'
@@ -75,7 +76,6 @@ endif
 let mapleader=','
 
 set clipboard=unnamed
-" set completeopt-=preview
 set exrc                                " alow per project settings
 set ignorecase                          " case insensitive search
 set linespace=1
@@ -138,6 +138,9 @@ let g:investigate_use_dash=1
 let g:jedi#completions_enabled=0
 let g:jedi#use_tabs_not_buffers=1
 
+" Neoterm
+let g:neoterm_automap_keys=',tt'
+
 " NERDTree
 let g:NERDTreeAutoDeleteBuffer=1
 let g:NERDTreeDirArrows=1
@@ -166,7 +169,7 @@ let g:tern#command=["tern"]
 let g:tern#arguments=["--persistent"]
 
 " Test
-let test#strategy='neovim'
+let test#strategy='neoterm'
 let test#python#runner='pytest'
 let test#python#nose#options='--logging-clear-handlers'
 
@@ -201,6 +204,12 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
 " Shows Markdown preview
 nmap <leader>gm :LivedownToggle<CR>
+
+" Exits the terminal mode is an easier way
+tnoremap <Esc> <C-\><C-n>
+
+" Hide/close the terminal
+nnoremap <silent> ,th :call neoterm#close()<CR>
 
 " Useful shortcuts
 nmap <silent> <F2> :NERDTreeTabsToggle<CR>
