@@ -125,7 +125,6 @@ let g:ctrlp_working_path_mode='r'
 
 " Deoplete
 let g:deoplete#enable_at_startup=1
-let g:deoplete#enable_smart_case=1
 let g:deoplete#sources#jedi#show_docstring=1
 
 " Deoplete-tern
@@ -160,7 +159,6 @@ let g:syntastic_javascript_checkers=['jshint']
 let g:syntastic_json_checkers=['jsonlint']
 let g:syntastic_lua_checkers=['luacheck']
 let g:syntastic_python_checkers=['flake8']
-let g:syntastic_python_flake8_args='--ignore=E501'
 let g:syntastic_scss_checkers = ['scss_lint']
 
 " Tern for Vim
@@ -190,6 +188,9 @@ nmap <silent> <leader>/ :nohlsearch<CR>
 
 " Shows the current file on NERDTree
 nmap <silent> <leader>v :NERDTreeFind<CR>
+
+" Opens CtrlP pointing to virtualenv
+nmap <silent> <leader>sp :CtrlP $PYENV_VIRTUAL_ENV<CR>
 
 " Shows the documentation through investigate
 nmap <leader>gk :call investigate#Investigate('n')<CR>

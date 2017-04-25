@@ -64,6 +64,7 @@ Below is a list of the most common shortcuts:
 - `,/`: Clear search highlights
 - `,ev`: Edit `.vimrc`
 - `,f`: Perform searches using Ag
+- `,sp`: File finder (pointing to Virtualenv)
 - `,sr`: Search and replace
 - `,sv`: Source `.vimrc`
 - `,v`: Show the current file in NERDTree
