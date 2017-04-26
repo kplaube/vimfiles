@@ -67,6 +67,12 @@ Below is a list of the most common shortcuts:
 - `,sp`: File finder (pointing to Virtualenv)
 - `,sr`: Search and replace
 - `,sv`: Source `.vimrc`
+- Running tests:
+    - `,tn`: Test the nearest test file
+    - `,tf`: Test the current test file
+    - `,ts`: Test the whole test suite
+    - `,t`: Test the last test file
+    - `,tv`: Visits the last test file
 - `,v`: Show the current file in NERDTree
 - Python and Javascript shortcuts:
     - `K`: Show documentation

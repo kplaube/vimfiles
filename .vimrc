@@ -138,9 +138,6 @@ let g:investigate_use_dash=1
 let g:jedi#completions_enabled=0
 let g:jedi#use_tabs_not_buffers=1
 
-" Neoterm
-let g:neoterm_automap_keys=',tt'
-
 " NERDTree
 let g:NERDTreeAutoDeleteBuffer=1
 let g:NERDTreeDirArrows=1
@@ -169,8 +166,9 @@ let g:tern#command=["tern"]
 let g:tern#arguments=["--persistent"]
 
 " Test
-let test#strategy='neoterm'
+let test#strategy='neovim'
 let test#python#runner='pytest'
+let test#python#pytest#executable='pytest'
 let test#python#nose#options='--logging-clear-handlers'
 
 
@@ -208,8 +206,15 @@ nmap <leader>gm :LivedownToggle<CR>
 " Exits the terminal mode is an easier way
 tnoremap <Esc> <C-\><C-n>
 
-" Hide/close the terminal
-nnoremap <silent> ,th :call neoterm#close()<CR>
+" Open/close the terminal
+nnoremap <silent> ,th :call neoterm#toggle()<CR>
+
+" Run tests
+nmap <silent> <leader>tn :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>ts :TestSuite<CR>
+nmap <silent> <leader>t :TestLast<CR>
+nmap <silent> <leader>tv :TestVisit<CR>
 
 " Useful shortcuts
 nmap <silent> <F2> :NERDTreeTabsToggle<CR>
