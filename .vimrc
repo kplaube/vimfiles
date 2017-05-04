@@ -15,7 +15,8 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install -g tern' }
 
 " Code standards
 Plug 'editorconfig/editorconfig-vim'
-Plug 'scrooloose/syntastic'
+Plug 'sbdchd/neoformat'
+Plug 'neomake/neomake'
 
 " Display
 Plug 'bronson/vim-trailing-whitespace'
@@ -39,7 +40,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
 
 " Misc
-Plug 'kassio/neoterm'
 Plug 'keith/investigate.vim'
 Plug 'janko-m/vim-test'
 Plug 'terryma/vim-multiple-cursors'
@@ -47,6 +47,7 @@ Plug 'terryma/vim-multiple-cursors'
 
 if has('nvim')
     " Code completion
+    Plug 'artur-shaik/vim-javacomplete2'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'carlitux/deoplete-ternjs'
     Plug 'zchee/deoplete-jedi'
@@ -113,7 +114,6 @@ let g:airline_left_alt_sep='|'
 let g:airline_right_sep=' '
 let g:airline_right_alt_sep='|'
 let g:airline_theme='gruvbox'
-let g:airline#extensions#syntastic#enabled=1
 
 " CtrlP
 let g:ctrlp_clear_cache_on_exit=1
@@ -138,6 +138,16 @@ let g:investigate_use_dash=1
 let g:jedi#completions_enabled=0
 let g:jedi#use_tabs_not_buffers=1
 
+" Neomake
+let g:neomake_warning_sign = {
+  \ 'text': '⚠',
+  \ 'texthl': 'WarningMsg',
+  \ }
+let g:neomake_error_sign = {
+  \ 'text': '✗',
+  \ 'texthl': 'ErrorMsg',
+  \ }
+
 " NERDTree
 let g:NERDTreeAutoDeleteBuffer=1
 let g:NERDTreeDirArrows=1
@@ -145,21 +155,6 @@ let g:NERDTreeIgnore=['\.pyc$']
 let g:NERDTreeRespectWildIgnore=1
 let g:NERDTreeWinSize=30
 let g:NERDTreeMinimalUI=1
-
-" Syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list=0
-let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=0
-let g:syntastic_enable_highlighting=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-
-let g:syntastic_javascript_checkers=['jshint']
-let g:syntastic_json_checkers=['jsonlint']
-let g:syntastic_lua_checkers=['luacheck']
-let g:syntastic_python_checkers=['flake8']
-let g:syntastic_scss_checkers = ['scss_lint']
 
 " Tern for Vim
 let g:tern#command=["tern"]
@@ -203,12 +198,6 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 " Shows Markdown preview
 nmap <leader>gm :LivedownToggle<CR>
 
-" Exits the terminal mode is an easier way
-tnoremap <Esc> <C-\><C-n>
-
-" Open/close the terminal
-nnoremap <silent> ,th :call neoterm#toggle()<CR>
-
 " Run tests
 nmap <silent> <leader>tn :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
@@ -219,16 +208,19 @@ nmap <silent> <leader>tv :TestVisit<CR>
 " Useful shortcuts
 nmap <silent> <F2> :NERDTreeTabsToggle<CR>
 nmap <silent> <F3> :<C-u>call TodoList()<CR>
-nmap <silent> <F6> :SyntasticCheck<CR>
 nmap <silent> <F7> :<C-u>call ToggleErrors()<CR>
 nmap <silent> <F8> :TagbarToggle<CR>
 
 
 " Languages -------------------------------------------------------------
 
+autocmd! BufWritePost,BufEnter * Neomake
+
+" Java
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
 " Javascript
 au BufReadPost *.js set syntax=javascript
-au FileType javascript let g:syntastic_javascript_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['standard']
 au Filetype javascript nmap <leader>g :TernDefTab<CR>
 au Filetype javascript nmap <leader>d :TernDefTab<CR>
 au Filetype javascript nmap <leader>n :TernRefs<CR>
