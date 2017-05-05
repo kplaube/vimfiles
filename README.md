@@ -17,15 +17,7 @@ project root folder.
 
 ## Getting started
 
-### Install NeoVim
-
-Vim by itself has some limitations that can lead you to some very frustrating experiences, as
-*Derek Prior* wrote in his [My Life with NeoVim](https://robots.thoughtbot.com/my-life-with-neovim).
-
-NeoVim is not perfect, but has some cool improvements (like asynchronous checkers) and an active
-community around it. You should give it a try.
-
-[Installing NeoVim](https://github.com/neovim/neovim/wiki/Installing-Neovim).
+[Vim 8](https://github.com/vim/vim/blob/master/runtime/doc/version8.txt) FTW \o/.
 
 ### Installing vim-plug
 
@@ -46,7 +38,7 @@ a symbolic link of the configuration file to `~/` path.
 
 ### Installing plugins
 
-Open `nvim` and run `:PlugInstall`.
+Open `vim` and run `:PlugInstall`.
 
 [Check out the plugin list](https://github.com/kplaube/vimfiles/blob/master/.vimrc#L10).
 
@@ -54,36 +46,37 @@ Open `nvim` and run `:PlugInstall`.
 
 Below is a list of the most common shortcuts:
 
+- `F1`: Vim help
 - `F2`: Show/hide NERDTree (file explorer)
 - `F3`: Show/hide TODO/FIXME list
-- `F6`: Run the Syntastic check
-- `F7`: Show/hide file errors
-- `F8`: Show/hide the tag bar
+- `F5`: Run/Preview
+- `F6`: Run the syntatic check
+- `F7`: Show/hide location list (file errors)
+- `F8`: Show/hide tag bar
 - `CTRL + n (CTRL + p, CTRL + x)`: Multiple cursos selection
 - `CTRL + p`: File finder
 - `,/`: Clear search highlights
 - `,ev`: Edit `.vimrc`
 - `,f`: Perform searches using Ag
-- `,sp`: File finder (pointing to Virtualenv)
+- `,ig`: Show/hide indent guides
 - `,sr`: Search and replace
 - `,sv`: Source `.vimrc`
+- `,v`: Show the current file in NERDTree
+- Common language shortcuts:
+    - `K`: Show documentation
+    - `,d`: Go to definition
+    - `,g`: Go to declaration
+    - `,gk`: Show documentation through [vim-investigate](https://github.com/keith/investigate.vim)/[Dash](https://kapeli.com/dash)
+    - `,n`: Show function usages
 - Running tests:
     - `,tn`: Test the nearest test file
     - `,tf`: Test the current test file
     - `,ts`: Test the whole test suite
     - `,t`: Test the last test file
     - `,tv`: Visits the last test file
-- `,v`: Show the current file in NERDTree
-- Python and Javascript shortcuts:
-    - `K`: Show documentation
-    - `,g`: Go to declaration
-    - `,gk`: Show documentation through [vim-investigate](https://github.com/keith/investigate.vim)/[Dash](https://kapeli.com/dash)
-    - `,d`: Go to definition
-    - `,n`: Show function usages
 
 ## References
 
-* [Setting up Python for Neovim](https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim)
 * [Use Tern with VIM for Node.js development](https://gist.github.com/nisaacson/9234157)
 
 That's all!

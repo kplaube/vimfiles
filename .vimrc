@@ -9,25 +9,29 @@ call plug#begin('~/.vim/plugged')
 
 " Let's Plug manage -----------------------------------------------------
 
+" Common libs
+Plug 'skywind3000/asyncrun.vim'
+Plug 'tpope/vim-sensible'
+
 " Code completion
-Plug 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi-vim', { 'do': 'pip install jedi' }
+Plug 'maralla/completor.vim'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install -g tern' }
 
 " Code standards
+Plug 'bronson/vim-trailing-whitespace'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'sbdchd/neoformat'
-Plug 'neomake/neomake'
+Plug 'w0rp/ale'
 
 " Display
-Plug 'bronson/vim-trailing-whitespace'
 Plug 'glench/vim-jinja2-syntax'
-Plug 'junegunn/goyo.vim'
 Plug 'majutsushi/tagbar'
-Plug 'morhetz/gruvbox'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'sheerun/vim-polyglot'
 Plug 'shime/vim-livedown', { 'do': 'npm install -g livedown' }
+Plug 'tomasr/molokai'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " File explorer
 Plug 'ctrlpvim/ctrlp.vim'
@@ -42,42 +46,19 @@ Plug 'mhinz/vim-signify'
 " Misc
 Plug 'keith/investigate.vim'
 Plug 'janko-m/vim-test'
+Plug 'Valloric/ListToggle'
 Plug 'terryma/vim-multiple-cursors'
-
-
-if has('nvim')
-    " Code completion
-    Plug 'artur-shaik/vim-javacomplete2'
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'carlitux/deoplete-ternjs'
-    Plug 'zchee/deoplete-jedi'
-else
-    " Libs
-    Plug 'tpope/vim-sensible'
-endif
 
 call plug#end()
 
 
-" Neovim specific settings ----------------------------------------------
-
-let g:python_host_prog=$HOME.'/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog=$HOME.'/.pyenv/versions/neovim3/bin/python'
-
-
-" VIM specific settings -------------------------------------------------
-
-if !has('nvim')
-    set ttymouse=xterm2
-endif
-
-
 " General settings ------------------------------------------------------
 
-let mapleader=','
+let mapleader = ','
 
-set clipboard=unnamed
 set exrc                                " alow per project settings
+set guioptions-=r                       " disable scrollbars
+set guioptions-=L                       " disable scrollbars
 set ignorecase                          " case insensitive search
 set linespace=1
 set modeline
@@ -90,7 +71,7 @@ set number                              " show line numbers
 set showmatch                           " set show matching parenthesis
 set splitbelow                          " :split opens below
 set splitright                          " :vsplit opens right
-set vb t_vb=                            " disable any beeps or flashes on erro
+set vb t_vb =                           " disable any beeps or flashes on erro
 
 " Tab/indent
 set expandtab                           " use spaces instead of tabs
@@ -98,73 +79,68 @@ set shiftwidth=4 tabstop=4 softtabstop=4
 
 " GUI
 set background=dark
+set guifont=Droid\ Sans\ Mono:h13
 set termguicolors
-colorscheme gruvbox
+colorscheme molokai
+
+let g:rehash256 = 1
 
 
 " Plugins settings ------------------------------------------------------
 
 " Ag
-let g:ag_highlight=1
-let g:ag_working_path_mode='r'
+let g:ag_highlight = 1
+let g:ag_working_path_mode = 'r'
 
 " Airline
-let g:airline_left_sep=' '
-let g:airline_left_alt_sep='|'
-let g:airline_right_sep=' '
-let g:airline_right_alt_sep='|'
-let g:airline_theme='gruvbox'
+let g:airline_left_sep = ' '
+let g:airline_left_alt_sep = '|'
+let g:airline_right_sep = ' '
+let g:airline_right_alt_sep = '|'
+let g:airline_theme = 'molokai'
+
+" Ale
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
+
+" Completor
+let g:completor_python_binary = 'python'
+let g:completor_node_binary = 'node'
 
 " CtrlP
-let g:ctrlp_clear_cache_on_exit=1
-let g:ctrlp_match_window='bottom,order:ttb,min:1,max:10,results:10'
-let g:ctrlp_max_height=20
-let g:ctrlp_max_files=5000
-let g:ctrlp_user_command=['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_clear_cache_on_exit = 1
+let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
+let g:ctrlp_max_height = 20
+let g:ctrlp_max_files = 5000
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_working_path_mode='r'
 
-" Deoplete
-let g:deoplete#enable_at_startup=1
-let g:deoplete#sources#jedi#show_docstring=1
-
-" Deoplete-tern
-let g:tern_request_timeout=1
-let g:tern_show_signature_in_pum='0'
-
 " Investigate
-let g:investigate_use_dash=1
+let g:investigate_use_dash = 1
 
 " Jedi
-let g:jedi#completions_enabled=0
-let g:jedi#use_tabs_not_buffers=1
+let g:jedi#completions_enabled = 0
+let g:jedi#use_tabs_not_buffers = 1
 
-" Neomake
-let g:neomake_warning_sign = {
-  \ 'text': '⚠',
-  \ 'texthl': 'WarningMsg',
-  \ }
-let g:neomake_error_sign = {
-  \ 'text': '✗',
-  \ 'texthl': 'ErrorMsg',
-  \ }
+" ListToggle
+let g:lt_location_list_toggle_map = '<F7>'
 
 " NERDTree
-let g:NERDTreeAutoDeleteBuffer=1
-let g:NERDTreeDirArrows=1
-let g:NERDTreeIgnore=['\.pyc$']
-let g:NERDTreeRespectWildIgnore=1
-let g:NERDTreeWinSize=30
-let g:NERDTreeMinimalUI=1
+let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeIgnore = ['\.pyc$']
+let g:NERDTreeRespectWildIgnore = 1
+let g:NERDTreeWinSize = 30
+let g:NERDTreeMinimalUI = 1
 
 " Tern for Vim
-let g:tern#command=["tern"]
-let g:tern#arguments=["--persistent"]
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
 
 " Test
-let test#strategy='neovim'
-let test#python#runner='pytest'
-let test#python#pytest#executable='pytest'
-let test#python#nose#options='--logging-clear-handlers'
+let test#strategy = 'asyncrun'
+let test#python#runner = 'pytest'
+let test#python#pytest#executable = 'pytest'
 
 
 " Key Mappings ----------------------------------------------------------
@@ -185,18 +161,13 @@ nmap <silent> <leader>/ :nohlsearch<CR>
 " Shows the current file on NERDTree
 nmap <silent> <leader>v :NERDTreeFind<CR>
 
-" Opens CtrlP pointing to virtualenv
-nmap <silent> <leader>sp :CtrlP $PYENV_VIRTUAL_ENV<CR>
-
 " Shows the documentation through investigate
 nmap <leader>gk :call investigate#Investigate('n')<CR>
 
-" Tab and Enter while autocompleting interacts with complete list
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
-
-" Shows Markdown preview
-nmap <leader>gm :LivedownToggle<CR>
+" Completion settings
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
 " Run tests
 nmap <silent> <leader>tn :TestNearest<CR>
@@ -208,16 +179,12 @@ nmap <silent> <leader>tv :TestVisit<CR>
 " Useful shortcuts
 nmap <silent> <F2> :NERDTreeTabsToggle<CR>
 nmap <silent> <F3> :<C-u>call TodoList()<CR>
-nmap <silent> <F7> :<C-u>call ToggleErrors()<CR>
+nmap <silent> <F5> :LivedownToggle<CR>
+nmap <silent> <F6> :ALELint<CR>
 nmap <silent> <F8> :TagbarToggle<CR>
 
 
 " Languages -------------------------------------------------------------
-
-autocmd! BufWritePost,BufEnter * Neomake
-
-" Java
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " Javascript
 au BufReadPost *.js set syntax=javascript
@@ -244,12 +211,4 @@ function! TodoList()
     endif
 endfunction
 
-function! ToggleErrors()
-    let old_last_winnr = winnr('$')
-    lclose
-    if old_last_winnr == winnr('$')
-        " Nothing was closed, open syntastic error location panel
-        SyntasticCheck
-        Errors
-    endif
-endfunction
+set secure                              " make vim secure again
