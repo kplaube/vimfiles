@@ -1,6 +1,9 @@
 vimfiles
 ========
 
+![screen shot 2018-10-29 at 15 00 28](https://user-images.githubusercontent.com/477202/47654630-89954b80-db8b-11e8-825d-cbe0026f57fc.png)
+
+
 Yes... this is small (or at least it should be)! I just can't handle a lot of shortcuts and
 functionalities, so I compiled the most common and easy to use plugins.
 
