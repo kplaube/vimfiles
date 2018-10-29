@@ -131,6 +131,9 @@ let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeIgnore = ['\.pyc$']
 let g:NERDTreeRespectWildIgnore = 1
 let g:NERDTreeWinSize = 45
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
 let g:NERDTreeHighlightFolders = 1
 let g:NERDTreeHighlightFoldersFullName = 1
 
