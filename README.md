@@ -19,8 +19,8 @@ Enjoy! :)
 want a customized configuration per project, just create a Tern file inside the
 project root folder. Oh... make sure to install `tern` globally.
 
-(*2) You should install `jedi` inside every `virtualenv` you are working on. At least for now
-I'm not picking a "global" binary for jedi.
+(*2) You should install `jedi` inside every `virtualenv` you are working on. This
+will help you deal with multiple versions of *Python*.
 
 ## Getting started
 
@@ -60,41 +60,63 @@ font file.
 
 Below is a list of the most common shortcuts:
 
+### Common
+
 - `F1`: Vim help
-- `F2`: Show/hide NERDTree (file explorer)
-- `F3`: Show/hide TODO/FIXME list
+- `F2`: Show/hide TODO/FIXME list
 - `F5`: Run/Preview/Test
+- `F8`: Show/hide tag bar
+- `CTRL + \`: Show/hide NERDTree (file explorer)
+- `CTRL + k`: Apply snippet
+- `,\`: Show the current file in NERDTree
+- `,ev`: Edit `.vimrc`
+- `,ig`: Show/hide indent guides
+- `,sv`: Source `.vimrc`
+
+### Comments
+
+- `gcc`: Comment out line
+- `gc`: Comment out the target of a motion
+
+### Language shortcuts
+
+- `K`: Show documentation
+- `,d`: Go to definition
+- `,g`: Go to declaration
+- `,gk`: Show documentation through [vim-investigate](https://github.com/keith/investigate.vim)/[Dash](https://kapeli.com/dash)
+- `,n`: Show function usages
+
+#### Javascript shortcuts:
+
+- `,i`: Sort imports
+
+### Lint
+
 - `F6`: Run the syntatic check (toggle loclist)
 - `F7`: Run syntatic fixers
-- `F9`: Show/hide tag bar
+- `CTRL + k`: Previous lint error
+- `CTRL + j`: Next lint error
+
+### Movement
 - `CTRL + n (CTRL + n, CTRL + p, CTRL + x)`: Multiple cursos selection
-- `CTRL + p`: File finder
-- `,/`: Clear search highlights
-- `,ev`: Edit `.vimrc`
-- `,f`: Perform searches using Ag
-- `,ig`: Show/hide indent guides
-- `,sr`: Search and replace
-- `,sv`: Source `.vimrc`
-- `,v`: Show the current file in NERDTree
 - `,,b`: Easy motion through words (backward)
 - `,,f`: Easy motion to a specific character (forward)
 - `,,s`: Easy motion to a specific character (all)
 - `,,w`: Easy motion through words (forward)
-- Common language shortcuts:
-    - `K`: Show documentation
-    - `,d`: Go to definition
-    - `,g`: Go to declaration
-    - `,gk`: Show documentation through [vim-investigate](https://github.com/keith/investigate.vim)/[Dash](https://kapeli.com/dash)
-    - `,n`: Show function usages
-- Specific Javascript shortcuts:
-    - `,i`: Sort imports
-- Running tests:
-    - `,t`: Test the last test file
-    - `,tf`: Test the current test file
-    - `,tn`: Test the nearest test file
-    - `,ts`: Test the whole test suite
-    - `,tt`: Test file using `basic` strategy (good for pdb)
-    - `,tv`: Visits the last test file
+
+### Running tests
+- `,t`: Test the last test file
+- `,tf`: Test the current test file
+- `,tn`: Test the nearest test file
+- `,ts`: Test the whole test suite
+- `,tt`: Test file using `basic` strategy (good for pdb)
+- `,tv`: Visits the last test file
+
+### Search
+- `CTRL + p`: File finder
+- `,/`: Clear search highlights
+- `,f`: Perform searches using Ag
+- `,sr`: Search and replace
 
 ## References
 

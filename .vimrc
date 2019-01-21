@@ -15,12 +15,14 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ruanyl/vim-sort-imports', { 'do': 'npm install -g import-sort-cli import-sort-parser-babylon import-sort-parser-typescript import-sort-style-module import-sort-style-renke import-sort-style-eslint' }
 
 " Completion
+Plug 'slashmili/alchemist.vim'
 Plug 'maralla/completor.vim'
 Plug 'davidhalter/jedi-vim', { 'do': 'pip install jedi' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install -g tern' }
 
 " Colorschemes
-Plug 'joshdick/onedark.vim'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'dracula/vim'
 
 " Display
 Plug 'Valloric/ListToggle'
@@ -29,6 +31,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'shime/vim-livedown', { 'do': 'npm install -g livedown' }
 Plug 'sheerun/vim-polyglot'
+Plug 'mhinz/vim-startify'
 
 " File explorer
 Plug 'mileszs/ack.vim'
@@ -42,10 +45,15 @@ Plug 'mhinz/vim-signify'
 
 " Misc
 Plug 'keith/investigate.vim'
+Plug 'Shougo/neosnippet.vim' |  Plug 'maralla/completor-neosnippet' 
+Plug 'Shougo/neosnippet-snippets'| Plug 'honza/vim-snippets'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'               " run jobs async
+Plug 'benmills/vimux'                   " tmux support
+
+" Movement
 Plug 'easymotion/vim-easymotion'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'benmills/vimux'                   " tmux support
 
 " Tests
 Plug 'janko-m/vim-test'
@@ -56,13 +64,13 @@ call plug#end()
 
 let mapleader = ','
 
+set cmdheight=2                         " height of the command bar
 set completeopt=menuone,noselect
 set hlsearch                            " highlight all search matches
 set ignorecase                          " case insensitive search
 set laststatus=2                        " always show the status bar
 set mouse=a                             " active mouse
 set nobackup                            " no backups
-set noerrorbells                        " no noise
 set noswapfile                          " no swap files
 set nowrap                              " stop line breaking
 set nowritebackup                       " write the buffer to the original file
@@ -70,7 +78,10 @@ set number                              " show line numbers
 set showmatch                           " set show matching parenthesis
 set splitbelow                          " :split opens below
 set splitright                          " :vsplit opens right
-set vb t_vb=                            " disable any beeps or flashes on erro
+
+" Error handling
+set noerrorbells                        " no noise
+set vb t_vb=                            " disable any beeps or flashes on error
 
 " Tab/indent
 set expandtab                           " use spaces instead of tabs
@@ -80,10 +91,6 @@ set shiftwidth=4 tabstop=4 softtabstop=4
 
 set t_ut=                               " fix 256 colors in tmux http://sunaku.github.io/vim-256color-bce.html
 
-if has('termguicolor')
-    set termguicolors
-endif
-
 set background=dark
 set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
 set guioptions-=r                       " disable scrollbars
@@ -91,7 +98,14 @@ set guioptions-=L                       " disable scrollbars
 set guioptions-=e                       " disable graphic tabs
 set linespace=2                         " pixel lines between chars
 
-colorscheme onedark
+" Colors
+colorscheme dracula
+
+if has('termguicolor')
+    set termguicolors
+endif
+
+hi LineNr ctermbg=NONE guibg=NONE
 
 " Plugins settings ------------------------------------------------------
 
@@ -102,6 +116,7 @@ endif
 
 " Airline
 let g:airline_powerline_fonts = 1
+let g:airline_theme = 'dracula'
 let g:airline#extensions#ale#enabled = 1
 
 " Ale
@@ -111,11 +126,10 @@ let g:ale_linters = {
 \}
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
+\   'elixir': ['mix_format'],
 \   'javascript': ['eslint', 'prettier'],
-\   'python': ['isort', 'yapf']
+\   'python': ['isort', 'black']
 \}
-let g:ale_set_loclist = 1
-let g:ale_set_quickfix = 0
 
 " Jedi
 let g:jedi#completions_enabled = 1
@@ -123,8 +137,17 @@ let g:jedi#force_py_version = 3
 let g:jedi#popup_on_dot = 0
 let g:jedi#use_tabs_not_buffers = 1
 
+if has('python')
+    let g:jedi#force_py_version = 2
+elseif has('python3')
+    let g:jedi#force_py_version = 3
+endif
+
 " ListToggle
 let g:lt_height = 10
+
+" Neosnippet
+let g:neosnippet#snippets_directory='~/.vim/plugged/vim-snippets/snippets'
 
 " NERDTree
 let g:NERDTreeAutoDeleteBuffer = 1
@@ -138,15 +161,20 @@ let g:NERDTreeHighlightFolders = 1
 let g:NERDTreeHighlightFoldersFullName = 1
 
 " Tern
-let g:tern#command = ["tern"]
 let g:tern#arguments = ["--persistent"]
+let g:tern#command = ["tern"]
 
 " Test
-let test#strategy = 'vimterminal'
+let test#strategy = 'dispatch'
 let test#python#runner = 'pytest'
 let test#python#pytest#executable = 'pytest'
 
 " Key Mappings ----------------------------------------------------------
+
+nmap <silent> <F2> :call TodoList()<CR>
+nmap <silent> <F6> :LToggle<CR>:ALELint<CR>
+nmap <silent> <F7> :ALEFix<CR>
+nmap <silent> <F8> :TagbarToggle<CR>
 
 " Quickly edit/reload vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -159,7 +187,10 @@ nnoremap Q <nop>
 nmap <silent> <leader>/ :nohlsearch<CR>
 
 " Shows the current file on NERDTree
-nmap <silent> <leader>v :NERDTreeFind<CR>
+nmap <silent> <leader>\ :NERDTreeFind<CR>
+
+" Show NERDTree 
+nmap <silent> <C-\> :NERDTreeToggle<CR>
 
 " Shows the documentation through investigate
 nmap <leader>gk :call investigate#Investigate('n')<CR>
@@ -172,6 +203,11 @@ nmap <leader>f :LAck!<space>
 
 " Search and replace
 nmap <leader>sr :%s///gci<Left><Left><Left><Left><Left>
+
+" Select snippet
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
 
 " Performing copy/paste from clipboard
 vmap <C-c> "+y
@@ -195,14 +231,6 @@ if exists("$TMUX")
     nmap <leader>tt :TestFile -strategy=vimux<CR>
 endif
 
-" Shortcuts -------------------------------------------------------------
-
-nmap <silent> <F2> :NERDTreeToggle<CR>
-nmap <silent> <F3> :call TodoList()<CR>
-nmap <silent> <F6> :LToggle<CR>:ALELint<CR>
-nmap <silent> <F7> :ALEFix<CR>
-nmap <silent> <F8> :TagbarToggle<CR>
-
 " File type specific ----------------------------------------------------
 
 " Javascript
@@ -224,12 +252,6 @@ au Filetype python nmap <leader>r :call jedi#rename<CR>
 au Filetype python nmap <K> :call jedi#show_documentation()<CR>
 au Filetype python nmap <F5> :TestSuite<CR>
 
-if has('python')
-    let g:jedi#force_py_version = 2
-elseif has('python3')
-    let g:jedi#force_py_version = 3
-endif
-
 " Functions -------------------------------------------------------------
 
 function! TodoList()
@@ -242,8 +264,8 @@ function! TodoList()
 endfunction
 
 function! ReadLocalVimrc()
-    if filereadable(".vimrc-local")
-        source .vimrc-local
+    if filereadable(".vim/config.vim")
+        source .vim/config.vim
     endif
 endfunction
 
