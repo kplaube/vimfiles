@@ -99,6 +99,7 @@ Below is a list of the most common shortcuts:
 
 ### Movement
 - `CTRL + n (CTRL + n, CTRL + p, CTRL + x)`: Multiple cursos selection
+- `,za`: Enable folding
 - `,,b`: Easy motion through words (backward)
 - `,,f`: Easy motion to a specific character (forward)
 - `,,s`: Easy motion to a specific character (all)

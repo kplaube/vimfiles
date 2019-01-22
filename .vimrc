@@ -92,6 +92,8 @@ set shiftwidth=4 tabstop=4 softtabstop=4
 set t_ut=                               " fix 256 colors in tmux http://sunaku.github.io/vim-256color-bce.html
 
 set background=dark
+set foldmethod=indent                   " enable folding
+set foldlevel=99
 set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
 set guioptions-=r                       " disable scrollbars
 set guioptions-=L                       " disable scrollbars
